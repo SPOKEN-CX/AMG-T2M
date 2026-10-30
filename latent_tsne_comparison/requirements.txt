@@ -1,2 +1,0 @@
-# Use the exact versions recorded for the working project environment.
--r ../requirements-analysis.txt

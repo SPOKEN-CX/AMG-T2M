@@ -30,10 +30,10 @@ id_ed25519*
 /pretrained/
 /glove/
 /body_models/
-/models/Retrival/venv/
-/models/Retrival/logs/
-/models/Retrival/datasets/
-/models/Retrival/Babel/
+/src/models/retrieval/venv/
+/src/models/retrieval/logs/
+/src/models/retrieval/datasets/
+/src/models/retrieval/Babel/
 *.pth
 *.pt
 *.ckpt
@@ -53,10 +53,18 @@ id_ed25519*
 /long_motions/
 /MPJPE/
 /user_study/
-/latent_tsne_comparison/artifacts/
+/visualize/latent_tsne_comparison/artifacts/
 wandb/
 *.log
 *.bak
 *.bak_*
 core
 core.*
+
+# External TMR resources may be stored beside the checked-in package.
+/models/Retrival/venv/
+/models/Retrival/logs/
+/models/Retrival/datasets/
+/models/Retrival/Babel/
+/src/models/retrieval/stats/
+/src/models/retrieval/models/*/last_weights/

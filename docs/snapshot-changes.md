@@ -17,4 +17,8 @@ Validation for this candidate is recorded in a separate `packaging-checks.json` 
 
 At the user's request, fresh-environment installation and demo validation were deferred. The CPU demo and quantizer portability work were preserved outside the repository and are not part of this update. No model implementation or training hyperparameter change is included in the dependency-recording update. Package declaration constraints were checked against the observed base and overlay metadata; this is a static dependency audit.
 
-The repository documentation now includes a 38-entry external-resource catalog, source-based workflow instructions, the VQ/GPT batch and resume relationships, and issue forms. The paper remains unpublished by user confirmation; only its title is retained, and no author citation file, public release or DOI was added. This documentation update does not execute environment setup or experiments.
+The repository documentation now includes a 38-entry external-resource catalog, source-based workflow instructions, the VQ/GPT batch and resume relationships, and issue forms. The paper remains unpublished by user confirmation; only its title is retained, and no paper-author citation, public release or DOI was added. The CFF file identifies the software using a generic project-team entity.
+
+**Architecture update — 2026-10-31**
+
+The private `main` branch was reorganized into `src/`, `tools/`, `preprocess/`, `visualize/`, `configs/`, `assets/`, and `docs/`. Entrypoint imports and repository-relative dataset roots were updated; external data, model weights, caches, outputs, and exact dependency lock files were left out of the move. The current experiment parameters remain in executable `tools/run_*.sh` launchers because the training programs do not read project YAML. A Python 3.10.18 Dockerfile and `.dockerignore` were added but not built or runtime-validated, as requested.

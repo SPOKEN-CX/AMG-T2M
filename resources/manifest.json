@@ -180,7 +180,7 @@
     },
     {
       "id": "tmr-motion_encoder",
-      "path": "models/Retrival/models/tmr_humanml3d_guoh3dfeats/last_weights/motion_encoder.pt",
+      "path": "src/models/retrieval/models/tmr_humanml3d_guoh3dfeats/last_weights/motion_encoder.pt",
       "kind": "file",
       "stages": [
         "tmr-export"
@@ -191,7 +191,7 @@
     },
     {
       "id": "tmr-text_encoder",
-      "path": "models/Retrival/models/tmr_humanml3d_guoh3dfeats/last_weights/text_encoder.pt",
+      "path": "src/models/retrieval/models/tmr_humanml3d_guoh3dfeats/last_weights/text_encoder.pt",
       "kind": "file",
       "stages": [
         "tmr-export"
@@ -202,7 +202,7 @@
     },
     {
       "id": "tmr-motion_decoder",
-      "path": "models/Retrival/models/tmr_humanml3d_guoh3dfeats/last_weights/motion_decoder.pt",
+      "path": "src/models/retrieval/models/tmr_humanml3d_guoh3dfeats/last_weights/motion_decoder.pt",
       "kind": "file",
       "stages": [
         "tmr-export"
@@ -213,7 +213,7 @@
     },
     {
       "id": "tmr-normalization-mean",
-      "path": "models/Retrival/stats/humanml3d/guoh3dfeats/mean.pt",
+      "path": "src/models/retrieval/stats/humanml3d/guoh3dfeats/mean.pt",
       "kind": "file",
       "stages": [
         "tmr-export"
@@ -224,7 +224,7 @@
     },
     {
       "id": "tmr-normalization-std",
-      "path": "models/Retrival/stats/humanml3d/guoh3dfeats/std.pt",
+      "path": "src/models/retrieval/stats/humanml3d/guoh3dfeats/std.pt",
       "kind": "file",
       "stages": [
         "tmr-export"
@@ -235,7 +235,7 @@
     },
     {
       "id": "tmr-cache-distilbert-base-uncased.npy",
-      "path": "models/Retrival/datasets/annotations/humanml3d/token_embeddings/distilbert-base-uncased.npy",
+      "path": "src/models/retrieval/datasets/annotations/humanml3d/token_embeddings/distilbert-base-uncased.npy",
       "kind": "file",
       "stages": [
         "tmr-export"
@@ -246,7 +246,7 @@
     },
     {
       "id": "tmr-cache-distilbert-base-uncased_slice.npy",
-      "path": "models/Retrival/datasets/annotations/humanml3d/token_embeddings/distilbert-base-uncased_slice.npy",
+      "path": "src/models/retrieval/datasets/annotations/humanml3d/token_embeddings/distilbert-base-uncased_slice.npy",
       "kind": "file",
       "stages": [
         "tmr-export"
@@ -257,7 +257,7 @@
     },
     {
       "id": "tmr-cache-distilbert-base-uncased_index.json",
-      "path": "models/Retrival/datasets/annotations/humanml3d/token_embeddings/distilbert-base-uncased_index.json",
+      "path": "src/models/retrieval/datasets/annotations/humanml3d/token_embeddings/distilbert-base-uncased_index.json",
       "kind": "file",
       "stages": [
         "tmr-export"

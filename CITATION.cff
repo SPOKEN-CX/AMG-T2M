@@ -1,0 +1,7 @@
+cff-version: 1.2.0
+message: "If you use this software, please cite it as follows."
+title: "AMG-T2M"
+type: software
+authors:
+  - name: "AMG-T2M project team"
+repository-code: "https://github.com/SPOKEN-CX/AMG-T2M"

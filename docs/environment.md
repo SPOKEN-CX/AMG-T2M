@@ -60,7 +60,7 @@ python -m pip install -r requirements.txt
 ```bash
 python -m pip install --no-deps --target .runtime/tmr_deps -r requirements-tmr.txt
 PYTHONPATH="$PWD/.runtime/tmr_deps${PYTHONPATH:+:$PYTHONPATH}" \
-  python scripts/prepare_amg_missing_text.py --help
+  python preprocess/prepare_amg_missing_text.py --help
 ```
 
 需要长度模块时：
@@ -70,13 +70,13 @@ python -m pip install --no-deps --target .runtime/length_deps -r requirements-le
 python -m pip install --no-deps --target .runtime/length_models -r requirements-spacy-model.txt
 ```
 
-`scripts/run_amg_lengths.sh` 默认从 `.runtime/length_deps` 加载附加包，并使用 `.runtime/length_models/en_core_web_sm/en_core_web_sm-3.5.0`。可通过 `T2M_LENGTH_DEPS`、`T2M_SPACY_MODEL` 指定现有目录；这样可以继续使用原服务器已有依赖。不要向原训练环境直接执行升级安装。新建的 `.runtime/` 不进入Git。
+`tools/run_amg_lengths.sh` 默认从 `.runtime/length_deps` 加载附加包，并使用 `.runtime/length_models/en_core_web_sm/en_core_web_sm-3.5.0`。可通过 `T2M_LENGTH_DEPS`、`T2M_SPACY_MODEL` 指定现有目录；这样可以继续使用原服务器已有依赖。不要向原训练环境直接执行升级安装。新建的 `.runtime/` 不进入Git。
 
 单独运行长度相关Python脚本时，同样需要附加目录优先：
 
 ```bash
 PYTHONPATH="$PWD/.runtime/length_deps${PYTHONPATH:+:$PYTHONPATH}" \
-  python scripts/predict_amg_lengths.py --help
+  python tools/predict_amg_lengths.py --help
 ```
 
 `--no-deps` 用于保持已记录的主环境及完整附加包列表，避免解析器引入新的传递依赖版本。请使用新的空目标目录；已有目录若混有其他版本，应保留原目录并换一个新目录安装。两组附加目录按各自任务使用，本轮没有验证将两组叠加的第三种环境。
