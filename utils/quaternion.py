@@ -1,9 +1,9 @@
-# Retained third-party notice: see licenses/QuaterNet-LICENSE.txt and THIRD_PARTY_NOTICES.md.
+# This file retains QuaterNet-derived material; see licenses/QuaterNet-LICENSE.txt
+# and THIRD_PARTY_NOTICES.md. Do not treat the root LICENSE as this file's license.
 # Copyright (c) 2018-present, Facebook, Inc.
 # All rights reserved.
-#
-# This source code is licensed under the license found in the
-# LICENSE file in the root directory of this source tree.
+# QuaterNet's source is licensed under CC BY-NC 4.0. This file is conservatively
+# documented under those terms pending review of the exact copied and modified portions.
 #
 
 import torch
