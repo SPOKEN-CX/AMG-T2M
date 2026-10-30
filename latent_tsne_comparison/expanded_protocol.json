@@ -1,0 +1,33 @@
+{
+  "purpose": "development_diagnostics",
+  "protocol_version": 2,
+  "require_non_degrading_tmr": true,
+  "selection_split": "val",
+  "minimum_validation_samples_per_class": 4,
+  "maximum_validation_samples_per_class": 24,
+  "minimum_matching_captions": 2,
+  "minimum_new_test_recordings_per_class": 8,
+  "window_size": 64,
+  "seed": 20261029,
+  "neighbor_k": 3,
+  "pools": ["mean", "mean_std", "pyramid2"],
+  "stages": ["post", "pre"],
+  "primary_feature": "post_mean",
+  "selection_rule": "Keep primary post_mean unless a validation candidate improves both paired differences and does not reduce either TMR absolute metric relative to post_mean. Among eligible candidates maximize macro silhouette difference, then TMR silhouette. Report every candidate. No test feature is used for selection.",
+  "classes": [
+    {"name": "walk", "color": "#D55E00", "pattern": "\\bwalk(?:s|ing|ed)?\\b"},
+    {"name": "run", "color": "#0072B2", "pattern": "\\b(?:run|runs|running|ran|jog|jogs|jogging|jogged|sprint|sprints|sprinting|sprinted)\\b"},
+    {"name": "jump", "color": "#009E73", "pattern": "\\b(?:jump|jumps|jumping|jumped|hop|hops|hopping|hopped|leap|leaps|leaping|leapt)\\b"},
+    {"name": "sit", "color": "#CC79A7", "pattern": "\\b(?:sit|sits|sitting|sat|seated)\\b"},
+    {"name": "kick", "color": "#E69F00", "pattern": "\\bkick(?:s|ing|ed)?\\b"},
+    {"name": "wave", "color": "#56B4E9", "pattern": "\\bwav(?:e|es|ing|ed)\\b"},
+    {"name": "punch", "color": "#7B3294", "pattern": "\\b(?:punch|punches|punching|punched|boxing|shadowboxing)\\b"},
+    {"name": "clap", "color": "#555555", "pattern": "\\bclap(?:s|ping|ped)?\\b"},
+    {"name": "throw", "color": "#8C564B", "pattern": "\\b(?:throw|throws|throwing|threw|toss|tosses|tossing)\\b"},
+    {"name": "drink", "color": "#17BECF", "pattern": "\\b(?:drink|drinks|drinking|drank|sip|sips|sipping)\\b"},
+    {"name": "eat", "color": "#8C9F00", "pattern": "\\b(?:eat|eats|eating|ate)\\b"},
+    {"name": "crawl", "color": "#C63D4F", "pattern": "\\bcrawl(?:s|ing|ed)?\\b"},
+    {"name": "squat", "color": "#6366B5", "pattern": "\\bsquat(?:s|ting|ted)?\\b"},
+    {"name": "turn", "color": "#A6761D", "pattern": "\\b(?:turn|turns|turning|turned|spin|spins|spinning|spun)\\b"}
+  ]
+}

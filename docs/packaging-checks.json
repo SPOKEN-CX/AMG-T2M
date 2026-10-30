@@ -1,0 +1,28 @@
+{
+  "date": "2026-10-30",
+  "scope": "private-source-snapshot",
+  "syntax_files_checked": {
+    "python": 115,
+    "shell": 12,
+    "json": 5
+  },
+  "personal_absolute_path_findings": 0,
+  "forbidden_binary_or_asset_files": 0,
+  "max_file_bytes": 28297,
+  "cpu_regressions": {
+    "gpt_accumulation": "passed",
+    "length_control_boundaries_and_eos": "passed"
+  },
+  "portable_gpt_launcher_dry_run": "passed",
+  "original_selected_source_files_unchanged": true,
+  "original_source_files_checked": 168,
+  "fresh_environment_installation": "not run",
+  "gpu_training_or_generation": "not run",
+  "full_paper_reproduction": "not established",
+  "public_license_clearance": "pending",
+  "gitleaks_directory_scan": {
+    "version": "8.30.1",
+    "result": "no findings"
+  },
+  "git_whitespace_check": "inherited trailing-whitespace / blank-line warnings retained; no functional source reformat"
+}

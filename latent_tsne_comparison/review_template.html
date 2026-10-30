@@ -1,0 +1,68 @@
+<!doctype html>
+<html lang="zh-CN">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>运动样本核验</title>
+<style>
+*{box-sizing:border-box}body{margin:0;background:#f3f5f8;color:#202b3b;font:15px/1.6 system-ui,sans-serif}
+main{max-width:1180px;margin:24px auto;padding:0 20px}h1{font-size:25px;margin:0 0 4px}p{margin:6px 0}
+.muted{color:#667386;font-size:13px}.bar{display:flex;gap:10px;align-items:center;flex-wrap:wrap;margin:16px 0}
+button,select,input,textarea{font:inherit}button,select{padding:8px 13px;border:1px solid #cdd6e2;border-radius:7px;background:white;cursor:pointer}
+button:hover{background:#edf2f8}button.primary{background:#2056a5;color:white;border-color:#2056a5}.layout{display:grid;grid-template-columns:1.3fr 1fr;gap:18px}
+.card{background:white;padding:18px;border-radius:12px;border:1px solid #e0e5ec}canvas{display:block;width:100%;height:420px;background:#f9fafc;border-radius:8px}
+label{display:block;margin:12px 0 5px}input[type=range]{width:100%}textarea{width:100%;height:80px;padding:8px;border:1px solid #ccd6e1;border-radius:6px}
+ul{padding-left:20px}#captionList{max-height:235px;overflow:auto;font-size:14px}.pill{background:#eaf0f8;border-radius:12px;padding:3px 10px;font-size:12px}
+#sampleSelect{max-width:450px}#status{font-weight:600}#message{color:#a6421b;font-size:13px;min-height:20px}
+@media(max-width:800px){.layout{grid-template-columns:1fr}canvas{height:340px}}
+</style>
+<main>
+<h1>运动样本核验</h1>
+<p class="muted">逐段检查动作类别与所选窗口。这里仅显示原始动作与文本；核验时无需查看模型的聚类结果。</p>
+<div class="bar"><span id="progress" class="pill"></span><button id="export" class="primary">导出核验清单 CSV</button><span class="muted">修改会保存在本浏览器；导出 CSV 后用于正式重跑。</span></div>
+<div class="bar"><button id="prev">← 上一段</button><select id="sampleSelect" aria-label="样本"></select><button id="next">下一段 →</button><span id="status"></span></div>
+<div class="layout">
+<section class="card"><canvas id="canvas" aria-label="运动骨架预览"></canvas>
+<div class="bar"><button id="play">暂停</button><label style="margin:0"><input id="full" type="checkbox"> 播放完整运动</label><label style="margin:0"><input id="follow" type="checkbox" checked> 跟随人物</label></div>
+<p id="frameInfo" class="muted"></p>
+<label>视角 <input id="yaw" type="range" min="-180" max="180" value="35"></label>
+<label>播放速度 <select id="speed"><option value="0.5">0.5×</option><option value="1" selected>1×</option><option value="2">2×</option></select></label>
+<label>窗口起始帧（固定 <span id="windowSize"></span> 帧）<input id="start" type="range"></label><p id="bounds" class="muted"></p>
+</section>
+<section class="card"><p id="sampleTitle"></p><label>动作类别 <select id="label"></select></label><p id="risk" class="muted"></p>
+<p><strong>原始描述</strong></p><ul id="captionList"></ul>
+<label>核验备注<textarea id="note" placeholder="例如：窗口未包含起跳，需要移动；实际是招手而非跑步。"></textarea></label>
+<div class="bar"><button id="accept" class="primary">接受 A</button><button id="reject">排除 R</button><button id="uncertain">待定 U</button><button id="pending">重置状态</button></div>
+<p class="muted">建议：确认选中窗口内主要动作符合类别。多动作混合、标签不明确或窗口缺少关键过程时，调整窗口或排除。Sit 类请优先保留明确坐下过程，并在核验中统一口径。</p>
+<p id="message"></p>
+</section></div>
+</main>
+<script id="data" type="application/json">__REVIEW_DATA__</script>
+<script>
+"use strict";
+const data=JSON.parse(document.getElementById("data").textContent);
+const $=id=>document.getElementById(id), key="motion-review-"+data.manifest_sha256;
+let saved={};try{saved=JSON.parse(localStorage.getItem(key)||"{}")}catch(e){$("message").textContent="浏览器本地存储不可用，请及时导出清单。"}
+let index=0,playing=true,frame=0,lastTime=0;
+const chains=[[0,2,5,8,11],[0,1,4,7,10],[0,3,6,9,12,15],[9,14,17,19,21],[9,13,16,18,20]];
+const chainColors=["#d55e00","#0072b2","#536273","#cc79a7","#009e73"];
+const stateNames={pending:"待核验",accepted:"已接受",rejected:"已排除",uncertain:"待定"};
+function current(){const item=data.samples[index],r=item.row;return {item,r,s:{label:r.label,start_frame:Number(r.start_frame),review_status:r.review_status,review_note:r.review_note,...saved[r.sample_id]}}}
+function persist(change){const {r,s}=current();saved[r.sample_id]={...s,...change};try{localStorage.setItem(key,JSON.stringify(saved))}catch(e){$("message").textContent="无法保存到浏览器，请导出清单。"}updateProgress()}
+function updateProgress(){const counts={pending:0,accepted:0,rejected:0,uncertain:0};data.samples.forEach(item=>{const s=saved[item.row.sample_id]||item.row;counts[s.review_status]++});$("progress").textContent=`共 ${data.samples.length} 段 · 已接受 ${counts.accepted} · 已排除 ${counts.rejected} · 待定 ${counts.uncertain} · 待核验 ${counts.pending}`;const {s}=current();$("status").textContent=stateNames[s.review_status];$("status").style.color=s.review_status==="accepted"?"#167b55":s.review_status==="rejected"?"#b03930":"#6a7280"}
+function show(i){index=(i+data.samples.length)%data.samples.length;const {r,s}=current();$("sampleSelect").value=index;$("label").value=s.label;$("note").value=s.review_note;$("sampleTitle").textContent=`${index+1} / ${data.samples.length} · 运动 ${r.motion_id}`;$("risk").textContent="文本筛选提示："+(r.risk_flags||"未触发预设提示；仍需检查运动");$("start").min=r.annotation_start;$("start").max=Number(r.annotation_end)-data.window_size;$("start").step=1;$("start").value=s.start_frame;$("captionList").replaceChildren();JSON.parse(r.captions_json).forEach(c=>{const li=document.createElement("li");li.textContent=`[${c.start}, ${c.end}) ${c.text}`;$("captionList").appendChild(li)});frame=$("full").checked?0:s.start_frame;updateBounds();updateProgress()}
+function updateBounds(){const {r,s}=current();$("bounds").textContent=`选中 [${s.start_frame}, ${s.start_frame+data.window_size})；原始运动共 ${r.motion_frames} 帧；可选范围由对应文本标注片段限定。`}
+data.classes.forEach(c=>{const option=document.createElement("option");option.value=c.name;option.textContent=c.name;$("label").appendChild(option)});
+data.samples.forEach((item,i)=>{const option=document.createElement("option");option.value=i;option.textContent=`${i+1}. ${item.row.label} · ${item.row.motion_id}`;$("sampleSelect").appendChild(option)});
+$("windowSize").textContent=data.window_size;
+$("prev").onclick=()=>show(index-1);$("next").onclick=()=>show(index+1);$("sampleSelect").onchange=e=>show(Number(e.target.value));
+$("play").onclick=()=>{playing=!playing;$("play").textContent=playing?"暂停":"播放"};
+$("full").onchange=()=>{const {s}=current();frame=$("full").checked?0:s.start_frame};
+$("start").oninput=e=>{persist({start_frame:Number(e.target.value),review_status:"pending"});frame=Number(e.target.value);updateBounds()};
+$("label").onchange=e=>persist({label:e.target.value,review_status:"pending"});$("note").oninput=e=>persist({review_note:e.target.value});
+for(const [id,status] of Object.entries({accept:"accepted",reject:"rejected",uncertain:"uncertain",pending:"pending"}))$(id).onclick=()=>persist({review_status:status});
+document.addEventListener("keydown",e=>{if(["INPUT","TEXTAREA","SELECT"].includes(e.target.tagName))return;if(e.key==="ArrowRight")show(index+1);if(e.key==="ArrowLeft")show(index-1);if(e.key.toLowerCase()==="a")$("accept").click();if(e.key.toLowerCase()==="r")$("reject").click();if(e.key.toLowerCase()==="u")$("uncertain").click()});
+$("export").onclick=()=>{const fields=Object.keys(data.samples[0].row);const quote=v=>'"'+String(v??"").replaceAll('"','""')+'"';const lines=[fields.map(quote).join(",")];for(const item of data.samples){const r=item.row,s={...r,...saved[r.sample_id]};s.start_frame=Number(s.start_frame);s.end_frame=s.start_frame+data.window_size;s.sample_id=`${r.motion_id}_${String(s.start_frame).padStart(4,"0")}_${String(s.end_frame).padStart(4,"0")}`;lines.push(fields.map(f=>quote(s[f])).join(","))}const blob=new Blob(["\uFEFF"+lines.join("\r\n")+"\r\n"],{type:"text/csv;charset=utf-8"});const url=URL.createObjectURL(blob),a=document.createElement("a");a.href=url;a.download="reviewed_labels.csv";a.click();setTimeout(()=>URL.revokeObjectURL(url),1000);$("message").textContent="已导出。请使用 finalize 命令生成类别平衡的已核验清单。"};
+function draw(time){const {item,r,s}=current(),joints=item.joints,full=$("full").checked,lo=full?0:s.start_frame,hi=full?joints.length:s.start_frame+data.window_size;const dt=lastTime?Math.min((time-lastTime)/1000,0.1):0;lastTime=time;if(playing)frame+=dt*data.fps*Number($("speed").value);if(frame>=hi||frame<lo)frame=lo;const pose=joints[Math.floor(frame)],canvas=$("canvas"),dpr=window.devicePixelRatio||1,w=canvas.clientWidth,h=canvas.clientHeight;canvas.width=w*dpr;canvas.height=h*dpr;const ctx=canvas.getContext("2d");ctx.scale(dpr,dpr);ctx.clearRect(0,0,w,h);const yaw=Number($("yaw").value)*Math.PI/180,root=$("follow").checked?pose[0]:joints[lo][0],scale=Math.min(w/4.3,h/3.2);function proj(p){const x=p[0]-root[0],z=p[2]-root[2],rx=Math.cos(yaw)*x+Math.sin(yaw)*z,depth=-Math.sin(yaw)*x+Math.cos(yaw)*z;return [w/2+rx*scale,h*.85-p[1]*scale+depth*scale*.16]}ctx.strokeStyle="#e0e6ee";ctx.lineWidth=1;for(let t=-3;t<=3;t+=.5){for(const pair of [[[root[0]-3,0,root[2]+t],[root[0]+3,0,root[2]+t]],[[root[0]+t,0,root[2]-3],[root[0]+t,0,root[2]+3]]]){ctx.beginPath();pair.forEach((p,i)=>{const q=proj(p);i?ctx.lineTo(...q):ctx.moveTo(...q)});ctx.stroke()}}chains.forEach((chain,i)=>{ctx.strokeStyle=chainColors[i];ctx.lineWidth=3.5;ctx.lineCap="round";ctx.beginPath();chain.forEach((joint,k)=>{const p=proj(pose[joint]);k?ctx.lineTo(...p):ctx.moveTo(...p)});ctx.stroke()});ctx.fillStyle="#354357";pose.forEach(p=>{const q=proj(p);ctx.beginPath();ctx.arc(...q,2.8,0,Math.PI*2);ctx.fill()});$("frameInfo").textContent=`帧 ${Math.floor(frame)} / ${r.motion_frames} · ${full?"完整运动":"所选窗口"} · ${data.fps} fps`;requestAnimationFrame(draw)}
+show(0);requestAnimationFrame(draw);
+</script>
+</html>

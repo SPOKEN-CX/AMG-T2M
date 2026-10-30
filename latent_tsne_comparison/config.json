@@ -1,0 +1,26 @@
+{
+  "dataset_root": "dataset/HumanML3D",
+  "normalization_dir": "checkpoints/t2m/VQVAEV3_CB1024_CMT_H1024_NRES3/meta",
+  "split": "test",
+  "window_size": 64,
+  "fps": 20,
+  "samples_per_class": 30,
+  "selection_seed": 20261029,
+  "classes": [
+    {"name": "walk", "color": "#D55E00", "pattern": "\\bwalk(?:s|ing|ed)?\\b"},
+    {"name": "run", "color": "#0072B2", "pattern": "\\b(?:run|runs|running|ran|jog|jogs|jogging|jogged|sprint|sprints|sprinting|sprinted)\\b"},
+    {"name": "jump", "color": "#009E73", "pattern": "\\b(?:jump|jumps|jumping|jumped|hop|hops|hopping|hopped|leap|leaps|leaping|leapt)\\b"},
+    {"name": "sit", "color": "#CC79A7", "pattern": "\\b(?:sit|sits|sitting|sat|seated)\\b"},
+    {"name": "kick", "color": "#E69F00", "pattern": "\\bkick(?:s|ing|ed)?\\b"},
+    {"name": "wave", "color": "#56B4E9", "pattern": "\\bwav(?:e|es|ing|ed)\\b"}
+  ],
+  "screening_risk_pattern": "\\b(?:punch(?:es|ing|ed)?|danc(?:e|es|ing|ed)|crawl(?:s|ing|ed)?|climb(?:s|ing|ed)?|squat(?:s|ting)?|kneel(?:s|ing)?|clap(?:s|ping|ped)?|cartwheel(?:s|ing)?|somersault(?:s|ing)?)\\b|\\b(?:sit|push)[ -]?ups?\\b",
+  "models": [
+    {"name": "baseline", "title": "(a) Baseline VQ-VAE", "checkpoint": "output/hml3d/VQ_base/net_best_fid.pth", "training_batch_size": 256, "best_iteration": 31000},
+    {"name": "tmr_b512", "title": "(b) TMR-guided VQ-VAE", "checkpoint": "output/hml3d/VQ_amg_b512_k50_100k/net_best_fid.pth", "training_batch_size": 512, "best_iteration": 16000}
+  ],
+  "architecture": {"input_dim": 263, "code_dim": 512, "nb_code": 512, "output_emb_width": 512, "down_t": 2, "stride_t": 2, "width": 512, "depth": 3, "dilation_growth_rate": 3, "activation": "relu", "norm": null},
+  "tsne": {"pca_components": 50, "perplexity": 30, "seed": 42, "iterations": 2000, "sensitivity_perplexities": [10, 30, 50], "sensitivity_seeds": [0, 1, 42]},
+  "knn_k": 5,
+  "bootstrap_repeats": 1000
+}

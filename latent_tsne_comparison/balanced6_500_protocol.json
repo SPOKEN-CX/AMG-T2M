@@ -1,0 +1,55 @@
+{
+  "purpose": "Planned balanced six-action follow-up after an explicitly post-hoc development pilot",
+  "status": "plan_only_target_cohort_not_collected_or_reviewed",
+  "pilot_results": "artifacts/balanced6_pilot_v1/report.json",
+  "proposed_primary_classes": ["run", "jump", "sit", "kick", "throw", "clap"],
+  "class_definitions_finalized": false,
+  "target_samples_per_class": 80,
+  "target_total_samples": 480,
+  "target_unit": "one reviewed clip per distinct original recording",
+  "existing_candidate_counts_before_human_review": {
+    "run": 117, "jump": 260, "sit": 47, "kick": 57, "throw": 70, "clap": 37
+  },
+  "minimum_additions_to_existing_exploratory_pool": 109,
+  "independent_confirmation_ready": false,
+  "new_confirmation_deficit_is_not_the_above_109": true,
+  "sampling_seed": 20261029,
+  "sampling_rule": "SHA256(seed:sample_id) within each accepted class, without access to model scores or coordinates",
+  "window_size": 64,
+  "fps": 20,
+  "representation": "HumanML3D 22-joint 263-D input using the existing compatible preprocessing",
+  "window_rule": "Timestamp or blind motion review locates the target action; identical fixed windows for both models",
+  "feature": "student post-quantization temporal mean, 512-D, L2-normalized",
+  "checkpoint_rule": "Primary: each family's earlier semantic-validation-selected checkpoint; no selection on new confirmation data",
+  "baseline_checkpoint": "../output/hml3d/VQ_base/net_best_fid.pth",
+  "tmr_checkpoint": "../checkpoints_model/VQ_amg_b512_k50_100k/model_50000.pth",
+  "strict_single_factor_training_control": false,
+  "primary_projection": {
+    "pca_components": 50, "pca_svd_solver": "full",
+    "metric": "euclidean", "init": "pca", "perplexity": 30,
+    "early_exaggeration": 12, "learning_rate": "auto", "max_iter": 3000,
+    "random_state": 42, "separate_unsupervised_fit_per_model": true
+  },
+  "sensitivity_projection": {
+    "perplexities": [20, 30, 50], "random_states": [0, 1, 42],
+    "preserve_all_paired_results": true
+  },
+  "primary_metrics": ["macro cosine silhouette in original 512-D", "macro recording-excluded 3-NN label purity in original 512-D"],
+  "secondary_metrics": ["per-class primary metrics", "same-class and different-class cosine similarity and gap", "reconstruction quality", "codebook utilization"],
+  "development_sampling_stability_seeds": [20261029, 20261030, 20261031, 20261032, 20261033],
+  "data_requirements": [
+    "human-reviewed labels and action windows before viewing model results",
+    "original-recording source audit, including across dataset names",
+    "no mirrored, repeated or overlapping clips counted as new independent recordings",
+    "control class-versus-source confounding when mixing datasets",
+    "freeze reviewed manifest, action definitions, checkpoint rule and parameters before confirmation",
+    "report reused train+validation cohorts as exploratory; do not relabel them as unseen tests"
+  ],
+  "rendering_requirements": [
+    "same point count, color mapping, marker size and opacity across panels",
+    "preserve all point coordinates without label-conditioned movement or deletion",
+    "GPT may provide design references; final scientific plots must be rendered from exact saved coordinates",
+    "vector PDF and SVG, high-resolution PNG, manifests and coordinates with hashes"
+  ],
+  "automatic_execution_of_data_collection_or_training": false
+}
