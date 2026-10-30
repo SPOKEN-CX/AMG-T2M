@@ -1,0 +1,8 @@
+name: AMG-T2M
+channels:
+  - defaults
+dependencies:
+  - python=3.10.18
+  - pip=26.2.1
+# Run python -m pip install -r requirements.txt after activating this environment.
+# The Python package versions are recorded from the working environment, not solved anew.

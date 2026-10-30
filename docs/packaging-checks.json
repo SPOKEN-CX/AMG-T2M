@@ -4,7 +4,7 @@
   "syntax_files_checked": {
     "python": 115,
     "shell": 12,
-    "json": 5
+    "json": 6
   },
   "personal_absolute_path_findings": 0,
   "forbidden_binary_or_asset_files": 0,
@@ -16,7 +16,7 @@
   "portable_gpt_launcher_dry_run": "passed",
   "original_selected_source_files_unchanged": true,
   "original_source_files_checked": 168,
-  "fresh_environment_installation": "not run",
+  "fresh_environment_installation": "deferred at user request",
   "gpu_training_or_generation": "not run",
   "full_paper_reproduction": "not established",
   "public_license_clearance": "pending",
@@ -24,5 +24,14 @@
     "version": "8.30.1",
     "result": "no findings"
   },
-  "git_whitespace_check": "inherited trailing-whitespace / blank-line warnings retained; no functional source reformat"
+  "git_whitespace_check": "inherited trailing-whitespace / blank-line warnings retained; no functional source reformat",
+  "demo_validation": "deferred at user request",
+  "dependency_versions": "recorded from the original working environment",
+  "dependency_metadata_constraints": {
+    "base": 105,
+    "tmr_effective": 109,
+    "length_effective": 129,
+    "findings": 0
+  },
+  "model_or_training_algorithm_changes_in_dependency_update": false
 }

@@ -6,6 +6,7 @@ env/
 .pytest_cache/
 .mypy_cache/
 .cache/
+.runtime/
 .idea/
 .vscode/
 .DS_Store

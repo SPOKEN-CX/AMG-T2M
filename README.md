@@ -6,24 +6,23 @@
 
 **环境准备**
 
-基准版本来自工作环境：Python 3.10.18、PyTorch 2.0.1（原环境 CUDA 构建为 cu117）、NumPy 1.24.1。下面是整理后的安装候选方案，尚未在全新环境完成端到端验证；不要把这些命令当成已通过复现验收的承诺。
+环境以实际运行成功的工程为依据：Python 3.10.18、PyTorch 2.0.1（运行构建2.0.1+cu117）、NumPy 1.24.1。主环境105个包以及TMR、长度模块附加依赖均已按现有元数据精确记录，详见 [环境与版本](docs/environment.md)。按当前安排，本轮暂缓新环境安装验收及demo验证。
 
 ```bash
-# 使用 Python 3.10 创建隔离环境
-python3.10 -m venv .venv
-source .venv/bin/activate
-python -m pip install torch==2.0.1 torchvision==0.15.2 --index-url https://download.pytorch.org/whl/cu117
+# 在项目根目录执行；供后续重建环境时使用
+conda env create -f environment.yml
+conda activate AMG-T2M
 python -m pip install -r requirements.txt
 ```
 
-长度预测模块另需：
+长度预测模块沿用原工程的独立附加依赖方式：
 
 ```bash
-python -m pip install -r requirements-length.txt
-python -m pip install https://github.com/explosion/spacy-models/releases/download/en_core_web_sm-3.5.0/en_core_web_sm-3.5.0-py3-none-any.whl
+python -m pip install --no-deps --target .runtime/length_deps -r requirements-length.txt
+python -m pip install --no-deps --target .runtime/length_models -r requirements-spacy-model.txt
 ```
 
-TMR 特征准备另需 `requirements-tmr.txt`；潜空间分析另需 `requirements-analysis.txt`。所有安装均应在隔离环境内进行。源码不再自动向 Python 路径注入原服务器的 output 依赖目录。可通过 `T2M_PYTHON` 指定启动脚本使用的解释器，通过 `T2M_SPACY_MODEL` 指定已安装的 spaCy 模型名或合法本地路径。
+TMR文本特征附加包见 `requirements-tmr.txt`，安装到独立目标目录并通过 `PYTHONPATH` 加载；潜空间分析所用版本已包含在主环境记录中。具体命令及加载顺序见 [环境文档](docs/environment.md)，不要把主环境和附加锁文件合并为一次pip安装。可通过 `T2M_PYTHON` 指定解释器，通过 `T2M_LENGTH_DEPS` 和 `T2M_SPACY_MODEL` 指定现有附加依赖和解析模型位置。
 
 **使用入口**
 

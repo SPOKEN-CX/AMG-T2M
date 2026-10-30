@@ -1,0 +1,7 @@
+# Observed tmr overlay packages (2026-10-30).
+# Install with --no-deps --target into the documented separate overlay directory.
+# Do not merge with base.lock.txt in one pip resolver invocation.
+huggingface-hub==0.23.5
+safetensors==0.4.5
+tokenizers==0.15.2
+transformers==4.38.2
