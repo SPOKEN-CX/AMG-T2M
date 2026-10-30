@@ -94,8 +94,9 @@ def contrastive_metrics(
 
 
 def break_ties_average(sorted_dists, gt_dists):
-    # fast implementation, based on this code:
+    # Adapted from Mad Physicist, Stack Overflow answer (2018-03-12):
     # https://stackoverflow.com/a/49239335
+    # Licensed CC BY-SA 3.0; see licenses/StackOverflow-CC-BY-SA-3.0.txt.
     locs = np.argwhere((sorted_dists - gt_dists) == 0)
 
     # Find the split indices
