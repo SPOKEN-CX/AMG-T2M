@@ -1,0 +1,32 @@
+name: 训练或评估结果问题
+description: 记录指标、配置或模型配套方面的问题
+title: "[结果] "
+body:
+  - type: textarea
+    id: task
+    attributes:
+      label: 任务与指标
+      description: 说明VQ重建、GPT生成、长度预测或图表分析，以及实际split、样本数、seed和重复次数。
+    validations:
+      required: true
+  - type: textarea
+    id: config
+    attributes:
+      label: 代码版本、命令与配置
+      description: 提供commit、实际batch、梯度累积和优化步数；保留配置差异。
+    validations:
+      required: true
+  - type: textarea
+    id: resources
+    attributes:
+      label: 模型与数据身份
+      description: 填写VQ/GPT配套情况、checkpoint哈希和数据筛选说明，无需上传数据或权重。
+    validations:
+      required: true
+  - type: textarea
+    id: observed
+    attributes:
+      label: 观测结果与对照依据
+      description: 填写真实运行值与比较对象，区分论文数值、历史记录和本次测量。
+    validations:
+      required: true

@@ -1,0 +1,462 @@
+{
+  "schema_version": 1,
+  "recorded_on": "2026-10-30",
+  "coverage": "selected resource categories and exact paths used by the included HumanML3D workflow; not an exhaustive runtime preflight",
+  "scope": "private code repository; data, models, derived caches and training outputs remain external",
+  "hash_semantics": "working-reference hashes identify selected existing artifacts; they do not establish upstream download identity or redistribution permission",
+  "resources": [
+    {
+      "id": "humanml3d-new_joint_vecs",
+      "path": "dataset/HumanML3D/new_joint_vecs",
+      "kind": "directory",
+      "stages": [
+        "data"
+      ],
+      "origin": "external",
+      "included_in_repository": false,
+      "source_page": "https://github.com/EricGuo5513/HumanML3D"
+    },
+    {
+      "id": "humanml3d-texts",
+      "path": "dataset/HumanML3D/texts",
+      "kind": "directory",
+      "stages": [
+        "data"
+      ],
+      "origin": "external",
+      "included_in_repository": false,
+      "source_page": "https://github.com/EricGuo5513/HumanML3D"
+    },
+    {
+      "id": "humanml3d-train-txt",
+      "path": "dataset/HumanML3D/train.txt",
+      "kind": "file",
+      "stages": [
+        "data"
+      ],
+      "origin": "external",
+      "included_in_repository": false,
+      "source_page": "https://github.com/EricGuo5513/HumanML3D"
+    },
+    {
+      "id": "humanml3d-val-txt",
+      "path": "dataset/HumanML3D/val.txt",
+      "kind": "file",
+      "stages": [
+        "data"
+      ],
+      "origin": "external",
+      "included_in_repository": false,
+      "source_page": "https://github.com/EricGuo5513/HumanML3D"
+    },
+    {
+      "id": "humanml3d-test-txt",
+      "path": "dataset/HumanML3D/test.txt",
+      "kind": "file",
+      "stages": [
+        "data"
+      ],
+      "origin": "external",
+      "included_in_repository": false,
+      "source_page": "https://github.com/EricGuo5513/HumanML3D"
+    },
+    {
+      "id": "normalization-mean",
+      "path": "checkpoints/t2m/VQVAEV3_CB1024_CMT_H1024_NRES3/meta/mean.npy",
+      "kind": "file",
+      "stages": [
+        "vq",
+        "gpt",
+        "evaluation",
+        "length-generation"
+      ],
+      "origin": "external",
+      "included_in_repository": false,
+      "source_page": "https://github.com/Mael-zys/T2M-GPT",
+      "working_reference": {
+        "sha256": "0bdb5ba69a3a9e34d71990db15bc535ebc024c8d95ddb5574196f96058faa7d3",
+        "basis": "computed from existing normalization file; download provenance not established"
+      }
+    },
+    {
+      "id": "normalization-std",
+      "path": "checkpoints/t2m/VQVAEV3_CB1024_CMT_H1024_NRES3/meta/std.npy",
+      "kind": "file",
+      "stages": [
+        "vq",
+        "gpt",
+        "evaluation",
+        "length-generation"
+      ],
+      "origin": "external",
+      "included_in_repository": false,
+      "source_page": "https://github.com/Mael-zys/T2M-GPT",
+      "working_reference": {
+        "sha256": "6a5f7d60301c9465972fc225f8ad0ee8f957e7720431189123eb6d15873a9557",
+        "basis": "computed from existing normalization file; download provenance not established"
+      }
+    },
+    {
+      "id": "glove-our_vab_data",
+      "path": "glove/our_vab_data.npy",
+      "kind": "file",
+      "stages": [
+        "vq",
+        "gpt",
+        "evaluation"
+      ],
+      "origin": "external",
+      "included_in_repository": false,
+      "source_page": "https://github.com/Mael-zys/T2M-GPT"
+    },
+    {
+      "id": "glove-our_vab_words",
+      "path": "glove/our_vab_words.pkl",
+      "kind": "file",
+      "stages": [
+        "vq",
+        "gpt",
+        "evaluation"
+      ],
+      "origin": "external",
+      "included_in_repository": false,
+      "source_page": "https://github.com/Mael-zys/T2M-GPT"
+    },
+    {
+      "id": "glove-our_vab_idx",
+      "path": "glove/our_vab_idx.pkl",
+      "kind": "file",
+      "stages": [
+        "vq",
+        "gpt",
+        "evaluation"
+      ],
+      "origin": "external",
+      "included_in_repository": false,
+      "source_page": "https://github.com/Mael-zys/T2M-GPT"
+    },
+    {
+      "id": "evaluator-config",
+      "path": "checkpoints/t2m/Comp_v6_KLD005/opt.txt",
+      "kind": "file",
+      "stages": [
+        "vq",
+        "gpt",
+        "evaluation"
+      ],
+      "origin": "external",
+      "included_in_repository": false,
+      "source_page": "https://github.com/Mael-zys/T2M-GPT"
+    },
+    {
+      "id": "evaluator-weights",
+      "path": "checkpoints/t2m/text_mot_match/model/finest_1.tar",
+      "kind": "file",
+      "stages": [
+        "vq",
+        "gpt",
+        "evaluation"
+      ],
+      "origin": "external",
+      "included_in_repository": false,
+      "source_page": "https://github.com/EricGuo5513/text-to-motion"
+    },
+    {
+      "id": "clip-vit-b32",
+      "path": "ViT-B-32.pt",
+      "kind": "file",
+      "stages": [
+        "gpt",
+        "length-features",
+        "length-generation"
+      ],
+      "origin": "external",
+      "included_in_repository": false,
+      "source_page": "https://github.com/openai/CLIP",
+      "working_reference": {
+        "sha256": "40d365715913c9da98579312b702a82c18be219cc2a73407c4526f58eba950af",
+        "basis": "existing length feature manifest; not rehashed in this step"
+      }
+    },
+    {
+      "id": "tmr-motion_encoder",
+      "path": "models/Retrival/models/tmr_humanml3d_guoh3dfeats/last_weights/motion_encoder.pt",
+      "kind": "file",
+      "stages": [
+        "tmr-export"
+      ],
+      "origin": "external",
+      "included_in_repository": false,
+      "source_page": "https://github.com/Mathux/TMR"
+    },
+    {
+      "id": "tmr-text_encoder",
+      "path": "models/Retrival/models/tmr_humanml3d_guoh3dfeats/last_weights/text_encoder.pt",
+      "kind": "file",
+      "stages": [
+        "tmr-export"
+      ],
+      "origin": "external",
+      "included_in_repository": false,
+      "source_page": "https://github.com/Mathux/TMR"
+    },
+    {
+      "id": "tmr-motion_decoder",
+      "path": "models/Retrival/models/tmr_humanml3d_guoh3dfeats/last_weights/motion_decoder.pt",
+      "kind": "file",
+      "stages": [
+        "tmr-export"
+      ],
+      "origin": "external",
+      "included_in_repository": false,
+      "source_page": "https://github.com/Mathux/TMR"
+    },
+    {
+      "id": "tmr-normalization-mean",
+      "path": "models/Retrival/stats/humanml3d/guoh3dfeats/mean.pt",
+      "kind": "file",
+      "stages": [
+        "tmr-export"
+      ],
+      "origin": "external",
+      "included_in_repository": false,
+      "source_page": "https://github.com/Mathux/TMR"
+    },
+    {
+      "id": "tmr-normalization-std",
+      "path": "models/Retrival/stats/humanml3d/guoh3dfeats/std.pt",
+      "kind": "file",
+      "stages": [
+        "tmr-export"
+      ],
+      "origin": "external",
+      "included_in_repository": false,
+      "source_page": "https://github.com/Mathux/TMR"
+    },
+    {
+      "id": "tmr-cache-distilbert-base-uncased.npy",
+      "path": "models/Retrival/datasets/annotations/humanml3d/token_embeddings/distilbert-base-uncased.npy",
+      "kind": "file",
+      "stages": [
+        "tmr-export"
+      ],
+      "origin": "external-or-regenerated",
+      "included_in_repository": false,
+      "source_page": "https://github.com/Mathux/TMR"
+    },
+    {
+      "id": "tmr-cache-distilbert-base-uncased_slice.npy",
+      "path": "models/Retrival/datasets/annotations/humanml3d/token_embeddings/distilbert-base-uncased_slice.npy",
+      "kind": "file",
+      "stages": [
+        "tmr-export"
+      ],
+      "origin": "external-or-regenerated",
+      "included_in_repository": false,
+      "source_page": "https://github.com/Mathux/TMR"
+    },
+    {
+      "id": "tmr-cache-distilbert-base-uncased_index.json",
+      "path": "models/Retrival/datasets/annotations/humanml3d/token_embeddings/distilbert-base-uncased_index.json",
+      "kind": "file",
+      "stages": [
+        "tmr-export"
+      ],
+      "origin": "external-or-regenerated",
+      "included_in_repository": false,
+      "source_page": "https://github.com/Mathux/TMR"
+    },
+    {
+      "id": "distilbert-model",
+      "path": "output/amg_prepare/models/distilbert-base-uncased",
+      "kind": "directory",
+      "stages": [
+        "missing-text-features"
+      ],
+      "origin": "external",
+      "included_in_repository": false
+    },
+    {
+      "id": "caption-pairs",
+      "path": "output/amg_prepare/humanml3d_train_ready/train_pairs.jsonl",
+      "kind": "file",
+      "stages": [
+        "amg-vq"
+      ],
+      "origin": "generated",
+      "included_in_repository": false
+    },
+    {
+      "id": "paired-features-motion",
+      "path": "output/amg_prepare/humanml3d_train_ready/motion",
+      "kind": "directory",
+      "stages": [
+        "amg-vq"
+      ],
+      "origin": "generated",
+      "included_in_repository": false
+    },
+    {
+      "id": "paired-features-text",
+      "path": "output/amg_prepare/humanml3d_train_ready/text",
+      "kind": "directory",
+      "stages": [
+        "amg-vq"
+      ],
+      "origin": "generated",
+      "included_in_repository": false
+    },
+    {
+      "id": "amg-vq512-frozen",
+      "path": "output/hml3d/VQ_amg_b512_frozen/net_best_fid.pth",
+      "kind": "file",
+      "stages": [
+        "gpt-amg512",
+        "length-generation"
+      ],
+      "origin": "trained",
+      "included_in_repository": false,
+      "working_reference": {
+        "sha256": "e1aa83aeaa6a33e667e842f249942fae4c30663a190211de959bf4207e5cb9d8",
+        "basis": "existing frozen VQ manifest; not rehashed in this step"
+      }
+    },
+    {
+      "id": "amg-vq512-manifest",
+      "path": "output/hml3d/VQ_amg_b512_frozen/manifest.json",
+      "kind": "file",
+      "stages": [
+        "gpt-amg512"
+      ],
+      "origin": "generated",
+      "included_in_repository": false
+    },
+    {
+      "id": "length-records-train",
+      "path": "output/amg_prepare/lengths_full_v2/train.jsonl",
+      "kind": "file",
+      "stages": [
+        "length-features"
+      ],
+      "origin": "generated",
+      "included_in_repository": false
+    },
+    {
+      "id": "length-records-val",
+      "path": "output/amg_prepare/lengths_full_v2/val.jsonl",
+      "kind": "file",
+      "stages": [
+        "length-features"
+      ],
+      "origin": "generated",
+      "included_in_repository": false
+    },
+    {
+      "id": "length-records-test",
+      "path": "output/amg_prepare/lengths_full_v2/test.jsonl",
+      "kind": "file",
+      "stages": [
+        "length-features"
+      ],
+      "origin": "generated",
+      "included_in_repository": false
+    },
+    {
+      "id": "length-cache-manifest.json",
+      "path": "output/amg_prepare/length_features_v1/manifest.json",
+      "kind": "file",
+      "stages": [
+        "length-training"
+      ],
+      "origin": "generated",
+      "included_in_repository": false
+    },
+    {
+      "id": "length-cache-features.npy",
+      "path": "output/amg_prepare/length_features_v1/features.npy",
+      "kind": "file",
+      "stages": [
+        "length-training"
+      ],
+      "origin": "generated",
+      "included_in_repository": false
+    },
+    {
+      "id": "length-cache-graphs.json",
+      "path": "output/amg_prepare/length_features_v1/graphs.json",
+      "kind": "file",
+      "stages": [
+        "length-training"
+      ],
+      "origin": "generated",
+      "included_in_repository": false
+    },
+    {
+      "id": "length-cache-offsets.npy",
+      "path": "output/amg_prepare/length_features_v1/offsets.npy",
+      "kind": "file",
+      "stages": [
+        "length-training"
+      ],
+      "origin": "generated",
+      "included_in_repository": false
+    },
+    {
+      "id": "length-cache-train.jsonl",
+      "path": "output/amg_prepare/length_features_v1/train.jsonl",
+      "kind": "file",
+      "stages": [
+        "length-training"
+      ],
+      "origin": "generated",
+      "included_in_repository": false
+    },
+    {
+      "id": "length-cache-val.jsonl",
+      "path": "output/amg_prepare/length_features_v1/val.jsonl",
+      "kind": "file",
+      "stages": [
+        "length-training"
+      ],
+      "origin": "generated",
+      "included_in_repository": false
+    },
+    {
+      "id": "length-cache-test.jsonl",
+      "path": "output/amg_prepare/length_features_v1/test.jsonl",
+      "kind": "file",
+      "stages": [
+        "length-training"
+      ],
+      "origin": "generated",
+      "included_in_repository": false
+    },
+    {
+      "id": "length-best-weights",
+      "path": "output/hml3d/Length_amg_gat_b512_50k/net_best_mae.pth",
+      "kind": "file",
+      "stages": [
+        "length-generation"
+      ],
+      "origin": "trained",
+      "included_in_repository": false
+    }
+  ],
+  "caller_selected_resources": [
+    {
+      "id": "gpt-checkpoint",
+      "argument": "--gpt-checkpoint",
+      "requires": "a matching VQ/GPT pair plus vq_identity.json in the GPT run directory"
+    },
+    {
+      "id": "length-module-dependencies",
+      "path": ".runtime/length_deps",
+      "source": "requirements/length-overlay.lock.txt"
+    },
+    {
+      "id": "spacy-model",
+      "path": ".runtime/length_models/en_core_web_sm/en_core_web_sm-3.5.0",
+      "source": "requirements-spacy-model.txt"
+    }
+  ]
+}

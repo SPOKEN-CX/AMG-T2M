@@ -1,5 +1,7 @@
 **Resources excluded from the code snapshot**
 
+仓库提供 [38项资源目录](../resources/manifest.json) 和 [脚本使用顺序](workflow.md)，记录当前路径、入口关系和已有参考身份。资源文件本身需单独准备。
+
 | Resource | Expected location | Source / handling |
 |---|---|---|
 | HumanML3D motion features, captions and official splits | `dataset/HumanML3D/` | Obtain through https://github.com/EricGuo5513/HumanML3D following AMASS and constituent data licenses. Do not rehost the local dataset. |
@@ -18,3 +20,27 @@ The inherited dataset download scripts are excluded from this initial candidate 
 HumanML3D input is `(T,263)` motion features at 20 fps for the selected workflow; generated `(T,22,3)` skeleton coordinates are not a substitute for training features. Train, validation and test splits must remain separate. Normalization, VQ, token caches, GPT and evaluator must be mutually compatible.
 
 For length labels, `scripts/prepare_amg_lengths.py` writes `output/amg_prepare/lengths` by default. If the selected protocol uses `lengths_full_v2`, pass the corresponding `--output` explicitly and inspect the audit instead of assuming historical caches are present. The full training launcher similarly assumes prepared resources; it is not a bootstrap installer.
+
+**Basic directory layout**
+
+```text
+dataset/HumanML3D/
+  new_joint_vecs/                 # (T,263) motion features
+  texts/
+  train.txt
+  val.txt
+  test.txt
+checkpoints/t2m/
+  Comp_v6_KLD005/opt.txt
+  text_mot_match/model/finest_1.tar
+  VQVAEV3_CB1024_CMT_H1024_NRES3/meta/
+    mean.npy
+    std.npy
+glove/
+  our_vab_data.npy
+  our_vab_words.pkl
+  our_vab_idx.pkl
+ViT-B-32.pt
+```
+
+The normalization directory name above is inherited; it does not establish the identity of a newly trained VQ codebook. Check normalization, evaluator and selected VQ identities separately. The resource catalog distinguishes hashes calculated from existing small statistics files from CLIP/frozen-VQ hashes preserved in existing manifests; neither establishes redistribution rights. Keep each selected GPT checkpoint with its matching `vq_identity.json`. No new weight download service is provided in this update.
