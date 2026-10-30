@@ -2,6 +2,20 @@
 
 基于 T2M-GPT 的 HumanML3D 文本到动作研究工程，包含 TMR 语义对齐 VQ、配套 GPT、动作长度预测及潜空间分析代码。
 
+## 效果预览
+
+![AMG-T2M 文本提示与生成动作序列示例](assets/amg_teaser.png)
+
+*文本提示与对应生成动作序列示例。*
+
+![AMG-T2M 长时序动作生成对比](assets/long_term_comparison.png)
+
+*长时序动作生成结果对比。*
+
+![AMG-T2M 与其他方法的动作生成对比](assets/method_comparison.png)
+
+*AMG-T2M 与其他方法在长时序和短时序提示上的定性对比。*
+
 论文标题：**AMG: Long-Term Text-to-Motion Generation from Arbitrary-Length Prompts**。目前处于投稿期，仓库保持 Private；论文尚未公开，引用信息先保留标题。
 
 本仓库提供源码、依赖版本记录和使用说明。数据、模型权重、派生缓存及训练输出需单独准备。已包含组件和后续待补的完整流程见 [实现范围](docs/implementation-status.md)。
