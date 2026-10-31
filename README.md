@@ -23,7 +23,8 @@
 | 查阅内容 | 文档 |
 |---|---|
 | 实际依赖版本与安装顺序 | [环境与版本](docs/environment.md) |
-| 数据、模型、目录和参考身份 | [数据与模型](docs/data-and-models.md)、[资源清单](resources/README.md) |
+| 数据集引用、获取与项目特有注意事项 | [数据集说明](docs/datasets.md) |
+| 模型、资源目录和参考身份 | [数据与模型](docs/data-and-models.md)、[资源清单](resources/README.md) |
 | VQ → 冻结 → GPT，以及长度模块与评估 | [脚本使用顺序](docs/workflow.md) |
 | 代码来源和第三方授权范围 | [第三方说明](THIRD_PARTY_NOTICES.md) |
 | 当前进度和后续公开事项 | [分阶段清单](docs/release-checklist.md) |
