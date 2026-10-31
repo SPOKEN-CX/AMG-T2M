@@ -62,18 +62,18 @@ GPT 必须使用这份冻结 VQ 及其 `manifest.json` 身份；不要把另一�
 先执行 100 步检查，再运行 100,000 步配置：
 
 ```bash
-bash tools/run_amg_gpt_b512.sh check
-bash tools/run_amg_gpt_b512.sh full
+bash tools/run_amg_gpt.sh check
+bash tools/run_amg_gpt.sh full
 ```
 
-这两个模式的实际训练 batch 都不是脚本名中的 `b512`：`check` 为 batch 32、100 步；`full` 为 batch 128、100,000 步。其它模式的参数如下，属于不同训练协议，不能把它们的 checkpoint 当成同一次训练的续训结果：
+这两个模式的实际训练 batch 为：`check` 为 batch 32、100 步；`full` 为 batch 128、100,000 步。其它模式的参数如下，属于不同训练协议，不能把它们的 checkpoint 当成同一次训练的续训结果：
 
 | 模式 | 命令 | microbatch × 梯度累积 | 有效 batch | 总步数 | 前置条件 |
 |---|---|---:|---:|---:|---|
-| `extend300k` | `bash tools/run_amg_gpt_b512.sh extend300k` | 128 × 1 | 128 | 300,000 | `full` 的训练状态及 100k 归档已完成 |
-| `gpt512300k` | `bash tools/run_amg_gpt_b512.sh gpt512300k` | 512 × 1 | 512 | 300,000 | 先完成 `check` |
-| `gpt4096check` | `bash tools/run_amg_gpt_b512.sh gpt4096check` | 512 × 8 | 4,096 | 2 | 先完成 `check` |
-| `gpt4096full` | `bash tools/run_amg_gpt_b512.sh gpt4096full` | 512 × 8 | 4,096 | 150,000 | 先完成 `gpt4096check` |
+| `extend300k` | `bash tools/run_amg_gpt.sh extend300k` | 128 × 1 | 128 | 300,000 | `full` 的训练状态及 100k 归档已完成 |
+| `gpt512300k` | `bash tools/run_amg_gpt.sh gpt512300k` | 512 × 1 | 512 | 300,000 | 先完成 `check` |
+| `gpt4096check` | `bash tools/run_amg_gpt.sh gpt4096check` | 512 × 8 | 4,096 | 2 | 先完成 `check` |
+| `gpt4096full` | `bash tools/run_amg_gpt.sh gpt4096full` | 512 × 8 | 4,096 | 150,000 | 先完成 `gpt4096check` |
 
 启动脚本会执行相应的 checkpoint、VQ 身份和运行状态检查。训练结束以运行目录中的 `status.txt` 显示 `completed and verified` 为准；失败后先查看 `console.log` 和 `verification.log`，不要删除运行目录后盲目重跑。
 

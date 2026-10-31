@@ -3,7 +3,7 @@
 
 import sys as _project_sys
 from pathlib import Path as _project_path
-_PROJECT_ROOT = _project_path(__file__).resolve().parents[1]
+_PROJECT_ROOT = _project_path(__file__).resolve().parents[2]
 _project_sys.path.insert(0, str(_PROJECT_ROOT))
 _project_sys.path.insert(0, str(_PROJECT_ROOT / "src"))
 import argparse
@@ -16,7 +16,7 @@ from torch_geometric.data import Batch
 from clip.simple_tokenizer import SimpleTokenizer
 import spacy
 
-ROOT = Path(__file__).resolve().parents[1]
+ROOT = Path(__file__).resolve().parents[2]
 sys.path.insert(0,str(ROOT))
 from preprocess.prepare_amg_length_features import align_words,normalize,sha256
 from datasets.dataset_amg_lengths import CaptionLengthDataset

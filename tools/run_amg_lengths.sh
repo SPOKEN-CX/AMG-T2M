@@ -27,7 +27,7 @@ if [[ ! -f "$features/manifest.json" ]]; then
   "$python_bin" -u preprocess/prepare_amg_length_features.py --output "$features" \
     --spacy-model "$parser" --batch-size 128
 fi
-"$python_bin" -u tools/check_amg_length_features.py --features "$features" --spacy-model "$parser"
+"$python_bin" -u tools/checks/check_amg_length_features.py --features "$features" --spacy-model "$parser"
 printf 'checking actual batch512 training for 20 steps\n' > "$root/status.txt"
 if [[ ! -f "$smoke/completion.json" ]]; then
   smoke_resume=()
@@ -51,7 +51,7 @@ fi
 mkdir -p "$snapshot"
 cp --parents tools/train_length_est.py src/datasets/dataset_amg_lengths.py \
   src/models/motion_length_estimator/cached_length.py src/models/motion_length_estimator/LengthEst.py \
-  preprocess/prepare_amg_length_features.py tools/check_amg_length_features.py \
+  preprocess/prepare_amg_length_features.py tools/checks/check_amg_length_features.py \
   tools/predict_amg_lengths.py tools/run_amg_lengths.sh "$snapshot/"
 resume=()
 [[ ! -f "$run/training_last.pth" ]] || resume=(--resume "$run/training_last.pth")

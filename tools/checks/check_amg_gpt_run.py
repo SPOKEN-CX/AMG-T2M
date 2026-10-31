@@ -2,7 +2,7 @@
 
 import sys as _project_sys
 from pathlib import Path as _project_path
-_PROJECT_ROOT = _project_path(__file__).resolve().parents[1]
+_PROJECT_ROOT = _project_path(__file__).resolve().parents[2]
 _project_sys.path.insert(0, str(_PROJECT_ROOT))
 _project_sys.path.insert(0, str(_PROJECT_ROOT / "src"))
 import argparse
@@ -13,7 +13,7 @@ import numpy as np
 import torch
 from tensorboard.backend.event_processing.event_accumulator import EventAccumulator
 
-ROOT = Path(__file__).resolve().parents[1]
+ROOT = Path(__file__).resolve().parents[2]
 sys.path.insert(0, str(ROOT))
 from preprocess.prepare_amg_gpt import sha256
 from models.t2m_trans import Text2Motion_Transformer

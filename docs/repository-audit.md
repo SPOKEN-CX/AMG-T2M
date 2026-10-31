@@ -1,3 +1,5 @@
+> Subsequent `tools/` review removed obsolete launch presets and one-off diagnostics, consolidated the GPT launcher, and moved required validators into `tools/checks/`. See the [tool index](../tools/README.md). File counts and removal totals in the initial privacy review below identify that review revision.
+
 # Repository privacy and content audit
 
 Date: 2026-10-31. Base revision: `adc53c924844a9c65d52e82f759d5f883a9c2ff5`.

@@ -3,7 +3,7 @@
   "base_commit": "adc53c924844a9c65d52e82f759d5f883a9c2ff5",
   "scope": "current main file tree; prior commits and dev branch are not purged",
   "original_file_count": 413,
-  "current_file_count": 393,
+  "current_file_count": 386,
   "personal_absolute_path_findings": 0,
   "secret_signature_findings": 0,
   "hardcoded_password_key_assignment_findings": 0,
@@ -18,8 +18,8 @@
   "cross_tree_identical_file_groups": 62,
   "historical_optional_LibMTL_python_files": 41,
   "syntax_checks": {
-    "python": 261,
-    "shell": 12,
+    "python": 259,
+    "shell": 6,
     "json": 10
   },
   "source_manifest_entries_checked": 200,
@@ -177,5 +177,80 @@
       ],
       "compressed_pixels_unchanged": true
     }
-  ]
+  ],
+  "tools_cleanup": {
+    "base_commit": "77ee9fcea00b90da2ed1b84ccd9c0c7acfa882a8",
+    "removed_or_consolidated_entries": [
+      {
+        "path": "tools/audit_amg_tmr.py",
+        "reason": "date/run-specific one-off audit with obsolete fixed resource paths",
+        "previous_sha256": "bc0db393ce23c67608de54a553345159ce9d97b224dd3bd8e1cceb39db1d865b"
+      },
+      {
+        "path": "tools/check_amg_vq_smoke.py",
+        "reason": "fixed 100-step legacy-run checker not called by the retained launchers",
+        "previous_sha256": "f347aba3ad1b0e0471c448f069c584172e21f4fa511862e8a32e7c89094b9395"
+      },
+      {
+        "path": "tools/demo.py",
+        "reason": "fixed-architecture demo superseded by run_local.py repeated --text generation",
+        "previous_sha256": "734b89b40c9c981edd6e56689188548116d17c8e67cae2a9e6f7db672d459cfd"
+      },
+      {
+        "path": "tools/run_amg_vq_b1024_check30000.sh",
+        "reason": "alternate 30k batch-1024 preset outside the documented batch-512 workflow",
+        "previous_sha256": "d6ec6e43cf397b5392c45e5310ffb8a0c7761f341c17e5fd015107ead08b77d9"
+      },
+      {
+        "path": "tools/run_amg_vq_check100.sh",
+        "reason": "legacy 100-step scratch launch preset",
+        "previous_sha256": "ba4740b536df166ebaa2df9d812049579aedb6c20407ede6743bb93070ff592f"
+      },
+      {
+        "path": "tools/run_amg_vq_full.sh",
+        "reason": "old batch-128 300k preset outside the retained batch-512 workflow",
+        "previous_sha256": "51476fa3f04f2b604359a81652919686d0ea81711c1a208032d9f201a570ccb9"
+      },
+      {
+        "path": "tools/run_gpt_a100_test.sh",
+        "reason": "hardware/run-specific wrapper around eval_gpt.py",
+        "previous_sha256": "765a025eab6b1bf5a87c7118144329e7ef0c2058a45f7545260f576e17005452"
+      },
+      {
+        "path": "tools/run_gpt_base_a100.sh",
+        "reason": "hardware/run-specific wrapper around train_gpt.py",
+        "previous_sha256": "1cd8ec1948d2d99142964c94d4ff26bef479d2f7702fd28ce77fede6b3b2bc52"
+      },
+      {
+        "path": "tools/run_amg_gpt_b512.sh",
+        "reason": "consolidated into canonical run_amg_gpt.sh, preserving its current modes and experiment paths",
+        "previous_sha256": "1babad686b6ebe7936f1ee0a153607ac508150f11d78c5a85009037955f721ef"
+      }
+    ],
+    "replaced_old_canonical_gpt_launcher_sha256": "64006aea23586c6ff50baeff9b552980cabe4ab8fe4752fb4a06b085a6f0d0ec",
+    "retained_gpt_launcher": "tools/run_amg_gpt.sh",
+    "moved_required_helpers": [
+      "tools/checks/check_amg_gpt_run.py",
+      "tools/checks/check_amg_length_features.py"
+    ],
+    "algorithm_or_checkpoint_changes": false,
+    "verification": {
+      "gpt_modes_compared": [
+        "check",
+        "full",
+        "extend300k",
+        "gpt512300k",
+        "gpt4096check",
+        "gpt4096full"
+      ],
+      "previous_arguments_preserved": true,
+      "retained_shell_references_exist": true,
+      "moved_helper_roots_and_import_paths": "passed",
+      "source_manifest_hashes": "passed",
+      "root_tool_regular_files": 16,
+      "all_tool_files": 19,
+      "gpu_training": "not run"
+    }
+  },
+  "privacy_review_file_count": 393
 }

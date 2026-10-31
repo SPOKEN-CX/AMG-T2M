@@ -299,11 +299,11 @@ The resulting frozen VQ and `manifest.json` are inputs to the GPT workflow. A di
 Run the short check before the full protocol:
 
 ```bash
-bash tools/run_amg_gpt_b512.sh check
-bash tools/run_amg_gpt_b512.sh full
+bash tools/run_amg_gpt.sh check
+bash tools/run_amg_gpt.sh full
 ```
 
-The `b512` in this launcher's filename identifies its VQ lineage, not every GPT batch size. The actual modes are:
+The canonical GPT launcher exposes the following protocols with explicit batch and accumulation settings:
 
 | Mode | Microbatch | Accumulation | Effective batch | Training iterations |
 |---|---:|---:|---:|---:|
@@ -317,7 +317,7 @@ The `b512` in this launcher's filename identifies its VQ lineage, not every GPT 
 Inspect a launch command without starting training:
 
 ```bash
-bash tools/run_amg_gpt_b512.sh full --dry-run
+bash tools/run_amg_gpt.sh full --dry-run
 ```
 
 The larger modes are separate protocols. Their prerequisite checks, archive/resume conditions, VQ identity checks, and output locations are defined in the launcher. Choose the protocol that matches the experiment you intend to reproduce and record the actual batch/accumulation values.
@@ -376,7 +376,7 @@ This entry point generates one duration-controlled segment per caption, with a m
 ## Visualization and analysis
 
 - `tools/run_local.py preview` renders skeleton GIFs from local joint arrays without SMPL.
-- `tools/demo.py` provides the maintained multi-step prompt demonstration using configured VQ/GPT resources.
+- `tools/run_local.py generate` supports multiple prompts by repeating `--text`; one general inference utility covers both single- and multi-prompt demos.
 - `visualize/latent_tsne_comparison/` contains feature extraction, checkpoint comparisons, selection protocols, and figure-generation tools. Start with its [analysis guide](visualize/latent_tsne_comparison/README.zh-CN.md) and configuration files.
 - `reproduction/local/visualize/` and `render_final.py` preserve the original mesh-rendering source. These require external SMPL/SMPLify assets and a native OpenGL backend in addition to the Python packages. See [rendering prerequisites](docs/environment.md#native-rendering-and-optional-extensions).
 
@@ -400,6 +400,7 @@ The dependency set has been resolved together for the documented Python/Linux ta
 
 ## Documentation, provenance, and acknowledgments
 
+- [Maintained tool index and cleanup decisions](tools/README.md)
 - [Environment and unified installation](docs/environment.md)
 - [Detailed workflow notes](docs/workflow.md)
 - [Dataset formats and acquisition](docs/datasets.md)
