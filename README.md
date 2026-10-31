@@ -1,8 +1,6 @@
 # AMG-T2M
 
-HumanML3D 文本到动作研究代码，包含 TMR 引导的 VQ、配套 GPT、动作长度预测及潜空间分析模块。
-
-## 效果预览
+面向长时序文本到动作生成的项目，围绕 TMR 引导的动作 VQ、文本条件 GPT、动作长度预测和潜空间分析整理源码与复现入口。
 
 ![AMG-T2M 文本提示与生成动作序列示例](assets/amg_teaser.png)
 
@@ -28,32 +26,54 @@ conda activate AMG-T2M
 python -m pip install -r requirements.txt
 ```
 
-主环境固定 Python 3.10.18、PyTorch 2.0.1（CUDA 11.7 构建）等已记录版本。TMR 文本准备和长度预测只需按对应任务安装附加依赖；不要把所有依赖锁文件合并安装。详见[环境与依赖](docs/environment.md)。
+主环境版本、分任务附加依赖和安装说明见[环境与依赖](docs/environment.md)。训练、评估、长度控制生成和潜空间分析的入口顺序见[执行流程](docs/workflow.md)。
 
-数据集、评估资源、预训练模型和训练产物需单独准备。HumanML3D 的来源、引用、许可和目录格式见[数据集说明](docs/datasets.md)；资源路径见[数据与模型](docs/data-and-models.md)和[资源清单](resources/manifest.json)。
+## 本地快速检查与生成
 
-## 执行顺序
+`tools/run_local.py` 提供动作预览、VQ 重建、训练 smoke check 和文本生成入口。数据、统计文件、权重和 CLIP 模型需事先放在本地资源目录，或通过参数传入：
 
-HumanML3D 主要组件的准备、VQ 两阶段训练（batch 512，10,000 步续训至 100,000 步）、VQ 冻结、GPT 各 batch 模式、评估、长度模块和单段生成命令统一列在[执行顺序与命令](docs/workflow.md)。
+```bash
+# 预览一个本地关节序列 (T,22,3)
+python tools/run_local.py preview --source /path/to/joints.npy
 
-仓库现有单段长度控制入口最多生成 196 帧；转场模型尚未形成完整训练与推理流程。因此当前源码不等同于完整任意长度生成系统或论文全部结果，详见[实现范围](docs/implementation-status.md)。
+# 用 VQ-VAE 重建一个本地 HumanML3D 特征序列 (T,263)
+python tools/run_local.py reconstruct --source /path/to/motion_features.npy
+
+# 在本地特征样本目录执行少量训练步，用于检查训练路径
+python tools/run_local.py train-smoke --source /path/to/motion_features_dir --steps 3
+
+# 文本生成；如资源不在默认位置，可传入 --vq、--gpt、--meta-dir、--clip-model
+python tools/run_local.py generate --text "a person walks forward" --device auto
+```
+
+预览和 smoke check 需要使用者本地准备的动作样本；这些样本不会随仓库分发。多条 `--text` 会按生成顺序拼接动作 token，详见入口说明。
+
+## 数据集与模型资源
+
+本仓库只提供数据集的官方获取入口和使用说明，不托管数据集、标注、派生缓存、预训练权重、训练 checkpoint 或生成动作文件。
+
+- **HumanML3D（主要数据集）**：[官方代码与获取说明](https://github.com/EricGuo5513/HumanML3D)
+- **AMASS（HumanML3D 的来源数据之一）**：[官方获取页](https://amass.is.tue.mpg.de/) · [许可说明](https://amass.is.tue.mpg.de/license.html)
+- **KIT-ML（可选数据入口）**：[官方数据页](https://motion-annotation.humanoids.kit.edu/dataset/)
+- **模型、CLIP、统计量和缓存路径**：[数据与模型清单](docs/data-and-models.md) · [资源路径索引](resources/manifest.json)
+
+下载或重建数据前，请先阅读对应上游的获取方式、许可和引用要求。HumanML3D 数据准备与输入格式说明见[数据集文档](docs/datasets.md)。
 
 ## 代码结构
 
 ```text
-src/              模型、数据集、损失与工具
-configs/          实验配置说明；启动参数保存在 tools/run_*.sh
-preprocess/       特征及训练输入准备
-tools/            训练、评估、生成和启动脚本
-visualize/        可视化与潜空间分析
+src/              模型、数据集、损失、训练选项和通用工具
+preprocess/       TMR、GPT、长度特征及训练输入准备
+tools/            训练、评估、生成、检查和启动脚本
+visualize/        潜空间分析与动作可视化
+configs/          实验配置说明
+resources/        外部模型与数据资源路径清单
 assets/           README 图片
-docs/             环境、数据、执行顺序、FAQ 和实现状态
+docs/             环境、数据、工作流和复现说明
 ```
 
-实验启动脚本会检查输入和恢复状态；运行前请确认数据、checkpoint、显存、输出目录及相应实验配置。已有输出目录遇到失败时，先检查日志和 checkpoint，再决定恢复或使用新实验名。
+关键文档：[执行流程](docs/workflow.md)、[FAQ](docs/FAQ.md)、[第三方代码与许可](THIRD_PARTY_NOTICES.md)。运行实验时请记录使用的数据 split、checkpoint 身份、统计量和配置，以便对应结果。
 
 ## 引用与许可
 
-论文正式公开后会补充作者、发表信息和 BibTeX。上游代码和第三方许可见 [THIRD_PARTY_NOTICES.md](THIRD_PARTY_NOTICES.md)。根目录 [LICENSE](LICENSE) 不自动覆盖第三方代码、数据集或模型权重的授权条款。
-
-Issues 可用于报告环境问题和复现问题。请附上依赖配置、完整命令、数据 split、模型身份及脱敏日志。
+论文正式公开后会补充作者、发表信息和 BibTeX。上游代码和第三方许可见 [THIRD_PARTY_NOTICES.md](THIRD_PARTY_NOTICES.md)。根目录 [LICENSE](LICENSE) 不覆盖第三方代码、数据集或模型权重各自的授权条款。
