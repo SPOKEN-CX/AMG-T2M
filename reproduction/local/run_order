@@ -1,0 +1,100 @@
+多卡：
+torchrun --nproc_per_node=2 --rdzv_backend=c10d --rdzv_endpoint=localhost:29500 train_vq_constra_multi.py --batch-size 4096 --lr 1e-3 --total-iter 300000 --lr-scheduler 200000 --nb-code 512 --down-t 2 --depth 3 --dilation-growth-rate 3 --out-dir output --dataname BABEL_TEACH --vq-act relu --quantizer ema_reset --loss-vel 0.5 --recons-loss l1_smooth --exp-name VQVAE --print-iter 100 --eval-iter 100
+单卡：
+BABEL:
+python3 train_vq_constra.py --batch-size 4096 --lr 1e-3 --total-iter 300000 --lr-scheduler 200000 --nb-code 512 --down-t 2 --depth 3 --dilation-growth-rate 3 --out-dir output --dataname BABEL_TEACH --vq-act relu --quantizer ema_reset --loss-vel 0.5 --recons-loss l1_smooth --exp-name VQVAE_constra --print-iter 100 --eval-iter 1000 --window-size 32
+python3 train_vq.py --batch-size 128 --lr 1e-4 --total-iter 300000 --lr-scheduler 200000 --nb-code 512 --down-t 2 --depth 3 --dilation-growth-rate 3 --out-dir output --dataname BABEL_TEACH --vq-act relu --quantizer ema_reset --loss-vel 0.5 --recons-loss l1_smooth --exp-name VQVAE_no_constra --print-iter 100 --eval-iter 1000 --window-size 64
+Human:
+CUDA_VISIBLE_DEVICES=0 python3 train_vq_constra.py --batch-size 4000 --lr 2e-4 --total-iter 300000 --lr-scheduler 200000 --nb-code 512 --down-t 2 --depth 3 --dilation-growth-rate 3 --out-dir output --dataname t2m --vq-act relu --quantizer ema_reset --loss-vel 0.5 --recons-loss l1_smooth --exp-name Human_VQVAE_50_continue --print-iter 200 --eval-iter 1000 --save-iter 5000 --window-size 64 --resume_pth ./checkpoints_model/Human_VQVAE_50
+CUDA_VISIBLE_DEVICES=1 python3 train_vq_constra_100.py --batch-size 4000 --lr 2e-4 --total-iter 300000 --lr-scheduler 200000 --nb-code 512 --down-t 2 --depth 3 --dilation-growth-rate 3 --out-dir output --dataname t2m --vq-act relu --quantizer ema_reset --loss-vel 0.5 --recons-loss l1_smooth --exp-name Human_VQVAE_100 --print-iter 200 --eval-iter 1000 --save-iter 5000 --window-size 64 --resume_pth ./checkpoints_model/Human_VQVAE_100
+
+BABEL_continue:
+CUDA_VISIBLE_DEVICES=0 python3 BABEL_continue.py --batch-size 2048 --lr 2e-4 --total-iter 20000 --lr-scheduler 200000 --nb-code 512 --down-t 2 --depth 3 --dilation-growth-rate 3 --out-dir output --dataname BABEL_TEACH --vq-act relu --quantizer ema_reset --loss-vel 0.5 --recons-loss l1_smooth --exp-name BABEL_continue --print-iter 100 --eval-iter 1000 --window-size 32 --resume_pth ./output/VQVAE_constra_1/net_best_fid.pth
+
+12104
+
+export HF_ENDPOINT=https://hf-mirror.com
+export PYTHONPATH=$PYTHONPATH:$(pwd)/models/Retrival
+
+eval
+CUDA_VISIBLE_DEVICES=0 python3 VQ_eval.py \
+--batch-size 256 \
+--lr 2e-4 \
+--total-iter 300000 \
+--lr-scheduler 200000 \
+--nb-code 512 \
+--down-t 2 \
+--depth 3 \
+--dilation-growth-rate 3 \
+--out-dir output \
+--dataname t2m \
+--vq-act relu \
+--quantizer ema_reset \
+--loss-vel 0.5 \
+--recons-loss l1_smooth \
+--exp-name TEST_VQVAE_continue_2 \
+--resume-pth ./pretrained/VQVAE/net_best_fid.pth
+
+GPT-train:
+python3 train_t2m_trans.py  \
+--exp-name GPT \
+--batch-size 128 \
+--num-layers 9 \
+--embed-dim-gpt 1024 \
+--nb-code 512 \
+--n-head-gpt 16 \
+--block-size 51 \
+--ff-rate 4 \
+--drop-out-rate 0.1 \
+--resume-pth  checkpoints/self_train/VQVAE/net_best_fid.pth \
+--vq-name VQVAE \
+--out-dir output \
+--total-iter 300000 \
+--lr-scheduler 150000 \
+--lr 0.0001 \
+--dataname t2m \
+--down-t 2 \
+--depth 3 \
+--quantizer ema_reset \
+--eval-iter 10000 \
+--pkeep 0.5 \
+--dilation-growth-rate 3 \
+--vq-act relu
+python3 VQ_eval.py --batch-size 256 --lr 2e-4 --total-iter 300000 --lr-scheduler 200000 --nb-code 512 --down-t 2 --depth 3 --dilation-growth-rate 3 --out-dir output --dataname t2m --vq-act relu --quantizer ema_reset --loss-vel 0.5 --recons-loss l1_smooth --exp-name TEST_VQVAE --resume-pth checkpoints/self_train/VQVAE//net_best_fid.pth
+24546
+length:
+CUDA_VISIBLE_DEVICES=0 python3 train_length_est.py --max_epoch 1000 --batch_size 1024 --dataset_name t2m --gpu_id 0 --name test_test --save_every_e 1
+CUDA_VISIBLE_DEVICES=1 python3 train_length_est.py --max_epoch 1000 --batch_size 1024 --dataset_name BABEL_TEACH --gpu_id 0 --name test_test_BABEL --save_every_e 1
+
+GPT:
+python3 train_t2m_trans.py --exp-name GPT --batch-size 4 --num-layers 9 --embed-dim-gpt 1024 --nb-code 512 --n-head-gpt 16 --block-size 51 --ff-rate 4 --drop-out-rate 0.1 --resume-pth checkpoints/self_train/VQVAE/net_best_fid.pth --vq-name VQVAE --out-dir output --total-iter 300000 --lr-scheduler 150000 --lr 0.0001 --dataname t2m --down-t 2 --depth 3 --quantizer ema_reset --eval-iter 10000 --pkeep 0.5 --dilation-growth-rate 3 --vq-act relu --resume_trans ./pretrained/VQTransformer_corruption05/net_best_fid.pth
+
+eval:
+CUDA_VISIBLE_DEVICES=0 python3 GPT_eval_multi.py  \
+--exp-name TEST_GPT_self_30 \
+--batch-size 128 \
+--num-layers 9 \
+--embed-dim-gpt 1024 \
+--nb-code 512 \
+--n-head-gpt 16 \
+--block-size 51 \
+--ff-rate 4 \
+--drop-out-rate 0.1 \
+--resume-pth ./pretrained/VQVAE/net_best_fid.pth \
+--vq-name VQVAE \
+--out-dir output \
+--total-iter 300000 \
+--lr-scheduler 150000 \
+--lr 0.0001 \
+--dataname t2m \
+--down-t 2 \
+--depth 3 \
+--quantizer ema_reset \
+--eval-iter 10000 \
+--pkeep 0.5 \
+--dilation-growth-rate 3 \
+--vq-act relu \
+--resume-trans ./pretrained/VQTransformer_corruption05/net_best_fid.pth
+
+gen_long:
+python3 gen_long_seq.py --num-layers 9 --embed-dim-gpt 1024 --nb-code 512 --n-head-gpt 16 --block-size 51 --ff-rate 4 --drop-out-rate 0.1 --resume-pth checkpoints/self_train/VQVAE/net_best_fid.pth --vq-name VQVAE --out-dir output --total-iter 300000 --lr-scheduler 150000 --lr 0.0001 --dataname t2m --down-t 2 --depth 3 --quantizer ema_reset --eval-iter 10000 --pkeep 0.5 --dilation-growth-rate 3 --vq-act relu --resume-trans ./checkpoints/self_train/Trans/net_best_fid.pth --resume-sition ./output/transition_128/best_weight.pth --len-pth ./checkpoints/LenEst/finest.tar

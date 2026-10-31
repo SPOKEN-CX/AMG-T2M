@@ -2,6 +2,12 @@
 
 面向长时序文本到动作生成的项目，围绕 TMR 引导的动作 VQ、文本条件 GPT、动作长度预测和潜空间分析整理源码与复现入口。
 
+## 本地完整源码与复现基准
+
+本地项目源码按原目录结构保存在 [`reproduction/local/`](reproduction/local/README.md)，包含模型、数据加载器、多卡训练、TMR 辅助工具、长度模块、渲染代码、依赖与运行指南。复现本地工程时，以该目录为工作目录，按其中的指南配置环境和外部资源。
+
+本次共归档 200 个本地源码、配置与说明文件，并提供[逐文件来源与哈希清单](reproduction/source-manifest.json)、[审查报告](docs/local-source-sync.md)及[路径配置工具](reproduction/configure_paths.py)。数据、权重、结果、虚拟环境和临时测试脚本均未上传。仓库根目录的 `src/`、`tools/` 为整理版入口，使用其工作流时从仓库根目录运行。
+
 ![AMG-T2M 文本提示与生成动作序列示例](assets/amg_teaser.png)
 
 *文本提示与对应生成动作序列示例。*
@@ -16,7 +22,7 @@
 
 论文标题：**AMG: Long-Term Text-to-Motion Generation from Arbitrary-Length Prompts**。论文信息暂未公开，仓库当前保持 Private。
 
-## 快速开始
+## 整理版快速开始
 
 从项目根目录创建主环境：
 
@@ -62,6 +68,7 @@ python tools/run_local.py generate --text "a person walks forward" --device auto
 ## 代码结构
 
 ```text
+reproduction/     本地完整源码基准、同步清单和路径配置工具
 src/              模型、数据集、损失、训练选项和通用工具
 preprocess/       TMR、GPT、长度特征及训练输入准备
 tools/            训练、评估、生成、检查和启动脚本

@@ -1,0 +1,1809 @@
+{
+  "schema_version": 1,
+  "audit_date": "2026-10-31",
+  "source_root_label": "local T2M-GPT-main",
+  "destination_root": "reproduction/local",
+  "files": [
+    {
+      "source": ".gitignore",
+      "destination": "reproduction/local/.gitignore.original",
+      "source_sha256": "bb668d31b256831c91684b2c4bc8bf20dca7d8c8dd7d84aabcefcd7792dc642a",
+      "uploaded_sha256": "bb668d31b256831c91684b2c4bc8bf20dca7d8c8dd7d84aabcefcd7792dc642a",
+      "bytes": 2205,
+      "changes": [
+        "filename_changed"
+      ]
+    },
+    {
+      "source": "AMG_TRAIN_EVAL_GUIDE.zh-CN.md",
+      "destination": "reproduction/local/AMG_TRAIN_EVAL_GUIDE.zh-CN.md",
+      "source_sha256": "7230f0d81c7155cd1fb57b941b469cd884cf23ba3f77f34a046da01986023ca2",
+      "uploaded_sha256": "a73eb097c7f403888bec25347e480a4e81541d70a47d4a502b5900a895eef4e8",
+      "bytes": 54341,
+      "changes": [
+        "documentation_paths_anonymized_and_links_rebased"
+      ]
+    },
+    {
+      "source": "BABEL_continue.py",
+      "destination": "reproduction/local/BABEL_continue.py",
+      "source_sha256": "a2c3b9a80e5d36d60f0ac9a6d633315c73206307ec082a0f6164b49e51091969",
+      "uploaded_sha256": "a2c3b9a80e5d36d60f0ac9a6d633315c73206307ec082a0f6164b49e51091969",
+      "bytes": 12646,
+      "changes": []
+    },
+    {
+      "source": "GPT_eval_multi.py",
+      "destination": "reproduction/local/GPT_eval_multi.py",
+      "source_sha256": "9e87b11dc6cffd4150a160a135c9ed7338d720d0b238ded758778011bf86f6e7",
+      "uploaded_sha256": "9e87b11dc6cffd4150a160a135c9ed7338d720d0b238ded758778011bf86f6e7",
+      "bytes": 4936,
+      "changes": []
+    },
+    {
+      "source": "LICENSE",
+      "destination": "reproduction/local/LICENSE",
+      "source_sha256": "df7fbc0a524f80f0b9575d1611b0becbfea6d66cb35072807300d8868d2af8a6",
+      "uploaded_sha256": "df7fbc0a524f80f0b9575d1611b0becbfea6d66cb35072807300d8868d2af8a6",
+      "bytes": 11337,
+      "changes": []
+    },
+    {
+      "source": "LOCAL_RUN_GUIDE.zh-CN.md",
+      "destination": "reproduction/local/LOCAL_RUN_GUIDE.zh-CN.md",
+      "source_sha256": "3d220e0353c3a6bf47ffb5751332cd87aba75a72dd4fc25b471d83c855858e96",
+      "uploaded_sha256": "8a2d516a92dc27062ea45db5d57d752a6c8ae124d1ee5ba12e3cebdcce74f64f",
+      "bytes": 15304,
+      "changes": [
+        "documentation_paths_anonymized_and_links_rebased"
+      ]
+    },
+    {
+      "source": "LibMTL/__init__.py",
+      "destination": "reproduction/local/LibMTL/__init__.py",
+      "source_sha256": "0f82305b1cb26f7f50011b35a273b7cbff1fc2dbc067c0de97ee38678af5c6f4",
+      "uploaded_sha256": "0f82305b1cb26f7f50011b35a273b7cbff1fc2dbc067c0de97ee38678af5c6f4",
+      "bytes": 219,
+      "changes": []
+    },
+    {
+      "source": "LibMTL/_record.py",
+      "destination": "reproduction/local/LibMTL/_record.py",
+      "source_sha256": "36c7f2b96296a68321c346e51048c9f118ce3bb757c77cba2d0333c9529a596a",
+      "uploaded_sha256": "36c7f2b96296a68321c346e51048c9f118ce3bb757c77cba2d0333c9529a596a",
+      "bytes": 4779,
+      "changes": []
+    },
+    {
+      "source": "LibMTL/architecture/CGC.py",
+      "destination": "reproduction/local/LibMTL/architecture/CGC.py",
+      "source_sha256": "fbfb51a81f073fc8cea8aed1215bcd3ad75fdf9e988fb487f4d93325d6efe103",
+      "uploaded_sha256": "fbfb51a81f073fc8cea8aed1215bcd3ad75fdf9e988fb487f4d93325d6efe103",
+      "bytes": 2430,
+      "changes": []
+    },
+    {
+      "source": "LibMTL/architecture/Cross_stitch.py",
+      "destination": "reproduction/local/LibMTL/architecture/Cross_stitch.py",
+      "source_sha256": "00e6a7c146175757bf92b43512f673516590d0e64ca738f75e4de156a7382274",
+      "uploaded_sha256": "00e6a7c146175757bf92b43512f673516590d0e64ca738f75e4de156a7382274",
+      "bytes": 2748,
+      "changes": []
+    },
+    {
+      "source": "LibMTL/architecture/DSelect_k.py",
+      "destination": "reproduction/local/LibMTL/architecture/DSelect_k.py",
+      "source_sha256": "9814234a2874afedd70cefd4448c0b9c533c0e0f7be77c79b092769c9e058d4b",
+      "uploaded_sha256": "9814234a2874afedd70cefd4448c0b9c533c0e0f7be77c79b092769c9e058d4b",
+      "bytes": 4104,
+      "changes": []
+    },
+    {
+      "source": "LibMTL/architecture/HPS.py",
+      "destination": "reproduction/local/LibMTL/architecture/HPS.py",
+      "source_sha256": "0b62be59f5c779b8f1bcf5d3c344d0e828a084f84b3b94ffe26c19237ae57922",
+      "uploaded_sha256": "0b62be59f5c779b8f1bcf5d3c344d0e828a084f84b3b94ffe26c19237ae57922",
+      "bytes": 670,
+      "changes": []
+    },
+    {
+      "source": "LibMTL/architecture/LTB.py",
+      "destination": "reproduction/local/LibMTL/architecture/LTB.py",
+      "source_sha256": "d218b956b6c02809f308af727009da38c4d01176616204ebbe17f861021e0823",
+      "uploaded_sha256": "d218b956b6c02809f308af727009da38c4d01176616204ebbe17f861021e0823",
+      "bytes": 3750,
+      "changes": []
+    },
+    {
+      "source": "LibMTL/architecture/MMoE.py",
+      "destination": "reproduction/local/LibMTL/architecture/MMoE.py",
+      "source_sha256": "67c261980e063ba3698e0d57ad2c93e274268cd3169c1452d442ad33551d70d3",
+      "uploaded_sha256": "67c261980e063ba3698e0d57ad2c93e274268cd3169c1452d442ad33551d70d3",
+      "bytes": 2173,
+      "changes": []
+    },
+    {
+      "source": "LibMTL/architecture/MTAN.py",
+      "destination": "reproduction/local/LibMTL/architecture/MTAN.py",
+      "source_sha256": "843a8c006f76f8d734b64ec9a39c187a78e488f2b7d5d0b2f6e194da040e9b29",
+      "uploaded_sha256": "843a8c006f76f8d734b64ec9a39c187a78e488f2b7d5d0b2f6e194da040e9b29",
+      "bytes": 7296,
+      "changes": []
+    },
+    {
+      "source": "LibMTL/architecture/PLE.py",
+      "destination": "reproduction/local/LibMTL/architecture/PLE.py",
+      "source_sha256": "5368d0369fe4556881c0474c702a1a6a8f05fcd64f2759ebb4a466813bd172e8",
+      "uploaded_sha256": "5368d0369fe4556881c0474c702a1a6a8f05fcd64f2759ebb4a466813bd172e8",
+      "bytes": 6575,
+      "changes": []
+    },
+    {
+      "source": "LibMTL/architecture/__init__.py",
+      "destination": "reproduction/local/LibMTL/architecture/__init__.py",
+      "source_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "uploaded_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0,
+      "changes": []
+    },
+    {
+      "source": "LibMTL/architecture/abstract_arch.py",
+      "destination": "reproduction/local/LibMTL/architecture/abstract_arch.py",
+      "source_sha256": "83cb347398cb5eaa99536eb664677bf4eeaefb771868e2ff9cf6c5e0e30d4736",
+      "uploaded_sha256": "83cb347398cb5eaa99536eb664677bf4eeaefb771868e2ff9cf6c5e0e30d4736",
+      "bytes": 2884,
+      "changes": []
+    },
+    {
+      "source": "LibMTL/config.py",
+      "destination": "reproduction/local/LibMTL/config.py",
+      "source_sha256": "4380137edbeb7ac5ea03e4ecf7feb358a14607a763539d9ef6e05bfb9fa36ebd",
+      "uploaded_sha256": "4380137edbeb7ac5ea03e4ecf7feb358a14607a763539d9ef6e05bfb9fa36ebd",
+      "bytes": 11215,
+      "changes": []
+    },
+    {
+      "source": "LibMTL/loss.py",
+      "destination": "reproduction/local/LibMTL/loss.py",
+      "source_sha256": "117bf7d3d28203a32442d5a3126ae26f20cb5838472315d2c07cbb3c46179b11",
+      "uploaded_sha256": "117bf7d3d28203a32442d5a3126ae26f20cb5838472315d2c07cbb3c46179b11",
+      "bytes": 2240,
+      "changes": []
+    },
+    {
+      "source": "LibMTL/metrics.py",
+      "destination": "reproduction/local/LibMTL/metrics.py",
+      "source_sha256": "8fe0aabdf25bca4150b25cfbf46cb4e47b6f2b5ea7fca9198dc03618bd3d16ed",
+      "uploaded_sha256": "8fe0aabdf25bca4150b25cfbf46cb4e47b6f2b5ea7fca9198dc03618bd3d16ed",
+      "bytes": 2078,
+      "changes": []
+    },
+    {
+      "source": "LibMTL/model/__init__.py",
+      "destination": "reproduction/local/LibMTL/model/__init__.py",
+      "source_sha256": "53de9e7eb7447c7ce01c5890ebee79ada8e867ea3a2604128602e1522e01badc",
+      "uploaded_sha256": "53de9e7eb7447c7ce01c5890ebee79ada8e867ea3a2604128602e1522e01badc",
+      "bytes": 652,
+      "changes": []
+    },
+    {
+      "source": "LibMTL/model/resnet.py",
+      "destination": "reproduction/local/LibMTL/model/resnet.py",
+      "source_sha256": "2719eb3ebd3fdaae6574ca4a63039acb010fa7964c66be871625a8d3b9b45fca",
+      "uploaded_sha256": "2719eb3ebd3fdaae6574ca4a63039acb010fa7964c66be871625a8d3b9b45fca",
+      "bytes": 14022,
+      "changes": []
+    },
+    {
+      "source": "LibMTL/model/resnet_dilated.py",
+      "destination": "reproduction/local/LibMTL/model/resnet_dilated.py",
+      "source_sha256": "3abd59f64fb2ca108830764130b7d7ba600c15019b667306903807d06622d2e7",
+      "uploaded_sha256": "3abd59f64fb2ca108830764130b7d7ba600c15019b667306903807d06622d2e7",
+      "bytes": 2348,
+      "changes": []
+    },
+    {
+      "source": "LibMTL/trainer.py",
+      "destination": "reproduction/local/LibMTL/trainer.py",
+      "source_sha256": "5bf85906550a64e01374b339b8f657ab36e99ff4ac85e6a2e84a929a19ec04d7",
+      "uploaded_sha256": "5bf85906550a64e01374b339b8f657ab36e99ff4ac85e6a2e84a929a19ec04d7",
+      "bytes": 15316,
+      "changes": []
+    },
+    {
+      "source": "LibMTL/utils.py",
+      "destination": "reproduction/local/LibMTL/utils.py",
+      "source_sha256": "102c88ac15f9e8022ab5e190f2da23fd89e50e6dfa93f6b47ae2cabe220a98fb",
+      "uploaded_sha256": "102c88ac15f9e8022ab5e190f2da23fd89e50e6dfa93f6b47ae2cabe220a98fb",
+      "bytes": 2585,
+      "changes": []
+    },
+    {
+      "source": "LibMTL/weighting/Aligned_MTL.py",
+      "destination": "reproduction/local/LibMTL/weighting/Aligned_MTL.py",
+      "source_sha256": "db2a96ae131b3a1e70133f29e0d15da97cd8d78913aa98c396348d15af50f86c",
+      "uploaded_sha256": "db2a96ae131b3a1e70133f29e0d15da97cd8d78913aa98c396348d15af50f86c",
+      "bytes": 1575,
+      "changes": []
+    },
+    {
+      "source": "LibMTL/weighting/CAGrad.py",
+      "destination": "reproduction/local/LibMTL/weighting/CAGrad.py",
+      "source_sha256": "6098f81d68a1ef8af4eb77e971a600b5bd4e7f77e8e8a5dc15544a2db4546381",
+      "uploaded_sha256": "6098f81d68a1ef8af4eb77e971a600b5bd4e7f77e8e8a5dc15544a2db4546381",
+      "bytes": 2620,
+      "changes": []
+    },
+    {
+      "source": "LibMTL/weighting/DB_MTL.py",
+      "destination": "reproduction/local/LibMTL/weighting/DB_MTL.py",
+      "source_sha256": "d57b3092c8b880c8c9c4cca2af8a1d46926903cec032111d4131616ed47beeb3",
+      "uploaded_sha256": "d57b3092c8b880c8c9c4cca2af8a1d46926903cec032111d4131616ed47beeb3",
+      "bytes": 1262,
+      "changes": []
+    },
+    {
+      "source": "LibMTL/weighting/DWA.py",
+      "destination": "reproduction/local/LibMTL/weighting/DWA.py",
+      "source_sha256": "4dc73aee4414c85ad559dc2f12bdc2f00babf0d33f5a1dc66efea63a16394bc5",
+      "uploaded_sha256": "4dc73aee4414c85ad559dc2f12bdc2f00babf0d33f5a1dc66efea63a16394bc5",
+      "bytes": 1190,
+      "changes": []
+    },
+    {
+      "source": "LibMTL/weighting/EW.py",
+      "destination": "reproduction/local/LibMTL/weighting/EW.py",
+      "source_sha256": "2b2c229bf5a3e291fbf19be381478af0706b24972b534ffd7511266e2addd086",
+      "uploaded_sha256": "2b2c229bf5a3e291fbf19be381478af0706b24972b534ffd7511266e2addd086",
+      "bytes": 579,
+      "changes": []
+    },
+    {
+      "source": "LibMTL/weighting/ExcessMTL.py",
+      "destination": "reproduction/local/LibMTL/weighting/ExcessMTL.py",
+      "source_sha256": "acfa360491786a837fe38297a2d61e4932d920aa5affad98563e94b00d94a121",
+      "uploaded_sha256": "acfa360491786a837fe38297a2d61e4932d920aa5affad98563e94b00d94a121",
+      "bytes": 2033,
+      "changes": []
+    },
+    {
+      "source": "LibMTL/weighting/FairGrad.py",
+      "destination": "reproduction/local/LibMTL/weighting/FairGrad.py",
+      "source_sha256": "b96df244e7e497e8dcd6f21647808978460ca538a4181ad20da5661683d3f991",
+      "uploaded_sha256": "b96df244e7e497e8dcd6f21647808978460ca538a4181ad20da5661683d3f991",
+      "bytes": 1338,
+      "changes": []
+    },
+    {
+      "source": "LibMTL/weighting/GLS.py",
+      "destination": "reproduction/local/LibMTL/weighting/GLS.py",
+      "source_sha256": "89cf97d339a60c5b4acc4e7be7d9cdc55a70904699d28a3f4264345ea2082489",
+      "uploaded_sha256": "89cf97d339a60c5b4acc4e7be7d9cdc55a70904699d28a3f4264345ea2082489",
+      "bytes": 894,
+      "changes": []
+    },
+    {
+      "source": "LibMTL/weighting/GradDrop.py",
+      "destination": "reproduction/local/LibMTL/weighting/GradDrop.py",
+      "source_sha256": "d6c8c4a0faae9482f77c601d7a4cfee103cda157ffd624bfb4aa252e9129bd14",
+      "uploaded_sha256": "d6c8c4a0faae9482f77c601d7a4cfee103cda157ffd624bfb4aa252e9129bd14",
+      "bytes": 2186,
+      "changes": []
+    },
+    {
+      "source": "LibMTL/weighting/GradNorm.py",
+      "destination": "reproduction/local/LibMTL/weighting/GradNorm.py",
+      "source_sha256": "7948c2feb2aaccb5783f250cb3deab5ad4b7577efbc97f1b30add36841348dcd",
+      "uploaded_sha256": "7948c2feb2aaccb5783f250cb3deab5ad4b7577efbc97f1b30add36841348dcd",
+      "bytes": 2022,
+      "changes": []
+    },
+    {
+      "source": "LibMTL/weighting/GradVac.py",
+      "destination": "reproduction/local/LibMTL/weighting/GradVac.py",
+      "source_sha256": "d2b7295df980bee31ac7f915f6a57cbb10cedaf40579acb5057e4e687bf5b1c5",
+      "uploaded_sha256": "d2b7295df980bee31ac7f915f6a57cbb10cedaf40579acb5057e4e687bf5b1c5",
+      "bytes": 3349,
+      "changes": []
+    },
+    {
+      "source": "LibMTL/weighting/IMTL.py",
+      "destination": "reproduction/local/LibMTL/weighting/IMTL.py",
+      "source_sha256": "0e03ef3be1d52304aa528c025050c64faad712e09527e924ca0fe846e9deafbf",
+      "uploaded_sha256": "0e03ef3be1d52304aa528c025050c64faad712e09527e924ca0fe846e9deafbf",
+      "bytes": 1430,
+      "changes": []
+    },
+    {
+      "source": "LibMTL/weighting/MGDA.py",
+      "destination": "reproduction/local/LibMTL/weighting/MGDA.py",
+      "source_sha256": "65c3775c0eccf8f742960d0ea189be4947bf7f72f2be3e65011951bfd330b381",
+      "uploaded_sha256": "65c3775c0eccf8f742960d0ea189be4947bf7f72f2be3e65011951bfd330b381",
+      "bytes": 5255,
+      "changes": []
+    },
+    {
+      "source": "LibMTL/weighting/MoCo.py",
+      "destination": "reproduction/local/LibMTL/weighting/MoCo.py",
+      "source_sha256": "dc0b138e9e23491ce9cd2e45d1a58e7497e7f3fd51fa27a1cbb7342109d6e5c6",
+      "uploaded_sha256": "dc0b138e9e23491ce9cd2e45d1a58e7497e7f3fd51fa27a1cbb7342109d6e5c6",
+      "bytes": 2292,
+      "changes": []
+    },
+    {
+      "source": "LibMTL/weighting/Nash_MTL.py",
+      "destination": "reproduction/local/LibMTL/weighting/Nash_MTL.py",
+      "source_sha256": "c3c624f0f3c2ef6fbb72e8b9decb0f95e590ee74e2fbc408d433a18fdc0b2911",
+      "uploaded_sha256": "c3c624f0f3c2ef6fbb72e8b9decb0f95e590ee74e2fbc408d433a18fdc0b2911",
+      "bytes": 4978,
+      "changes": []
+    },
+    {
+      "source": "LibMTL/weighting/PCGrad.py",
+      "destination": "reproduction/local/LibMTL/weighting/PCGrad.py",
+      "source_sha256": "f479f2bef01822b5164e901dc5533712db929b49d891f64f9675664251aaef79",
+      "uploaded_sha256": "f479f2bef01822b5164e901dc5533712db929b49d891f64f9675664251aaef79",
+      "bytes": 1574,
+      "changes": []
+    },
+    {
+      "source": "LibMTL/weighting/RLW.py",
+      "destination": "reproduction/local/LibMTL/weighting/RLW.py",
+      "source_sha256": "7b3816a5bc8f921b9dfb3f241cecf825073956e7e7a2f25949d3c9cea41757b2",
+      "uploaded_sha256": "7b3816a5bc8f921b9dfb3f241cecf825073956e7e7a2f25949d3c9cea41757b2",
+      "bytes": 762,
+      "changes": []
+    },
+    {
+      "source": "LibMTL/weighting/STCH.py",
+      "destination": "reproduction/local/LibMTL/weighting/STCH.py",
+      "source_sha256": "bff041c83e511f10005d6e91262a3fd36cdb02210bea8f0881a7b08a6b904007",
+      "uploaded_sha256": "bff041c83e511f10005d6e91262a3fd36cdb02210bea8f0881a7b08a6b904007",
+      "bytes": 1970,
+      "changes": []
+    },
+    {
+      "source": "LibMTL/weighting/UW.py",
+      "destination": "reproduction/local/LibMTL/weighting/UW.py",
+      "source_sha256": "1a85ed47d9e38ac960f25038e22216fe2655479557779c2d052ff7b8f56be09f",
+      "uploaded_sha256": "1a85ed47d9e38ac960f25038e22216fe2655479557779c2d052ff7b8f56be09f",
+      "bytes": 906,
+      "changes": []
+    },
+    {
+      "source": "LibMTL/weighting/__init__.py",
+      "destination": "reproduction/local/LibMTL/weighting/__init__.py",
+      "source_sha256": "0b02b6946ce0389675c948e6a7c93b3e0d63575f3841ece8c3026ab223a80428",
+      "uploaded_sha256": "0b02b6946ce0389675c948e6a7c93b3e0d63575f3841ece8c3026ab223a80428",
+      "bytes": 1283,
+      "changes": []
+    },
+    {
+      "source": "LibMTL/weighting/abstract_weighting.py",
+      "destination": "reproduction/local/LibMTL/weighting/abstract_weighting.py",
+      "source_sha256": "0f480e191dbb019638420e80a0b6b8f899b436e99379cfc9130e506d8b1a2048",
+      "uploaded_sha256": "0f480e191dbb019638420e80a0b6b8f899b436e99379cfc9130e506d8b1a2048",
+      "bytes": 5698,
+      "changes": []
+    },
+    {
+      "source": "README.md",
+      "destination": "reproduction/local/README.upstream.md",
+      "source_sha256": "28001a96d70312f33c738fbe25c8d7fdcf7aed0de1c9c39bf9ac2f97b7b5e961",
+      "uploaded_sha256": "28001a96d70312f33c738fbe25c8d7fdcf7aed0de1c9c39bf9ac2f97b7b5e961",
+      "bytes": 8802,
+      "changes": [
+        "filename_changed"
+      ]
+    },
+    {
+      "source": "SERVER_RUN_GUIDE.zh-CN.md",
+      "destination": "reproduction/local/SERVER_RUN_GUIDE.zh-CN.md",
+      "source_sha256": "6b482060e5fba20a0efec9510e89dc97e5fa90f816a706ec8a987f87ca568b34",
+      "uploaded_sha256": "ffb4429234c638fc71c97861a9123cdb077e0b6af185e33c487b7ef372d4e6cd",
+      "bytes": 21575,
+      "changes": [
+        "documentation_paths_anonymized_and_links_rebased"
+      ]
+    },
+    {
+      "source": "VQ_eval.py",
+      "destination": "reproduction/local/VQ_eval.py",
+      "source_sha256": "3a164dad4c9120b0c6d4ffb32bee47fd96c633148aa4feccd70bf39de30ad5cd",
+      "uploaded_sha256": "3a164dad4c9120b0c6d4ffb32bee47fd96c633148aa4feccd70bf39de30ad5cd",
+      "bytes": 5178,
+      "changes": []
+    },
+    {
+      "source": "checkpoints/BABEL_TEACH/ST2M_model_name/opt.txt",
+      "destination": "reproduction/local/checkpoints/BABEL_TEACH/ST2M_model_name/opt.txt",
+      "source_sha256": "2656f0fcb11938d4bb4a9e4fde4fae0743984b59dedad54ec1bfedd6896ccb50",
+      "uploaded_sha256": "2656f0fcb11938d4bb4a9e4fde4fae0743984b59dedad54ec1bfedd6896ccb50",
+      "bytes": 843,
+      "changes": []
+    },
+    {
+      "source": "checkpoints/BABEL_TEACH/trainV13_LV1LT1LK001LA01_BABEL_TEACH/opt.txt",
+      "destination": "reproduction/local/checkpoints/BABEL_TEACH/trainV13_LV1LT1LK001LA01_BABEL_TEACH/opt.txt",
+      "source_sha256": "73ce535ec0e46c4a7226997809e7b0639a9647cda9fb17feced1c26afe396afc",
+      "uploaded_sha256": "73ce535ec0e46c4a7226997809e7b0639a9647cda9fb17feced1c26afe396afc",
+      "bytes": 864,
+      "changes": []
+    },
+    {
+      "source": "checkpoints/BABEL_TEACH/trainV13_LV1LT1LK001LA01_BABEL_TEACH_slerp/opt.txt",
+      "destination": "reproduction/local/checkpoints/BABEL_TEACH/trainV13_LV1LT1LK001LA01_BABEL_TEACH_slerp/opt.txt",
+      "source_sha256": "63dbdcde69a7e6bad604e7381b50a1f2128db4a41b32ed1d1ec6b9b52f45e561",
+      "uploaded_sha256": "63dbdcde69a7e6bad604e7381b50a1f2128db4a41b32ed1d1ec6b9b52f45e561",
+      "bytes": 870,
+      "changes": []
+    },
+    {
+      "source": "checkpoints/kit/Comp_v6_KLD005/opt.txt",
+      "destination": "reproduction/local/checkpoints/kit/Comp_v6_KLD005/opt.txt",
+      "source_sha256": "4f6b0bd87d47bb1b1161c6543595d11ea12020c555d5fa230c14a603b06388ea",
+      "uploaded_sha256": "4f6b0bd87d47bb1b1161c6543595d11ea12020c555d5fa230c14a603b06388ea",
+      "bytes": 1046,
+      "changes": []
+    },
+    {
+      "source": "checkpoints/t2m/Comp_v6_KLD005/opt.txt",
+      "destination": "reproduction/local/checkpoints/t2m/Comp_v6_KLD005/opt.txt",
+      "source_sha256": "ca4f1004ad5428f282b21ea25686dab0b53af6a230768ac9bbfb9a4a6e506a62",
+      "uploaded_sha256": "ca4f1004ad5428f282b21ea25686dab0b53af6a230768ac9bbfb9a4a6e506a62",
+      "bytes": 1047,
+      "changes": []
+    },
+    {
+      "source": "checkpoints/t2m/M2T_EL4_DL4_NH8_PS/opt.txt",
+      "destination": "reproduction/local/checkpoints/t2m/M2T_EL4_DL4_NH8_PS/opt.txt",
+      "source_sha256": "dd1654601b95f09f108ab5337193f2564dbbffb789fbccf08a6fa43f0a6a1d01",
+      "uploaded_sha256": "dd1654601b95f09f108ab5337193f2564dbbffb789fbccf08a6fa43f0a6a1d01",
+      "bytes": 719,
+      "changes": []
+    },
+    {
+      "source": "checkpoints/t2m/T2M_Seq2Seq_NML1_Ear_SME0_N/opt.txt",
+      "destination": "reproduction/local/checkpoints/t2m/T2M_Seq2Seq_NML1_Ear_SME0_N/opt.txt",
+      "source_sha256": "24726e024fccf9384c28b8ec4756efdc1f06590cd05c8322043b458731ff7fb6",
+      "uploaded_sha256": "24726e024fccf9384c28b8ec4756efdc1f06590cd05c8322043b458731ff7fb6",
+      "bytes": 841,
+      "changes": []
+    },
+    {
+      "source": "dataset/dataset_TM_eval.py",
+      "destination": "reproduction/local/dataset/dataset_TM_eval.py",
+      "source_sha256": "17fecc99e0b6f5c1bfb883d37ca1435851c6d2d095f22b9266d9599ad557813a",
+      "uploaded_sha256": "17fecc99e0b6f5c1bfb883d37ca1435851c6d2d095f22b9266d9599ad557813a",
+      "bytes": 24420,
+      "changes": []
+    },
+    {
+      "source": "dataset/dataset_TM_train.py",
+      "destination": "reproduction/local/dataset/dataset_TM_train.py",
+      "source_sha256": "cea6139b2a61f3b41f57de5d49b4ff89efcbc4de5fc9a0f82a74b9837f1eb18a",
+      "uploaded_sha256": "cea6139b2a61f3b41f57de5d49b4ff89efcbc4de5fc9a0f82a74b9837f1eb18a",
+      "bytes": 14997,
+      "changes": []
+    },
+    {
+      "source": "dataset/dataset_VQ.py",
+      "destination": "reproduction/local/dataset/dataset_VQ.py",
+      "source_sha256": "bdd8203009e2731ee4c1580367d43494249b2f750000779f32bc3c0a30f027cb",
+      "uploaded_sha256": "bdd8203009e2731ee4c1580367d43494249b2f750000779f32bc3c0a30f027cb",
+      "bytes": 17151,
+      "changes": []
+    },
+    {
+      "source": "dataset/dataset_tokenize.py",
+      "destination": "reproduction/local/dataset/dataset_tokenize.py",
+      "source_sha256": "7ea382253204f9bbd232222549f72a03304bfa59a154710c29bdf8baba8c4a9a",
+      "uploaded_sha256": "7ea382253204f9bbd232222549f72a03304bfa59a154710c29bdf8baba8c4a9a",
+      "bytes": 6520,
+      "changes": []
+    },
+    {
+      "source": "dataset/prepare/download_extractor.sh",
+      "destination": "reproduction/local/dataset/prepare/download_extractor.sh",
+      "source_sha256": "619087379c9d6fdef2e42a51acdb49033f44aadcf5ef3c6bbc41e23eecf0f590",
+      "uploaded_sha256": "619087379c9d6fdef2e42a51acdb49033f44aadcf5ef3c6bbc41e23eecf0f590",
+      "bytes": 458,
+      "changes": []
+    },
+    {
+      "source": "dataset/prepare/download_glove.sh",
+      "destination": "reproduction/local/dataset/prepare/download_glove.sh",
+      "source_sha256": "72ad304c0758cb64e67947ebc4584b68be6c427e82ef6e680d7fce5522d13feb",
+      "uploaded_sha256": "72ad304c0758cb64e67947ebc4584b68be6c427e82ef6e680d7fce5522d13feb",
+      "bytes": 244,
+      "changes": []
+    },
+    {
+      "source": "dataset/prepare/download_model.sh",
+      "destination": "reproduction/local/dataset/prepare/download_model.sh",
+      "source_sha256": "fe8f6d969e74c6dd806541a1aaaa39aa0ac2929a71e713b5a05f9c8d3e53ba1d",
+      "uploaded_sha256": "fe8f6d969e74c6dd806541a1aaaa39aa0ac2929a71e713b5a05f9c8d3e53ba1d",
+      "bytes": 264,
+      "changes": []
+    },
+    {
+      "source": "dataset/prepare/download_smpl.sh",
+      "destination": "reproduction/local/dataset/prepare/download_smpl.sh",
+      "source_sha256": "8bbeeaf6d687eda951af576c50310ba9c802c05608d020036bfa5eecb28b7a61",
+      "uploaded_sha256": "8bbeeaf6d687eda951af576c50310ba9c802c05608d020036bfa5eecb28b7a61",
+      "bytes": 244,
+      "changes": []
+    },
+    {
+      "source": "draw_comparison.py",
+      "destination": "reproduction/local/draw_comparison.py",
+      "source_sha256": "cbe215b5b2c1ce2e67362b1210d19399fe6ade1934832cd37f9ca7f0acdf3660",
+      "uploaded_sha256": "cbe215b5b2c1ce2e67362b1210d19399fe6ade1934832cd37f9ca7f0acdf3660",
+      "bytes": 1510,
+      "changes": []
+    },
+    {
+      "source": "environment.yml",
+      "destination": "reproduction/local/environment.yml",
+      "source_sha256": "bd8626531143b63dc3b7c381b135ce2255c334f2ccf40aaeaee0f4a7272b33ef",
+      "uploaded_sha256": "bd8626531143b63dc3b7c381b135ce2255c334f2ccf40aaeaee0f4a7272b33ef",
+      "bytes": 3215,
+      "changes": []
+    },
+    {
+      "source": "gif2mp4.py",
+      "destination": "reproduction/local/gif2mp4.py",
+      "source_sha256": "b4bdbb391ff144d5dc3758d109317d70524940f91f9be80749d138b6e953ff87",
+      "uploaded_sha256": "b4bdbb391ff144d5dc3758d109317d70524940f91f9be80749d138b6e953ff87",
+      "bytes": 1061,
+      "changes": []
+    },
+    {
+      "source": "models/MotionLenEstimator/Graph.py",
+      "destination": "reproduction/local/models/MotionLenEstimator/Graph.py",
+      "source_sha256": "9276e49717fa37df33c1e3e57544c8f4f65965023081b361f908c3796df90cc4",
+      "uploaded_sha256": "9276e49717fa37df33c1e3e57544c8f4f65965023081b361f908c3796df90cc4",
+      "bytes": 3150,
+      "changes": []
+    },
+    {
+      "source": "models/MotionLenEstimator/LengthEst.py",
+      "destination": "reproduction/local/models/MotionLenEstimator/LengthEst.py",
+      "source_sha256": "3b2818309d41316d3e3f4e1b4f4e16f17097ced7f73d3616ddd8a65c12c105c4",
+      "uploaded_sha256": "3b2818309d41316d3e3f4e1b4f4e16f17097ced7f73d3616ddd8a65c12c105c4",
+      "bytes": 14758,
+      "changes": []
+    },
+    {
+      "source": "models/MotionLenEstimator/LengthEstTrainer.py",
+      "destination": "reproduction/local/models/MotionLenEstimator/LengthEstTrainer.py",
+      "source_sha256": "c20252421e0876c9ddb5c336091e278bb3fb3b8b4e1d8fb855687a697c59f367",
+      "uploaded_sha256": "c20252421e0876c9ddb5c336091e278bb3fb3b8b4e1d8fb855687a697c59f367",
+      "bytes": 9949,
+      "changes": []
+    },
+    {
+      "source": "models/MotionLenEstimator/__init__.py",
+      "destination": "reproduction/local/models/MotionLenEstimator/__init__.py",
+      "source_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "uploaded_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0,
+      "changes": []
+    },
+    {
+      "source": "models/Retrival/DATASETS.md",
+      "destination": "reproduction/local/models/Retrival/DATASETS.md",
+      "source_sha256": "3b0b0fecba05a45fe36f56cd05c0201bb13fe7daa3daf826c05504e463ade259",
+      "uploaded_sha256": "3b0b0fecba05a45fe36f56cd05c0201bb13fe7daa3daf826c05504e463ade259",
+      "bytes": 5047,
+      "changes": []
+    },
+    {
+      "source": "models/Retrival/LICENSE",
+      "destination": "reproduction/local/models/Retrival/LICENSE",
+      "source_sha256": "f8a73482c959917625ad8bc90a4a11d839ef3f6234c07d133b1a54915211eb17",
+      "uploaded_sha256": "f8a73482c959917625ad8bc90a4a11d839ef3f6234c07d133b1a54915211eb17",
+      "bytes": 1072,
+      "changes": []
+    },
+    {
+      "source": "models/Retrival/README.md",
+      "destination": "reproduction/local/models/Retrival/README.md",
+      "source_sha256": "2a2fa003bc1774527d2a16c619a12b63759a90d3f4e5baff8bc6c5ac652e8e33",
+      "uploaded_sha256": "2a2fa003bc1774527d2a16c619a12b63759a90d3f4e5baff8bc6c5ac652e8e33",
+      "bytes": 8375,
+      "changes": []
+    },
+    {
+      "source": "models/Retrival/app.py",
+      "destination": "reproduction/local/models/Retrival/app.py",
+      "source_sha256": "5d16b023966ad359af3d50f9ceb8b379dc6f7622b3f2525c5a8808ecd58e056d",
+      "uploaded_sha256": "5d16b023966ad359af3d50f9ceb8b379dc6f7622b3f2525c5a8808ecd58e056d",
+      "bytes": 11099,
+      "changes": []
+    },
+    {
+      "source": "models/Retrival/configs/compute_guoh3dfeats.yaml",
+      "destination": "reproduction/local/models/Retrival/configs/compute_guoh3dfeats.yaml",
+      "source_sha256": "45dee40eaa7fe1dc8a5581d30c30da3edd5c94c304926ee666f7029834888085",
+      "uploaded_sha256": "45dee40eaa7fe1dc8a5581d30c30da3edd5c94c304926ee666f7029834888085",
+      "bytes": 171,
+      "changes": []
+    },
+    {
+      "source": "models/Retrival/configs/data/_base.yaml",
+      "destination": "reproduction/local/models/Retrival/configs/data/_base.yaml",
+      "source_sha256": "0de9eef42cdb976aa0938853988bb6338e8e38c10be50afbb85afa3419b3993d",
+      "uploaded_sha256": "0de9eef42cdb976aa0938853988bb6338e8e38c10be50afbb85afa3419b3993d",
+      "bytes": 541,
+      "changes": []
+    },
+    {
+      "source": "models/Retrival/configs/data/babel.yaml",
+      "destination": "reproduction/local/models/Retrival/configs/data/babel.yaml",
+      "source_sha256": "654bab8915654f1d86c5c70866db569a373d7291e9c9d18b74d35fc0520a674e",
+      "uploaded_sha256": "654bab8915654f1d86c5c70866db569a373d7291e9c9d18b74d35fc0520a674e",
+      "bytes": 31,
+      "changes": []
+    },
+    {
+      "source": "models/Retrival/configs/data/humanml3d.yaml",
+      "destination": "reproduction/local/models/Retrival/configs/data/humanml3d.yaml",
+      "source_sha256": "654bab8915654f1d86c5c70866db569a373d7291e9c9d18b74d35fc0520a674e",
+      "uploaded_sha256": "654bab8915654f1d86c5c70866db569a373d7291e9c9d18b74d35fc0520a674e",
+      "bytes": 31,
+      "changes": []
+    },
+    {
+      "source": "models/Retrival/configs/data/kitml.yaml",
+      "destination": "reproduction/local/models/Retrival/configs/data/kitml.yaml",
+      "source_sha256": "654bab8915654f1d86c5c70866db569a373d7291e9c9d18b74d35fc0520a674e",
+      "uploaded_sha256": "654bab8915654f1d86c5c70866db569a373d7291e9c9d18b74d35fc0520a674e",
+      "bytes": 31,
+      "changes": []
+    },
+    {
+      "source": "models/Retrival/configs/data/motion_loader/_base.yaml",
+      "destination": "reproduction/local/models/Retrival/configs/data/motion_loader/_base.yaml",
+      "source_sha256": "2836fb7c16b6d94b9d1fe78f6ecca1d539e6957dcb32402e2f729e70742dbbb4",
+      "uploaded_sha256": "2836fb7c16b6d94b9d1fe78f6ecca1d539e6957dcb32402e2f729e70742dbbb4",
+      "bytes": 216,
+      "changes": []
+    },
+    {
+      "source": "models/Retrival/configs/data/motion_loader/guoh3dfeats.yaml",
+      "destination": "reproduction/local/models/Retrival/configs/data/motion_loader/guoh3dfeats.yaml",
+      "source_sha256": "aadca8010aa12541b5474c439299d0439503aefb02ad68c68d9dfdbcbdc2da2b",
+      "uploaded_sha256": "aadca8010aa12541b5474c439299d0439503aefb02ad68c68d9dfdbcbdc2da2b",
+      "bytes": 93,
+      "changes": []
+    },
+    {
+      "source": "models/Retrival/configs/debug/profiler.yaml",
+      "destination": "reproduction/local/models/Retrival/configs/debug/profiler.yaml",
+      "source_sha256": "09e8d60de84239d704e5bb17840bd5d614265d293566b1eda3caa411dd7c3c51",
+      "uploaded_sha256": "09e8d60de84239d704e5bb17840bd5d614265d293566b1eda3caa411dd7c3c51",
+      "bytes": 131,
+      "changes": []
+    },
+    {
+      "source": "models/Retrival/configs/debug/train.yaml",
+      "destination": "reproduction/local/models/Retrival/configs/debug/train.yaml",
+      "source_sha256": "9ae232a30c6eafa0b632b46428dd53934c940d2124f352937a82b0f9b845838b",
+      "uploaded_sha256": "9ae232a30c6eafa0b632b46428dd53934c940d2124f352937a82b0f9b845838b",
+      "bytes": 208,
+      "changes": []
+    },
+    {
+      "source": "models/Retrival/configs/defaults.yaml",
+      "destination": "reproduction/local/models/Retrival/configs/defaults.yaml",
+      "source_sha256": "c1e0b9b87ac93869839e6b11ddd9c4b81289fe30aaceffff600b6924571ce7e9",
+      "uploaded_sha256": "c1e0b9b87ac93869839e6b11ddd9c4b81289fe30aaceffff600b6924571ce7e9",
+      "bytes": 202,
+      "changes": []
+    },
+    {
+      "source": "models/Retrival/configs/encode_dataset.yaml",
+      "destination": "reproduction/local/models/Retrival/configs/encode_dataset.yaml",
+      "source_sha256": "63770842ae565be10fe0740ee59a6167191e3f9c9ea8ec7569e33577b4865a86",
+      "uploaded_sha256": "63770842ae565be10fe0740ee59a6167191e3f9c9ea8ec7569e33577b4865a86",
+      "bytes": 201,
+      "changes": []
+    },
+    {
+      "source": "models/Retrival/configs/encode_motion.yaml",
+      "destination": "reproduction/local/models/Retrival/configs/encode_motion.yaml",
+      "source_sha256": "fa73b45ab37d537e3b156637a7b3368a4ca4c8e63ad01c98b17497b7e0d8f68d",
+      "uploaded_sha256": "fa73b45ab37d537e3b156637a7b3368a4ca4c8e63ad01c98b17497b7e0d8f68d",
+      "bytes": 114,
+      "changes": []
+    },
+    {
+      "source": "models/Retrival/configs/encode_text.yaml",
+      "destination": "reproduction/local/models/Retrival/configs/encode_text.yaml",
+      "source_sha256": "8f494ef2196a0d962cae010e83def1cf8d0f3eadb1f9de1d1b69f52eedc7fc63",
+      "uploaded_sha256": "8f494ef2196a0d962cae010e83def1cf8d0f3eadb1f9de1d1b69f52eedc7fc63",
+      "bytes": 88,
+      "changes": []
+    },
+    {
+      "source": "models/Retrival/configs/extract.yaml",
+      "destination": "reproduction/local/models/Retrival/configs/extract.yaml",
+      "source_sha256": "859cb25b5c49098edca65576570b531032df635200b4845f8332789db06de56b",
+      "uploaded_sha256": "859cb25b5c49098edca65576570b531032df635200b4845f8332789db06de56b",
+      "bytes": 59,
+      "changes": []
+    },
+    {
+      "source": "models/Retrival/configs/hydra/hydra_logging/tqdm.yaml",
+      "destination": "reproduction/local/models/Retrival/configs/hydra/hydra_logging/tqdm.yaml",
+      "source_sha256": "00acd52cabd3d75ff6a8a54faad73142bdadc21775c6205a17facdd59a5c4cf1",
+      "uploaded_sha256": "00acd52cabd3d75ff6a8a54faad73142bdadc21775c6205a17facdd59a5c4cf1",
+      "bytes": 242,
+      "changes": []
+    },
+    {
+      "source": "models/Retrival/configs/hydra/job_logging/tqdm.yaml",
+      "destination": "reproduction/local/models/Retrival/configs/hydra/job_logging/tqdm.yaml",
+      "source_sha256": "d5c0619f8581f2428bcfc7eda1a8c94691a7c4a51344e0a105bc31bc17e702e5",
+      "uploaded_sha256": "d5c0619f8581f2428bcfc7eda1a8c94691a7c4a51344e0a105bc31bc17e702e5",
+      "bytes": 720,
+      "changes": []
+    },
+    {
+      "source": "models/Retrival/configs/load_model.yaml",
+      "destination": "reproduction/local/models/Retrival/configs/load_model.yaml",
+      "source_sha256": "07aca70b84b20f81c07a54bb5a3847c8e7d53f9aad465d06e95578cec13ed979",
+      "uploaded_sha256": "07aca70b84b20f81c07a54bb5a3847c8e7d53f9aad465d06e95578cec13ed979",
+      "bytes": 88,
+      "changes": []
+    },
+    {
+      "source": "models/Retrival/configs/model/temos.yaml",
+      "destination": "reproduction/local/models/Retrival/configs/model/temos.yaml",
+      "source_sha256": "e6a93bbf5ef5efd9169d7a4514e624e5b3804ab6d1b4a4bbe446aeb1aa2d99fa",
+      "uploaded_sha256": "e6a93bbf5ef5efd9169d7a4514e624e5b3804ab6d1b4a4bbe446aeb1aa2d99fa",
+      "bytes": 679,
+      "changes": []
+    },
+    {
+      "source": "models/Retrival/configs/model/tmr.yaml",
+      "destination": "reproduction/local/models/Retrival/configs/model/tmr.yaml",
+      "source_sha256": "d8870a3936570f411e1f47a1de24b5d82152613b37aa813c5d02fb9c2a256a0f",
+      "uploaded_sha256": "d8870a3936570f411e1f47a1de24b5d82152613b37aa813c5d02fb9c2a256a0f",
+      "bytes": 208,
+      "changes": []
+    },
+    {
+      "source": "models/Retrival/configs/motion_stats.yaml",
+      "destination": "reproduction/local/models/Retrival/configs/motion_stats.yaml",
+      "source_sha256": "024224ccdca2618019469ae9c14a272c308e7f23676e3f97dff59d6729900b36",
+      "uploaded_sha256": "024224ccdca2618019469ae9c14a272c308e7f23676e3f97dff59d6729900b36",
+      "bytes": 208,
+      "changes": []
+    },
+    {
+      "source": "models/Retrival/configs/render.yaml",
+      "destination": "reproduction/local/models/Retrival/configs/render.yaml",
+      "source_sha256": "5fb178c0dc9e8f85117fe3ed4af87e854007d49fae4859e5c7757fccbf7337a2",
+      "uploaded_sha256": "5fb178c0dc9e8f85117fe3ed4af87e854007d49fae4859e5c7757fccbf7337a2",
+      "bytes": 168,
+      "changes": []
+    },
+    {
+      "source": "models/Retrival/configs/renderer/matplotlib.yaml",
+      "destination": "reproduction/local/models/Retrival/configs/renderer/matplotlib.yaml",
+      "source_sha256": "9be9ef1c4cb86019617955df96aeae123f1dd54928adddf78a8d15c5f7b4b703",
+      "uploaded_sha256": "9be9ef1c4cb86019617955df96aeae123f1dd54928adddf78a8d15c5f7b4b703",
+      "bytes": 172,
+      "changes": []
+    },
+    {
+      "source": "models/Retrival/configs/retrieval.yaml",
+      "destination": "reproduction/local/models/Retrival/configs/retrieval.yaml",
+      "source_sha256": "3648cd49ec7b9acdd4233dba34051af64a83906e15237108bb63ee936b55b56c",
+      "uploaded_sha256": "3648cd49ec7b9acdd4233dba34051af64a83906e15237108bb63ee936b55b56c",
+      "bytes": 208,
+      "changes": []
+    },
+    {
+      "source": "models/Retrival/configs/text_dataset_sim.yaml",
+      "destination": "reproduction/local/models/Retrival/configs/text_dataset_sim.yaml",
+      "source_sha256": "724a21b651b4d35087768080736c7946ac61f3cbe674d8c8514e220347c3c9a9",
+      "uploaded_sha256": "724a21b651b4d35087768080736c7946ac61f3cbe674d8c8514e220347c3c9a9",
+      "bytes": 291,
+      "changes": []
+    },
+    {
+      "source": "models/Retrival/configs/text_embeddings.yaml",
+      "destination": "reproduction/local/models/Retrival/configs/text_embeddings.yaml",
+      "source_sha256": "0029cd05f165f9322305c5f0a46a9c5c14178828b0a31e675d87858db85e1455",
+      "uploaded_sha256": "0029cd05f165f9322305c5f0a46a9c5c14178828b0a31e675d87858db85e1455",
+      "bytes": 68,
+      "changes": []
+    },
+    {
+      "source": "models/Retrival/configs/text_motion_sim.yaml",
+      "destination": "reproduction/local/models/Retrival/configs/text_motion_sim.yaml",
+      "source_sha256": "7fb510b7e73caac00d31531da9379b438fa4663573e2c95485e52bac59e2e4f8",
+      "uploaded_sha256": "7fb510b7e73caac00d31531da9379b438fa4663573e2c95485e52bac59e2e4f8",
+      "bytes": 110,
+      "changes": []
+    },
+    {
+      "source": "models/Retrival/configs/train.yaml",
+      "destination": "reproduction/local/models/Retrival/configs/train.yaml",
+      "source_sha256": "22fed2102905c71ba93be63f5fea5746a0ee7c049988d1a5a6afb87040fad853",
+      "uploaded_sha256": "22fed2102905c71ba93be63f5fea5746a0ee7c049988d1a5a6afb87040fad853",
+      "bytes": 320,
+      "changes": []
+    },
+    {
+      "source": "models/Retrival/configs/trainer.yaml",
+      "destination": "reproduction/local/models/Retrival/configs/trainer.yaml",
+      "source_sha256": "f58ed158f503324505f9b96e21ec4126847dfef0b82d8402778569dc5fe55f41",
+      "uploaded_sha256": "f58ed158f503324505f9b96e21ec4126847dfef0b82d8402778569dc5fe55f41",
+      "bytes": 760,
+      "changes": []
+    },
+    {
+      "source": "models/Retrival/demo/load.py",
+      "destination": "reproduction/local/models/Retrival/demo/load.py",
+      "source_sha256": "d77a83eb4ec1d07d779f5e76070a01f176693f8637c11205d25537dc4e1b5f23",
+      "uploaded_sha256": "d77a83eb4ec1d07d779f5e76070a01f176693f8637c11205d25537dc4e1b5f23",
+      "bytes": 1099,
+      "changes": []
+    },
+    {
+      "source": "models/Retrival/demo/model.py",
+      "destination": "reproduction/local/models/Retrival/demo/model.py",
+      "source_sha256": "5b9ed68180b56df615d8a61eef9052d098df8659d41194d778d0b711685231b0",
+      "uploaded_sha256": "5b9ed68180b56df615d8a61eef9052d098df8659d41194d778d0b711685231b0",
+      "bytes": 5690,
+      "changes": []
+    },
+    {
+      "source": "models/Retrival/encode_dataset.py",
+      "destination": "reproduction/local/models/Retrival/encode_dataset.py",
+      "source_sha256": "3101eb6a7baa7e62dfc0cdde4650a9f5b544fb7185c4531e7c54b27b1fb0ad6f",
+      "uploaded_sha256": "3101eb6a7baa7e62dfc0cdde4650a9f5b544fb7185c4531e7c54b27b1fb0ad6f",
+      "bytes": 2883,
+      "changes": []
+    },
+    {
+      "source": "models/Retrival/encode_motion.py",
+      "destination": "reproduction/local/models/Retrival/encode_motion.py",
+      "source_sha256": "2e0a6b9afd18d939e31d434751d1f13dc776276f8f5702947d8bc407a719881d",
+      "uploaded_sha256": "2e0a6b9afd18d939e31d434751d1f13dc776276f8f5702947d8bc407a719881d",
+      "bytes": 1580,
+      "changes": []
+    },
+    {
+      "source": "models/Retrival/encode_motion_1.py",
+      "destination": "reproduction/local/models/Retrival/encode_motion_1.py",
+      "source_sha256": "1ec0566e94d7d6d541e14c29b5aa21ae512b86815b2286ac439fb6e08423205e",
+      "uploaded_sha256": "1ec0566e94d7d6d541e14c29b5aa21ae512b86815b2286ac439fb6e08423205e",
+      "bytes": 4170,
+      "changes": []
+    },
+    {
+      "source": "models/Retrival/encode_text.py",
+      "destination": "reproduction/local/models/Retrival/encode_text.py",
+      "source_sha256": "4aef08430e9eefaf8827994bb0b44be491206599e6bce87048f7fbf526ed98b9",
+      "uploaded_sha256": "4aef08430e9eefaf8827994bb0b44be491206599e6bce87048f7fbf526ed98b9",
+      "bytes": 1448,
+      "changes": []
+    },
+    {
+      "source": "models/Retrival/encode_text_1.py",
+      "destination": "reproduction/local/models/Retrival/encode_text_1.py",
+      "source_sha256": "bee33f32f214446fa2f5aa21a6c5a6cd7bf9ba323f65a5e71a59c0002b9420ee",
+      "uploaded_sha256": "bee33f32f214446fa2f5aa21a6c5a6cd7bf9ba323f65a5e71a59c0002b9420ee",
+      "bytes": 3733,
+      "changes": []
+    },
+    {
+      "source": "models/Retrival/extract.py",
+      "destination": "reproduction/local/models/Retrival/extract.py",
+      "source_sha256": "aa67819683ce1e07a560d1b3c693e57066530a7a81706fe64b90439ebf7c0d2b",
+      "uploaded_sha256": "aa67819683ce1e07a560d1b3c693e57066530a7a81706fe64b90439ebf7c0d2b",
+      "bytes": 452,
+      "changes": []
+    },
+    {
+      "source": "models/Retrival/models/tmr_humanml3d_guoh3dfeats/config.json",
+      "destination": "reproduction/local/models/Retrival/models/tmr_humanml3d_guoh3dfeats/config.json",
+      "source_sha256": "75ca94c677b6b5a77de0423235cdd915827e09a32ebf3e7a2e53dfa68c26e3ea",
+      "uploaded_sha256": "75ca94c677b6b5a77de0423235cdd915827e09a32ebf3e7a2e53dfa68c26e3ea",
+      "bytes": 3972,
+      "changes": []
+    },
+    {
+      "source": "models/Retrival/models/tmr_kitml_guoh3dfeats/config.json",
+      "destination": "reproduction/local/models/Retrival/models/tmr_kitml_guoh3dfeats/config.json",
+      "source_sha256": "23677b0b2f102d5419257f4a57ac78fb817e8282f087c901749eb1b624d83676",
+      "uploaded_sha256": "23677b0b2f102d5419257f4a57ac78fb817e8282f087c901749eb1b624d83676",
+      "bytes": 3839,
+      "changes": []
+    },
+    {
+      "source": "models/Retrival/prepare/compute_guoh3dfeats.py",
+      "destination": "reproduction/local/models/Retrival/prepare/compute_guoh3dfeats.py",
+      "source_sha256": "64f4d0d2910e916e08dc72846f85e0431ba86c70c94623160aa679c0265a159f",
+      "uploaded_sha256": "64f4d0d2910e916e08dc72846f85e0431ba86c70c94623160aa679c0265a159f",
+      "bytes": 3427,
+      "changes": []
+    },
+    {
+      "source": "models/Retrival/prepare/download_pretrain_models.sh",
+      "destination": "reproduction/local/models/Retrival/prepare/download_pretrain_models.sh",
+      "source_sha256": "fbb3af7a7952a10159953b3f97ed9d215d05a627e455cee72ef77a8f5ecd37ae",
+      "uploaded_sha256": "fbb3af7a7952a10159953b3f97ed9d215d05a627e455cee72ef77a8f5ecd37ae",
+      "bytes": 469,
+      "changes": []
+    },
+    {
+      "source": "models/Retrival/prepare/motion_stats.py",
+      "destination": "reproduction/local/models/Retrival/prepare/motion_stats.py",
+      "source_sha256": "21bca38e685d32978f47d15338042d114c49e3a9f457296f9faea28638f32ab7",
+      "uploaded_sha256": "21bca38e685d32978f47d15338042d114c49e3a9f457296f9faea28638f32ab7",
+      "bytes": 748,
+      "changes": []
+    },
+    {
+      "source": "models/Retrival/prepare/text_embeddings.py",
+      "destination": "reproduction/local/models/Retrival/prepare/text_embeddings.py",
+      "source_sha256": "62b9635a32d05e719c244672fa50fa403a10a712a52133dcc0f2017278bcb067",
+      "uploaded_sha256": "62b9635a32d05e719c244672fa50fa403a10a712a52133dcc0f2017278bcb067",
+      "bytes": 989,
+      "changes": []
+    },
+    {
+      "source": "models/Retrival/prepare/tools.py",
+      "destination": "reproduction/local/models/Retrival/prepare/tools.py",
+      "source_sha256": "920f3abeee35e92845b236824b63739883a57011e12b2626db86bb530af83ccf",
+      "uploaded_sha256": "920f3abeee35e92845b236824b63739883a57011e12b2626db86bb530af83ccf",
+      "bytes": 844,
+      "changes": []
+    },
+    {
+      "source": "models/Retrival/requirements.txt",
+      "destination": "reproduction/local/models/Retrival/requirements.txt",
+      "source_sha256": "84aa0909f6940619171ba0656f60e97d20c12005d4b1c91992edef31adc45859",
+      "uploaded_sha256": "84aa0909f6940619171ba0656f60e97d20c12005d4b1c91992edef31adc45859",
+      "bytes": 663,
+      "changes": []
+    },
+    {
+      "source": "models/Retrival/retrieval.py",
+      "destination": "reproduction/local/models/Retrival/retrieval.py",
+      "source_sha256": "7918694219bbf937db52d614220c7f2889e4c7e46df4ce1b7db96af0c252cbd5",
+      "uploaded_sha256": "7918694219bbf937db52d614220c7f2889e4c7e46df4ce1b7db96af0c252cbd5",
+      "bytes": 6194,
+      "changes": []
+    },
+    {
+      "source": "models/Retrival/src/callback/__init__.py",
+      "destination": "reproduction/local/models/Retrival/src/callback/__init__.py",
+      "source_sha256": "918f65c1f452fd6f0f4610e7094d9657079ebadec6a818e1cf57f67a0a1efc69",
+      "uploaded_sha256": "918f65c1f452fd6f0f4610e7094d9657079ebadec6a818e1cf57f67a0a1efc69",
+      "bytes": 74,
+      "changes": []
+    },
+    {
+      "source": "models/Retrival/src/callback/progress.py",
+      "destination": "reproduction/local/models/Retrival/src/callback/progress.py",
+      "source_sha256": "715cfd6255d3185a007c31b8376cf506dfc38332128205acc2690cac8456ae7f",
+      "uploaded_sha256": "715cfd6255d3185a007c31b8376cf506dfc38332128205acc2690cac8456ae7f",
+      "bytes": 2725,
+      "changes": []
+    },
+    {
+      "source": "models/Retrival/src/callback/tqdmbar.py",
+      "destination": "reproduction/local/models/Retrival/src/callback/tqdmbar.py",
+      "source_sha256": "73dfb52f786085e71e6ddc71d1377916e3229977937aa29d2c3807a68f487b12",
+      "uploaded_sha256": "73dfb52f786085e71e6ddc71d1377916e3229977937aa29d2c3807a68f487b12",
+      "bytes": 1174,
+      "changes": []
+    },
+    {
+      "source": "models/Retrival/src/config.py",
+      "destination": "reproduction/local/models/Retrival/src/config.py",
+      "source_sha256": "294c6423aee240ee9f557beb4e76944fab29b6dc1f826124881cb1ee0d6a9c06",
+      "uploaded_sha256": "294c6423aee240ee9f557beb4e76944fab29b6dc1f826124881cb1ee0d6a9c06",
+      "bytes": 626,
+      "changes": []
+    },
+    {
+      "source": "models/Retrival/src/data/collate.py",
+      "destination": "reproduction/local/models/Retrival/src/data/collate.py",
+      "source_sha256": "098463533f5a860a4e6ad8a52dfcfc64f72a4cd346e301db8377cc8774b0699d",
+      "uploaded_sha256": "098463533f5a860a4e6ad8a52dfcfc64f72a4cd346e301db8377cc8774b0699d",
+      "bytes": 1940,
+      "changes": []
+    },
+    {
+      "source": "models/Retrival/src/data/motion.py",
+      "destination": "reproduction/local/models/Retrival/src/data/motion.py",
+      "source_sha256": "9f237500318f65d429e314fedf594e795fd950f5cbdf8ce7a622957d2ade4c72",
+      "uploaded_sha256": "9f237500318f65d429e314fedf594e795fd950f5cbdf8ce7a622957d2ade4c72",
+      "bytes": 1946,
+      "changes": []
+    },
+    {
+      "source": "models/Retrival/src/data/text.py",
+      "destination": "reproduction/local/models/Retrival/src/data/text.py",
+      "source_sha256": "0bf52b1f315c67c7e25b1ae3dbf50ff2241cdc3bbde0242907ad8fba95666481",
+      "uploaded_sha256": "0bf52b1f315c67c7e25b1ae3dbf50ff2241cdc3bbde0242907ad8fba95666481",
+      "bytes": 7416,
+      "changes": []
+    },
+    {
+      "source": "models/Retrival/src/data/text_motion.py",
+      "destination": "reproduction/local/models/Retrival/src/data/text_motion.py",
+      "source_sha256": "ff3a90777a963d253b567e8f071823e08ac3ac41031c14455f9d50452033fb78",
+      "uploaded_sha256": "ff3a90777a963d253b567e8f071823e08ac3ac41031c14455f9d50452033fb78",
+      "bytes": 3685,
+      "changes": []
+    },
+    {
+      "source": "models/Retrival/src/geometry.py",
+      "destination": "reproduction/local/models/Retrival/src/geometry.py",
+      "source_sha256": "42b3c74a0a1522a19d25f036c9b7bc2355b65d43803fb52df24d66e7df1ab8ee",
+      "uploaded_sha256": "42b3c74a0a1522a19d25f036c9b7bc2355b65d43803fb52df24d66e7df1ab8ee",
+      "bytes": 20468,
+      "changes": []
+    },
+    {
+      "source": "models/Retrival/src/guofeats/__init__.py",
+      "destination": "reproduction/local/models/Retrival/src/guofeats/__init__.py",
+      "source_sha256": "18422901a145f528d9d6d957e6b2adf397da875e149fb939718bcf403628f5c4",
+      "uploaded_sha256": "18422901a145f528d9d6d957e6b2adf397da875e149fb939718bcf403628f5c4",
+      "bytes": 82,
+      "changes": []
+    },
+    {
+      "source": "models/Retrival/src/guofeats/common/quaternion.py",
+      "destination": "reproduction/local/models/Retrival/src/guofeats/common/quaternion.py",
+      "source_sha256": "05725b06977f2030374d7f9bc931a09069e81208bd0ae0d81c440b3ec34569e6",
+      "uploaded_sha256": "05725b06977f2030374d7f9bc931a09069e81208bd0ae0d81c440b3ec34569e6",
+      "bytes": 16019,
+      "changes": []
+    },
+    {
+      "source": "models/Retrival/src/guofeats/common/skeleton.py",
+      "destination": "reproduction/local/models/Retrival/src/guofeats/common/skeleton.py",
+      "source_sha256": "d342c12cb81230af2240a732860eade3009057d0735b72edcf79f5019ec37af9",
+      "uploaded_sha256": "d342c12cb81230af2240a732860eade3009057d0735b72edcf79f5019ec37af9",
+      "bytes": 9487,
+      "changes": []
+    },
+    {
+      "source": "models/Retrival/src/guofeats/motion_representation.py",
+      "destination": "reproduction/local/models/Retrival/src/guofeats/motion_representation.py",
+      "source_sha256": "f82cee9be8e88cb87e23c56f4419ab466f3fdfcb324910a49b73798661b4a842",
+      "uploaded_sha256": "f82cee9be8e88cb87e23c56f4419ab466f3fdfcb324910a49b73798661b4a842",
+      "bytes": 13340,
+      "changes": []
+    },
+    {
+      "source": "models/Retrival/src/guofeats/paramUtil.py",
+      "destination": "reproduction/local/models/Retrival/src/guofeats/paramUtil.py",
+      "source_sha256": "9b6bf12163e270ecd7e933bdbd3f8de080a12e4b4f7af32eeb57b9850e4e6121",
+      "uploaded_sha256": "9b6bf12163e270ecd7e933bdbd3f8de080a12e4b4f7af32eeb57b9850e4e6121",
+      "bytes": 1694,
+      "changes": []
+    },
+    {
+      "source": "models/Retrival/src/joints.py",
+      "destination": "reproduction/local/models/Retrival/src/joints.py",
+      "source_sha256": "edad61e83c1b07aa302361699150ca116721191ee83cfe6a58321805428486a3",
+      "uploaded_sha256": "edad61e83c1b07aa302361699150ca116721191ee83cfe6a58321805428486a3",
+      "bytes": 2218,
+      "changes": []
+    },
+    {
+      "source": "models/Retrival/src/load.py",
+      "destination": "reproduction/local/models/Retrival/src/load.py",
+      "source_sha256": "88fbdf5b0392cc1643ef69d1366b390d33bc44a529f50449c2f60b52b3253573",
+      "uploaded_sha256": "88fbdf5b0392cc1643ef69d1366b390d33bc44a529f50449c2f60b52b3253573",
+      "bytes": 2779,
+      "changes": []
+    },
+    {
+      "source": "models/Retrival/src/logger/csv.py",
+      "destination": "reproduction/local/models/Retrival/src/logger/csv.py",
+      "source_sha256": "edf16c058db64fde2362529bcca6e9226210255ee7e777fec7238e2250a5c8b5",
+      "uploaded_sha256": "edf16c058db64fde2362529bcca6e9226210255ee7e777fec7238e2250a5c8b5",
+      "bytes": 4953,
+      "changes": []
+    },
+    {
+      "source": "models/Retrival/src/logger/csv_fabric.py",
+      "destination": "reproduction/local/models/Retrival/src/logger/csv_fabric.py",
+      "source_sha256": "f51319206a7acf90bf6430d7f7c0f279af01af0c416b79974753ab8d8d0a87f3",
+      "uploaded_sha256": "f51319206a7acf90bf6430d7f7c0f279af01af0c416b79974753ab8d8d0a87f3",
+      "bytes": 6356,
+      "changes": []
+    },
+    {
+      "source": "models/Retrival/src/logging.py",
+      "destination": "reproduction/local/models/Retrival/src/logging.py",
+      "source_sha256": "9edeee844cc4a73c100b413cc0a154a0bdc7ed3373e5ccbccf413b28c46819c0",
+      "uploaded_sha256": "9edeee844cc4a73c100b413cc0a154a0bdc7ed3373e5ccbccf413b28c46819c0",
+      "bytes": 479,
+      "changes": []
+    },
+    {
+      "source": "models/Retrival/src/model/__init__.py",
+      "destination": "reproduction/local/models/Retrival/src/model/__init__.py",
+      "source_sha256": "4e93d8b9cd8a033f3758785be1c0ca66c9370873822c897cca27ece8dbd0d875",
+      "uploaded_sha256": "4e93d8b9cd8a033f3758785be1c0ca66c9370873822c897cca27ece8dbd0d875",
+      "bytes": 190,
+      "changes": []
+    },
+    {
+      "source": "models/Retrival/src/model/actor.py",
+      "destination": "reproduction/local/models/Retrival/src/model/actor.py",
+      "source_sha256": "cad10c7a552112d2e1ac003d182d39204c010b2451665fa94005e952cb9b18cb",
+      "uploaded_sha256": "cad10c7a552112d2e1ac003d182d39204c010b2451665fa94005e952cb9b18cb",
+      "bytes": 4526,
+      "changes": []
+    },
+    {
+      "source": "models/Retrival/src/model/losses.py",
+      "destination": "reproduction/local/models/Retrival/src/model/losses.py",
+      "source_sha256": "1088b89ec3785224b45a565d606650ddc0ec61b57f27d0f8c9613328f75329d1",
+      "uploaded_sha256": "1088b89ec3785224b45a565d606650ddc0ec61b57f27d0f8c9613328f75329d1",
+      "bytes": 1921,
+      "changes": []
+    },
+    {
+      "source": "models/Retrival/src/model/metrics.py",
+      "destination": "reproduction/local/models/Retrival/src/model/metrics.py",
+      "source_sha256": "84d823420fa5db522b7576e2dcc8dec270a1d82bf563414a7268330d51312053",
+      "uploaded_sha256": "84d823420fa5db522b7576e2dcc8dec270a1d82bf563414a7268330d51312053",
+      "bytes": 4016,
+      "changes": []
+    },
+    {
+      "source": "models/Retrival/src/model/temos.py",
+      "destination": "reproduction/local/models/Retrival/src/model/temos.py",
+      "source_sha256": "bcf783fbf73209b99959d144fa40307b67b2b442d7f49ba56c6e0d181b3280ec",
+      "uploaded_sha256": "bcf783fbf73209b99959d144fa40307b67b2b442d7f49ba56c6e0d181b3280ec",
+      "bytes": 7949,
+      "changes": []
+    },
+    {
+      "source": "models/Retrival/src/model/text_encoder.py",
+      "destination": "reproduction/local/models/Retrival/src/model/text_encoder.py",
+      "source_sha256": "238f778d8b2cae0276a9b226f32c745e677f0a75af79d7b4e2fbd58059898829",
+      "uploaded_sha256": "238f778d8b2cae0276a9b226f32c745e677f0a75af79d7b4e2fbd58059898829",
+      "bytes": 3246,
+      "changes": []
+    },
+    {
+      "source": "models/Retrival/src/model/tmr.py",
+      "destination": "reproduction/local/models/Retrival/src/model/tmr.py",
+      "source_sha256": "cf8106c0cafc0aeacbaee56e8618397da2f41f358cf078c75cec903a3ea93404",
+      "uploaded_sha256": "cf8106c0cafc0aeacbaee56e8618397da2f41f358cf078c75cec903a3ea93404",
+      "bytes": 6808,
+      "changes": []
+    },
+    {
+      "source": "models/Retrival/src/prepare.py",
+      "destination": "reproduction/local/models/Retrival/src/prepare.py",
+      "source_sha256": "98774a582b79f96dc78bab4935265065158902127f5af823a9a0de85673a48f2",
+      "uploaded_sha256": "98774a582b79f96dc78bab4935265065158902127f5af823a9a0de85673a48f2",
+      "bytes": 378,
+      "changes": []
+    },
+    {
+      "source": "models/Retrival/src/renderer/matplotlib.py",
+      "destination": "reproduction/local/models/Retrival/src/renderer/matplotlib.py",
+      "source_sha256": "5745199aab04a72e7e9b277b88916a28337bd769f6cda1a2121c347d946ee341",
+      "uploaded_sha256": "5745199aab04a72e7e9b277b88916a28337bd769f6cda1a2121c347d946ee341",
+      "bytes": 7059,
+      "changes": []
+    },
+    {
+      "source": "models/Retrival/src/rifke.py",
+      "destination": "reproduction/local/models/Retrival/src/rifke.py",
+      "source_sha256": "f12a740621ecee379f09155265f7f2ba13612e9f128a1752bf021fa785f1eb02",
+      "uploaded_sha256": "f12a740621ecee379f09155265f7f2ba13612e9f128a1752bf021fa785f1eb02",
+      "bytes": 5895,
+      "changes": []
+    },
+    {
+      "source": "models/Retrival/text_motion_sim.py",
+      "destination": "reproduction/local/models/Retrival/text_motion_sim.py",
+      "source_sha256": "d64d126be3052b05a8832418ad3d45a68b6d414740c4b5a294b66db08c12ceb0",
+      "uploaded_sha256": "d64d126be3052b05a8832418ad3d45a68b6d414740c4b5a294b66db08c12ceb0",
+      "bytes": 9126,
+      "changes": []
+    },
+    {
+      "source": "models/Retrival/train.py",
+      "destination": "reproduction/local/models/Retrival/train.py",
+      "source_sha256": "1b6f70e441631f175bf376c9ffbc0d3eb122378adbb2c70967fd2a32f0cdbde9",
+      "uploaded_sha256": "1b6f70e441631f175bf376c9ffbc0d3eb122378adbb2c70967fd2a32f0cdbde9",
+      "bytes": 1571,
+      "changes": []
+    },
+    {
+      "source": "models/TransitionGenerator.py",
+      "destination": "reproduction/local/models/TransitionGenerator.py",
+      "source_sha256": "82bb19eef85e6a19289f2fd1c0885e4dc02b7c80b949be78c3d1177f2592065a",
+      "uploaded_sha256": "82bb19eef85e6a19289f2fd1c0885e4dc02b7c80b949be78c3d1177f2592065a",
+      "bytes": 1676,
+      "changes": []
+    },
+    {
+      "source": "models/encdec.py",
+      "destination": "reproduction/local/models/encdec.py",
+      "source_sha256": "aa3db42fd8009c6f04020c16b1644b5bf45e396c888375141ff3ef02c3a8ef46",
+      "uploaded_sha256": "aa3db42fd8009c6f04020c16b1644b5bf45e396c888375141ff3ef02c3a8ef46",
+      "bytes": 2279,
+      "changes": []
+    },
+    {
+      "source": "models/evaluator_wrapper.py",
+      "destination": "reproduction/local/models/evaluator_wrapper.py",
+      "source_sha256": "1ec8a1c8168fef4bffebb6ae73caab6cfb63f4b6345c9095bf60d2f4d02d9cc3",
+      "uploaded_sha256": "1ec8a1c8168fef4bffebb6ae73caab6cfb63f4b6345c9095bf60d2f4d02d9cc3",
+      "bytes": 4016,
+      "changes": []
+    },
+    {
+      "source": "models/modules.py",
+      "destination": "reproduction/local/models/modules.py",
+      "source_sha256": "485ef91f38a6fa7b510e7763814ae49e0be35fef693d4978d06fce2216e5bff6",
+      "uploaded_sha256": "485ef91f38a6fa7b510e7763814ae49e0be35fef693d4978d06fce2216e5bff6",
+      "bytes": 3988,
+      "changes": []
+    },
+    {
+      "source": "models/pos_encoding.py",
+      "destination": "reproduction/local/models/pos_encoding.py",
+      "source_sha256": "498ed5d3ca230edadd240ea1c0c91d3acf3dd38b305df030d558487faf03a936",
+      "uploaded_sha256": "498ed5d3ca230edadd240ea1c0c91d3acf3dd38b305df030d558487faf03a936",
+      "bytes": 1367,
+      "changes": []
+    },
+    {
+      "source": "models/quantize_cnn.py",
+      "destination": "reproduction/local/models/quantize_cnn.py",
+      "source_sha256": "3cd675f5280274df88905b702a78a778b29c09e5284997892f2e122a3642af67",
+      "uploaded_sha256": "3cd675f5280274df88905b702a78a778b29c09e5284997892f2e122a3642af67",
+      "bytes": 13979,
+      "changes": []
+    },
+    {
+      "source": "models/resnet.py",
+      "destination": "reproduction/local/models/resnet.py",
+      "source_sha256": "f5e79053ca6b5bf4c896dbb7ce97c472f8e996d0104463fb5af5cca05cea2cd5",
+      "uploaded_sha256": "f5e79053ca6b5bf4c896dbb7ce97c472f8e996d0104463fb5af5cca05cea2cd5",
+      "bytes": 2653,
+      "changes": []
+    },
+    {
+      "source": "models/rotation2xyz.py",
+      "destination": "reproduction/local/models/rotation2xyz.py",
+      "source_sha256": "8a3e87f35c94a60c1d215de1a741e4db3e01736684ff4fa596d6b1114863cabf",
+      "uploaded_sha256": "8a3e87f35c94a60c1d215de1a741e4db3e01736684ff4fa596d6b1114863cabf",
+      "bytes": 3476,
+      "changes": []
+    },
+    {
+      "source": "models/smpl.py",
+      "destination": "reproduction/local/models/smpl.py",
+      "source_sha256": "659a35f0552e6cbfabe03ebf04fa41d5fbfd0def0d6e5f81894e63021974d3d1",
+      "uploaded_sha256": "659a35f0552e6cbfabe03ebf04fa41d5fbfd0def0d6e5f81894e63021974d3d1",
+      "bytes": 3858,
+      "changes": []
+    },
+    {
+      "source": "models/t2m_trans.py",
+      "destination": "reproduction/local/models/t2m_trans.py",
+      "source_sha256": "3b4b8f58dcdaeff8ccfb137437810d84811c87cd089fba1063c5c0cc1d7d6ec1",
+      "uploaded_sha256": "3b4b8f58dcdaeff8ccfb137437810d84811c87cd089fba1063c5c0cc1d7d6ec1",
+      "bytes": 7373,
+      "changes": []
+    },
+    {
+      "source": "models/vqvae.py",
+      "destination": "reproduction/local/models/vqvae.py",
+      "source_sha256": "56de263ca00d9bd9d12f0bad55278d8efc428ffdb0a051b51e17462efa357cc9",
+      "uploaded_sha256": "56de263ca00d9bd9d12f0bad55278d8efc428ffdb0a051b51e17462efa357cc9",
+      "bytes": 4447,
+      "changes": []
+    },
+    {
+      "source": "motion_gen.py",
+      "destination": "reproduction/local/motion_gen.py",
+      "source_sha256": "018577616a9fbaaf5fa22e93f8a4ce6813ef86be0aa8dcab6204d97494704434",
+      "uploaded_sha256": "018577616a9fbaaf5fa22e93f8a4ce6813ef86be0aa8dcab6204d97494704434",
+      "bytes": 5340,
+      "changes": []
+    },
+    {
+      "source": "options/get_eval_option.py",
+      "destination": "reproduction/local/options/get_eval_option.py",
+      "source_sha256": "31719b84b387efea33ff8662edabdcfa5dc3c5ef8f85018bf72bd58cfe8509fb",
+      "uploaded_sha256": "31719b84b387efea33ff8662edabdcfa5dc3c5ef8f85018bf72bd58cfe8509fb",
+      "bytes": 2982,
+      "changes": []
+    },
+    {
+      "source": "options/option_transformer.py",
+      "destination": "reproduction/local/options/option_transformer.py",
+      "source_sha256": "8001df4e83e1f3903a37d9efe00c77d63f0cb861d3bf68f13d850545f210a212",
+      "uploaded_sha256": "8001df4e83e1f3903a37d9efe00c77d63f0cb861d3bf68f13d850545f210a212",
+      "bytes": 4875,
+      "changes": []
+    },
+    {
+      "source": "options/option_vq.py",
+      "destination": "reproduction/local/options/option_vq.py",
+      "source_sha256": "ca214c1e5cea795a420ab71ef8a0eb4d34250e23da4e5b3a38b203b968131e82",
+      "uploaded_sha256": "ca214c1e5cea795a420ab71ef8a0eb4d34250e23da4e5b3a38b203b968131e82",
+      "bytes": 4120,
+      "changes": []
+    },
+    {
+      "source": "render_final.py",
+      "destination": "reproduction/local/render_final.py",
+      "source_sha256": "efbf3f90915bcb1cbb62d18f9d3125bfc174ff6faeb76c7f7e77902b9f1d3cf1",
+      "uploaded_sha256": "efbf3f90915bcb1cbb62d18f9d3125bfc174ff6faeb76c7f7e77902b9f1d3cf1",
+      "bytes": 6188,
+      "changes": []
+    },
+    {
+      "source": "requirements-local.txt",
+      "destination": "reproduction/local/requirements-local.txt",
+      "source_sha256": "941984604dd8a2336295b04b24788fb9a6790d3e1283e702be5607d23a97a12c",
+      "uploaded_sha256": "941984604dd8a2336295b04b24788fb9a6790d3e1283e702be5607d23a97a12c",
+      "bytes": 257,
+      "changes": []
+    },
+    {
+      "source": "run_order",
+      "destination": "reproduction/local/run_order",
+      "source_sha256": "a1e2a0cfb919288754ac3ed91aacf114e008ba2743ee1b84b4c6486e2eccb6ad",
+      "uploaded_sha256": "a1e2a0cfb919288754ac3ed91aacf114e008ba2743ee1b84b4c6486e2eccb6ad",
+      "bytes": 5819,
+      "changes": []
+    },
+    {
+      "source": "scripts/run_local.py",
+      "destination": "reproduction/local/scripts/run_local.py",
+      "source_sha256": "4a2fe66d973b2461de6af7a2bb86fe6ba83e1601de825d4c453b56ed617bc60b",
+      "uploaded_sha256": "4a2fe66d973b2461de6af7a2bb86fe6ba83e1601de825d4c453b56ed617bc60b",
+      "bytes": 14205,
+      "changes": []
+    },
+    {
+      "source": "short_gen.py",
+      "destination": "reproduction/local/short_gen.py",
+      "source_sha256": "f1a21cbc1125781b8f8ff7121e1645f0fda71771ba73aca3896d2cb724689ffd",
+      "uploaded_sha256": "f1a21cbc1125781b8f8ff7121e1645f0fda71771ba73aca3896d2cb724689ffd",
+      "bytes": 2424,
+      "changes": []
+    },
+    {
+      "source": "train_GPT_split.py",
+      "destination": "reproduction/local/train_GPT_split.py",
+      "source_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "uploaded_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0,
+      "changes": []
+    },
+    {
+      "source": "train_t2m_trans.py",
+      "destination": "reproduction/local/train_t2m_trans.py",
+      "source_sha256": "cb2985bc0b73325fae8e83689ca7eaed99d667738a4bb01006e1cc288b904886",
+      "uploaded_sha256": "cb2985bc0b73325fae8e83689ca7eaed99d667738a4bb01006e1cc288b904886",
+      "bytes": 10008,
+      "changes": []
+    },
+    {
+      "source": "train_transition.py",
+      "destination": "reproduction/local/train_transition.py",
+      "source_sha256": "cb2985bc0b73325fae8e83689ca7eaed99d667738a4bb01006e1cc288b904886",
+      "uploaded_sha256": "cb2985bc0b73325fae8e83689ca7eaed99d667738a4bb01006e1cc288b904886",
+      "bytes": 10008,
+      "changes": []
+    },
+    {
+      "source": "train_vq.py",
+      "destination": "reproduction/local/train_vq.py",
+      "source_sha256": "fb2fc93bb00e7f0687c1defc2243164455975d637b6f51f82b49922834fe2a53",
+      "uploaded_sha256": "fb2fc93bb00e7f0687c1defc2243164455975d637b6f51f82b49922834fe2a53",
+      "bytes": 7793,
+      "changes": []
+    },
+    {
+      "source": "train_vq_constra.py",
+      "destination": "reproduction/local/train_vq_constra.py",
+      "source_sha256": "8061388646f3301571fa17d820276f31a8cd48c9f16fa238607adae9cee7fdad",
+      "uploaded_sha256": "8061388646f3301571fa17d820276f31a8cd48c9f16fa238607adae9cee7fdad",
+      "bytes": 15650,
+      "changes": []
+    },
+    {
+      "source": "train_vq_constra_100.py",
+      "destination": "reproduction/local/train_vq_constra_100.py",
+      "source_sha256": "03be42521c501ec4bd864d7b3f510536282651aa9ce1d46aab3da63b9e3f584f",
+      "uploaded_sha256": "03be42521c501ec4bd864d7b3f510536282651aa9ce1d46aab3da63b9e3f584f",
+      "bytes": 11369,
+      "changes": []
+    },
+    {
+      "source": "train_vq_constra_multi.py",
+      "destination": "reproduction/local/train_vq_constra_multi.py",
+      "source_sha256": "8dfba05e55aa6ec40f851c39af5b91f5808a7eb008cffbc9d9ce23e3cc0f7d2d",
+      "uploaded_sha256": "8dfba05e55aa6ec40f851c39af5b91f5808a7eb008cffbc9d9ce23e3cc0f7d2d",
+      "bytes": 14206,
+      "changes": []
+    },
+    {
+      "source": "train_vq_multi.py",
+      "destination": "reproduction/local/train_vq_multi.py",
+      "source_sha256": "74d12814b2e0c509e509ec5bd76be0c6b52c5a2380421869fa38ed9a5ae0d803",
+      "uploaded_sha256": "74d12814b2e0c509e509ec5bd76be0c6b52c5a2380421869fa38ed9a5ae0d803",
+      "bytes": 24460,
+      "changes": []
+    },
+    {
+      "source": "utils/config.py",
+      "destination": "reproduction/local/utils/config.py",
+      "source_sha256": "5bfa8a5d1cfef8a2cc52ef2e205e8824d5d5542280128913142a51df84444f86",
+      "uploaded_sha256": "5bfa8a5d1cfef8a2cc52ef2e205e8824d5d5542280128913142a51df84444f86",
+      "bytes": 446,
+      "changes": []
+    },
+    {
+      "source": "utils/eval_trans.py",
+      "destination": "reproduction/local/utils/eval_trans.py",
+      "source_sha256": "8eb7d22774b0d4ba61e84d8146c92d45c4bbb9e20b86d7e38953528e3f959f8a",
+      "uploaded_sha256": "8eb7d22774b0d4ba61e84d8146c92d45c4bbb9e20b86d7e38953528e3f959f8a",
+      "bytes": 26285,
+      "changes": []
+    },
+    {
+      "source": "utils/losses.py",
+      "destination": "reproduction/local/utils/losses.py",
+      "source_sha256": "b48ae1f4204302d0c260910303512089e739e2ce5276f754572496b252045914",
+      "uploaded_sha256": "b48ae1f4204302d0c260910303512089e739e2ce5276f754572496b252045914",
+      "bytes": 1058,
+      "changes": []
+    },
+    {
+      "source": "utils/motion_process.py",
+      "destination": "reproduction/local/utils/motion_process.py",
+      "source_sha256": "8adc7d6ddd850ad8ebe1ef8868077f79e04277099ce58efed37aa7f4ce119332",
+      "uploaded_sha256": "8adc7d6ddd850ad8ebe1ef8868077f79e04277099ce58efed37aa7f4ce119332",
+      "bytes": 2007,
+      "changes": []
+    },
+    {
+      "source": "utils/paramUtil.py",
+      "destination": "reproduction/local/utils/paramUtil.py",
+      "source_sha256": "fe0265f3dcd0d466690d816eae973fcece145f64551cef7e46fed7ef3de80d34",
+      "uploaded_sha256": "fe0265f3dcd0d466690d816eae973fcece145f64551cef7e46fed7ef3de80d34",
+      "bytes": 1857,
+      "changes": []
+    },
+    {
+      "source": "utils/quaternion.py",
+      "destination": "reproduction/local/utils/quaternion.py",
+      "source_sha256": "2f3e3154c824aab776a53a526eb51c928572a95e5ee472ca7c0f9b02545b5432",
+      "uploaded_sha256": "2f3e3154c824aab776a53a526eb51c928572a95e5ee472ca7c0f9b02545b5432",
+      "bytes": 12867,
+      "changes": []
+    },
+    {
+      "source": "utils/rotation_conversions.py",
+      "destination": "reproduction/local/utils/rotation_conversions.py",
+      "source_sha256": "fc1f11ab125e37b8e268d4e2febf0e0699cdaa324b4a05123dac764ade988699",
+      "uploaded_sha256": "fc1f11ab125e37b8e268d4e2febf0e0699cdaa324b4a05123dac764ade988699",
+      "bytes": 18964,
+      "changes": []
+    },
+    {
+      "source": "utils/skeleton.py",
+      "destination": "reproduction/local/utils/skeleton.py",
+      "source_sha256": "396f369089bd6da64c92c8b8ee1653caaad24fdd1f08d8c512e0b92eca8d29ab",
+      "uploaded_sha256": "396f369089bd6da64c92c8b8ee1653caaad24fdd1f08d8c512e0b92eca8d29ab",
+      "bytes": 8703,
+      "changes": []
+    },
+    {
+      "source": "utils/utils_model.py",
+      "destination": "reproduction/local/utils/utils_model.py",
+      "source_sha256": "ae450f8d3b28ecc0048c6be9725f0e0bc1f3211c2b9458140da95420a617dec5",
+      "uploaded_sha256": "ae450f8d3b28ecc0048c6be9725f0e0bc1f3211c2b9458140da95420a617dec5",
+      "bytes": 2108,
+      "changes": []
+    },
+    {
+      "source": "utils/word_vectorizer.py",
+      "destination": "reproduction/local/utils/word_vectorizer.py",
+      "source_sha256": "fbfb56d795f2b1ddb99bbf60a097a600a3dfd2275cc541b1dce0a57df787bbdf",
+      "uploaded_sha256": "fbfb56d795f2b1ddb99bbf60a097a600a3dfd2275cc541b1dce0a57df787bbdf",
+      "bytes": 3310,
+      "changes": []
+    },
+    {
+      "source": "visualization/plot_3d_global.py",
+      "destination": "reproduction/local/visualization/plot_3d_global.py",
+      "source_sha256": "ceb3760db3849e7a028264d57ddcacb31c4e33b1db68168aee71784f19cea15a",
+      "uploaded_sha256": "ceb3760db3849e7a028264d57ddcacb31c4e33b1db68168aee71784f19cea15a",
+      "bytes": 4558,
+      "changes": []
+    },
+    {
+      "source": "visualize/Visualization.py",
+      "destination": "reproduction/local/visualize/Visualization.py",
+      "source_sha256": "91512180fb4c5718c3b1d1d801bf75bcc99dd38ff24358189e88ec946f05236a",
+      "uploaded_sha256": "91512180fb4c5718c3b1d1d801bf75bcc99dd38ff24358189e88ec946f05236a",
+      "bytes": 1693,
+      "changes": []
+    },
+    {
+      "source": "visualize/get_opt.py",
+      "destination": "reproduction/local/visualize/get_opt.py",
+      "source_sha256": "3d1ee0fb3d8a74988e549534359281bbe3be50caa6de32ff8709384c3d75d29d",
+      "uploaded_sha256": "3d1ee0fb3d8a74988e549534359281bbe3be50caa6de32ff8709384c3d75d29d",
+      "bytes": 2869,
+      "changes": []
+    },
+    {
+      "source": "visualize/joints2smpl/src/config.py",
+      "destination": "reproduction/local/visualize/joints2smpl/src/config.py",
+      "source_sha256": "10d6e2de0a28775dc0727c5e0bcc2dc35b27ee99014e184fcf5af524b4e9c468",
+      "uploaded_sha256": "10d6e2de0a28775dc0727c5e0bcc2dc35b27ee99014e184fcf5af524b4e9c468",
+      "bytes": 1295,
+      "changes": []
+    },
+    {
+      "source": "visualize/joints2smpl/src/customloss.py",
+      "destination": "reproduction/local/visualize/joints2smpl/src/customloss.py",
+      "source_sha256": "845d512eaa38b79a13e3aa69b5fbcb1b15c3ef2a0f402c887848ce8e665319c7",
+      "uploaded_sha256": "845d512eaa38b79a13e3aa69b5fbcb1b15c3ef2a0f402c887848ce8e665319c7",
+      "bytes": 8935,
+      "changes": []
+    },
+    {
+      "source": "visualize/joints2smpl/src/prior.py",
+      "destination": "reproduction/local/visualize/joints2smpl/src/prior.py",
+      "source_sha256": "52833f2ae93668a55a166096bf8f850267f0b0fddfa85b8fb903514a7b509b1b",
+      "uploaded_sha256": "52833f2ae93668a55a166096bf8f850267f0b0fddfa85b8fb903514a7b509b1b",
+      "bytes": 8687,
+      "changes": []
+    },
+    {
+      "source": "visualize/joints2smpl/src/smplify.py",
+      "destination": "reproduction/local/visualize/joints2smpl/src/smplify.py",
+      "source_sha256": "35d8c906339f6eb060285991e16ae99c147fd7715a1383b35336804ba7008779",
+      "uploaded_sha256": "35d8c906339f6eb060285991e16ae99c147fd7715a1383b35336804ba7008779",
+      "bytes": 12641,
+      "changes": []
+    },
+    {
+      "source": "visualize/render_mesh.py",
+      "destination": "reproduction/local/visualize/render_mesh.py",
+      "source_sha256": "f31369bf8e2f7a080e32ccd93afeab2481de297841d8aa2cda601b1fc77b8af5",
+      "uploaded_sha256": "f31369bf8e2f7a080e32ccd93afeab2481de297841d8aa2cda601b1fc77b8af5",
+      "bytes": 1487,
+      "changes": []
+    },
+    {
+      "source": "visualize/simplify_loc2rot.py",
+      "destination": "reproduction/local/visualize/simplify_loc2rot.py",
+      "source_sha256": "40e7c8a250a77639590a1bd30e837f585eb26651b35bf8f347ef0f577fb1ee68",
+      "uploaded_sha256": "40e7c8a250a77639590a1bd30e837f585eb26651b35bf8f347ef0f577fb1ee68",
+      "bytes": 5547,
+      "changes": []
+    },
+    {
+      "source": "visualize/vis_utils.py",
+      "destination": "reproduction/local/visualize/vis_utils.py",
+      "source_sha256": "94400fb8ff69a52fab2b3e041073892ba4202d35fd09e2aeffa54f28700bb4ea",
+      "uploaded_sha256": "94400fb8ff69a52fab2b3e041073892ba4202d35fd09e2aeffa54f28700bb4ea",
+      "bytes": 3203,
+      "changes": []
+    }
+  ],
+  "excluded_candidates": [
+    {
+      "source": "Long_ave_test.py",
+      "reason": "ad_hoc_test_or_probe"
+    },
+    {
+      "source": "VQVAE_test.py",
+      "reason": "ad_hoc_test_or_probe"
+    },
+    {
+      "source": "checkpoints/BABEL_TEACH/trainV13_LV1LT1LK001LA01_BABEL_TEACH_slerp/meta/load_meta.py",
+      "reason": "resource_probe_script"
+    },
+    {
+      "source": "checkpoints/self_train/LenEst/t2m/test.py",
+      "reason": "resource_probe_script"
+    },
+    {
+      "source": "checkpoints/self_train/VQVAE/read.py",
+      "reason": "resource_probe_script"
+    },
+    {
+      "source": "generation/TEST_GPT/abc.py",
+      "reason": "generated_result"
+    },
+    {
+      "source": "models/Retrival/datasets/annotations/humanml3d/annotations.json",
+      "reason": "dataset_annotation_or_derived_index"
+    },
+    {
+      "source": "models/Retrival/datasets/annotations/humanml3d/sent_embeddings/sentence-transformers/all-mpnet-base-v2_index.json",
+      "reason": "dataset_annotation_or_derived_index"
+    },
+    {
+      "source": "models/Retrival/datasets/annotations/humanml3d/token_embeddings/distilbert-base-uncased_index.json",
+      "reason": "dataset_annotation_or_derived_index"
+    },
+    {
+      "source": "models/Retrival/datasets/annotations/kitml/annotations.json",
+      "reason": "dataset_annotation_or_derived_index"
+    },
+    {
+      "source": "models/Retrival/demo/amass_to_babel.json",
+      "reason": "dataset_annotation_or_derived_index"
+    },
+    {
+      "source": "models/Retrival/logs/.hydra/config.yaml",
+      "reason": "run_output_or_metrics"
+    },
+    {
+      "source": "models/Retrival/logs/.hydra/hydra.yaml",
+      "reason": "run_output_or_metrics"
+    },
+    {
+      "source": "models/Retrival/logs/.hydra/overrides.yaml",
+      "reason": "run_output_or_metrics"
+    },
+    {
+      "source": "models/Retrival/models/tmr_humanml3d_guoh3dfeats/.hydra/config.yaml",
+      "reason": "run_output_or_metrics"
+    },
+    {
+      "source": "models/Retrival/models/tmr_humanml3d_guoh3dfeats/.hydra/hydra.yaml",
+      "reason": "run_output_or_metrics"
+    },
+    {
+      "source": "models/Retrival/models/tmr_humanml3d_guoh3dfeats/.hydra/overrides.yaml",
+      "reason": "run_output_or_metrics"
+    },
+    {
+      "source": "models/Retrival/models/tmr_humanml3d_guoh3dfeats/contrastive_metrics/guo.yaml",
+      "reason": "run_output_or_metrics"
+    },
+    {
+      "source": "models/Retrival/models/tmr_humanml3d_guoh3dfeats/contrastive_metrics/normal.yaml",
+      "reason": "run_output_or_metrics"
+    },
+    {
+      "source": "models/Retrival/models/tmr_humanml3d_guoh3dfeats/contrastive_metrics/nsim.yaml",
+      "reason": "run_output_or_metrics"
+    },
+    {
+      "source": "models/Retrival/models/tmr_humanml3d_guoh3dfeats/contrastive_metrics/threshold_0.95.yaml",
+      "reason": "run_output_or_metrics"
+    },
+    {
+      "source": "models/Retrival/models/tmr_humanml3d_guoh3dfeats/encoded/.hydra/config.yaml",
+      "reason": "run_output_or_metrics"
+    },
+    {
+      "source": "models/Retrival/models/tmr_humanml3d_guoh3dfeats/encoded/.hydra/hydra.yaml",
+      "reason": "run_output_or_metrics"
+    },
+    {
+      "source": "models/Retrival/models/tmr_humanml3d_guoh3dfeats/encoded/.hydra/overrides.yaml",
+      "reason": "run_output_or_metrics"
+    },
+    {
+      "source": "models/Retrival/models/tmr_humanml3d_guoh3dfeats/encoded/load.py",
+      "reason": "ad_hoc_test_or_probe"
+    },
+    {
+      "source": "models/Retrival/models/tmr_kitml_guoh3dfeats/.hydra/config.yaml",
+      "reason": "run_output_or_metrics"
+    },
+    {
+      "source": "models/Retrival/models/tmr_kitml_guoh3dfeats/.hydra/hydra.yaml",
+      "reason": "run_output_or_metrics"
+    },
+    {
+      "source": "models/Retrival/models/tmr_kitml_guoh3dfeats/.hydra/overrides.yaml",
+      "reason": "run_output_or_metrics"
+    },
+    {
+      "source": "models/Retrival/models/tmr_kitml_guoh3dfeats/contrastive_metrics/guo.yaml",
+      "reason": "run_output_or_metrics"
+    },
+    {
+      "source": "models/Retrival/models/tmr_kitml_guoh3dfeats/contrastive_metrics/normal.yaml",
+      "reason": "run_output_or_metrics"
+    },
+    {
+      "source": "models/Retrival/models/tmr_kitml_guoh3dfeats/contrastive_metrics/nsim.yaml",
+      "reason": "run_output_or_metrics"
+    },
+    {
+      "source": "models/Retrival/models/tmr_kitml_guoh3dfeats/contrastive_metrics/threshold_0.95.yaml",
+      "reason": "run_output_or_metrics"
+    },
+    {
+      "source": "output/local_verified/generate/result.json",
+      "reason": "generated_result"
+    },
+    {
+      "source": "output/local_verified/multi_segment/result.json",
+      "reason": "generated_result"
+    },
+    {
+      "source": "output/local_verified/preview/result.json",
+      "reason": "generated_result"
+    },
+    {
+      "source": "output/local_verified/reconstruct/result.json",
+      "reason": "generated_result"
+    },
+    {
+      "source": "output/local_verified/self_trained_generate/result.json",
+      "reason": "generated_result"
+    },
+    {
+      "source": "output/local_verified/train_smoke/result.json",
+      "reason": "generated_result"
+    },
+    {
+      "source": "text_t5.py",
+      "reason": "ad_hoc_test_or_probe"
+    }
+  ],
+  "local_tree_accounting": {
+    "file_count": 45039,
+    "category_counts": {
+      "binary_resource_archive_or_result": 192,
+      "other_files_including_source": 307,
+      "environment_cache_or_editor": 18835,
+      "experiment_or_generated_output_tree": 11737,
+      "dataset_or_data_resource_tree": 13968
+    },
+    "note": "Tree categories are directory-based counts, not disjoint source inclusion rules; selected Python loaders and text configs are included by the source manifest."
+  },
+  "checks": {
+    "python_syntax": {
+      "files": 145,
+      "failures": []
+    },
+    "missing_historical_references": [
+      "gen_long_seq.py",
+      "train_length_est.py",
+      "utils/utils.py"
+    ],
+    "duplicate_source_pairs": [
+      [
+        "train_transition.py",
+        "train_t2m_trans.py"
+      ]
+    ],
+    "empty_source_files": [
+      "train_GPT_split.py"
+    ]
+  },
+  "included_file_count": 200,
+  "included_bytes": 915409
+}
