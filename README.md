@@ -25,7 +25,7 @@
 | 实际依赖版本与安装顺序 | [环境与版本](docs/environment.md) |
 | 数据集引用、获取与项目特有注意事项 | [数据集说明](docs/datasets.md) |
 | 模型、资源目录和参考身份 | [数据与模型](docs/data-and-models.md)、[资源清单](resources/README.md) |
-| VQ → 冻结 → GPT，以及长度模块与评估 | [脚本使用顺序](docs/workflow.md) |
+| 现有训练脚本与资源关系（开发参考） | [脚本说明](docs/workflow.md) |
 | 代码来源和第三方授权范围 | [第三方说明](THIRD_PARTY_NOTICES.md) |
 | 当前进度和后续公开事项 | [分阶段清单](docs/release-checklist.md) |
 
@@ -48,7 +48,7 @@ preprocess/             数据准备和特征生成
 tools/                  训练、评估、demo、审计和运行脚本
 visualize/              3D 绘图与潜空间分析
 assets/                 README 图片资源
-docs/                   环境、资源、流程和 FAQ
+docs/                   环境、数据、脚本参考、实现范围和 FAQ
 ```
 
 训练参数目前由版本控制中的启动脚本直接传入，不另建一份不会被训练程序读取的 YAML 副本；见 [configs 说明](configs/README.md)。从项目根目录运行 `python tools/...`，数据和模型仍按 [资源目录](resources/manifest.json) 单独放置。容器入口与挂载方式见下文和 [FAQ](docs/FAQ.md)。
@@ -98,7 +98,7 @@ TMR文本特征附加包见 `requirements-tmr.txt`，安装到独立目标目录
 | 单段长度控制 | `tools/generate_amg_length_controlled.py` | 已核验的 VQ/GPT/长度权重及身份文件 |
 | 潜空间分析 | `visualize/latent_tsne_comparison/run.sh` | 合法取得的数据、选定 checkpoint、分析依赖 |
 
-完整脚本顺序、VQ batch512 的10000步到总计100000步续训、冻结VQ路径及GPT各模式的实际batch见 [使用流程](docs/workflow.md)。`tools/run_*.sh` 保留了实验参数与恢复检查，运行前确认资源和输出目录；其中部分入口会启动长时间训练。
+训练、预处理和评估脚本作为源码入口保留，供阅读和后续修改。本仓库当前不提供完整、端到端且已验证的一键复现流程；已实现功能和待补环节见 [实现范围](docs/implementation-status.md)。脚本与资源关系另见 [开发参考](docs/workflow.md)。
 
 环境准备后可单独运行以下逻辑检查：
 
