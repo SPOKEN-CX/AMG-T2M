@@ -41,7 +41,7 @@ class LengthEstTrainer_V2(object):
         self.first_save = True
         self.start_time = datetime.now().strftime('%Y%m%d_%H%M%S')
         self.save_dir = pjoin(self.opt.model_dir, self.start_time)
-        model_path = "/home/ubuntu/peng/momask-codes-main/models/en_core_web_sm-3.5.0/en_core_web_sm/en_core_web_sm-3.5.0"
+        model_path = "/path/to/spacy/en_core_web_sm"
         self.nlp = spacy.load(model_path)
         self.clip, _ = clip.load('ViT-B/32', self.device)
         self.clip.to(self.device)

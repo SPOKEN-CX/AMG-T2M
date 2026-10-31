@@ -99,7 +99,7 @@ The code was tested on Python 3.8 and PyTorch 1.8.1.
 ### 2.2. Dependencies
 
 ```bash
-bash dataset/prepare/download_glove.sh
+# Historical downloader removed; use the official resource links in the root README.
 ```
 
 
@@ -128,14 +128,14 @@ Take HumanML3D for an example, the file directory should look like this:
 We use the same extractors provided by [t2m](https://github.com/EricGuo5513/text-to-motion) to evaluate our generated motions. Please download the extractors.
 
 ```bash
-bash dataset/prepare/download_extractor.sh
+# Historical downloader removed; use the official resource links in the root README.
 ```
 
 ### 2.5. Pre-trained models 
 
 The pretrained model files will be stored in the 'pretrained' folder:
 ```bash
-bash dataset/prepare/download_model.sh
+# Historical downloader removed; use the official resource links in the root README.
 ```
 
 
@@ -144,7 +144,7 @@ bash dataset/prepare/download_model.sh
 If you want to render the generated motion, you need to install:
 
 ```bash
-sudo sh dataset/prepare/download_smpl.sh
+# Historical downloader removed; use the official resource links in the root README.
 conda install -c menpo osmesa
 conda install h5py
 conda install -c conda-forge shapely pyrender trimesh mapbox_earcut

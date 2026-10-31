@@ -29,8 +29,8 @@ DEFAULT_TOKENS_PER_STEP = 51
 # 2) 原来的参数/模型加载
 # =========================
 args.dataname = 't2m'
-args.resume_pth = '/home/peng/PythonProjects/T2M-GPT-main/checkpoints/self_train/VQVAE/t2m/net_best_fid.pth'
-args.resume_trans = '/home/peng/PythonProjects/T2M-GPT-main/checkpoints/self_train/GPT/net_best_fid.pth'
+args.resume_pth = '/path/to/AMG-T2M/reproduction/local/checkpoints/self_train/VQVAE/t2m/net_best_fid.pth'
+args.resume_trans = '/path/to/AMG-T2M/reproduction/local/checkpoints/self_train/GPT/net_best_fid.pth'
 args.down_t = 2
 args.depth = 3
 args.block_size = 51  # 这里建议与 DEFAULT_TOKENS_PER_STEP 一致（或 >= 你每段最大 n_tokens）

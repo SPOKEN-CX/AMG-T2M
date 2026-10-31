@@ -1,3 +1,5 @@
+> Current cleanup: obsolete downloaders, standalone tests, the duplicate GPT trainer, empty placeholders, fixed-result/sample scratch scripts, and stale check outputs have been removed. See [the current repository audit](../../docs/repository-audit.md). Names in historical notes below identify removed files where applicable.
+
 > 当前安装入口：在仓库根目录执行 `python -m pip install -r requirements.txt`，环境说明见 `../../docs/environment.md`。下文服务器配置为历史运行记录。
 
 # T2M-GPT 服务器运行说明

@@ -9,11 +9,9 @@ from pathlib import Path
 
 def path_mapping(root, data_root, spacy_model):
     return sorted([
-        ('/home/peng/PythonProjects/momask-codes-main/models/en_core_web_sm-3.5.0/en_core_web_sm/en_core_web_sm-3.5.0', spacy_model),
-        ('/home/ubuntu/peng/momask-codes-main/models/en_core_web_sm-3.5.0/en_core_web_sm/en_core_web_sm-3.5.0', spacy_model),
-        ('/home/peng/PythonProjects/T2M-GPT-main', str(root)),
-        ('/home/peng/PythonProjects/Dataset/HumanML3D', str(data_root / 'HumanML3D')),
-        ('/home/peng/PythonProjects/Human-Datasets/HumanML3D', str(data_root / 'HumanML3D')),
+        ('/path/to/spacy/en_core_web_sm', spacy_model),
+        ('/path/to/AMG-T2M/reproduction/local', str(root)),
+        ('/path/to/Dataset', str(data_root)),
         ('../Dataset/BABEL-TEACH', str(data_root / 'BABEL_TEACH')),
         ('../Dataset', str(data_root)),
         ('../dataset/HumanML3D', str(data_root / 'HumanML3D')),
@@ -82,7 +80,7 @@ def main():
     prefix = 'reproduction/local/'
     changed = []
     for entry in manifest['files']:
-        destination = entry['destination']
+        destination = entry.get('destination') or ''
         if not destination.startswith(prefix):
             continue
         rel = Path(destination[len(prefix):])

@@ -1,3 +1,5 @@
+> Current privacy/scope cleanup is documented in [repository-audit.md](repository-audit.md). Earlier counts and retained-file statements below describe the initial source snapshot, before later cleanup.
+
 > Current installation: the root `requirements.txt` is the single shared dependency specification. The 2026-10-31 consolidation supersedes the overlay defaults described in the original snapshot notes below; see [environment.md](environment.md).
 
 **Snapshot preparation changes — 2026-10-30**

@@ -98,3 +98,15 @@ core.*
 /reproduction/local/*.npz
 /reproduction/local/*.gif
 /reproduction/local/*.mp4
+
+# Motion data and generated artifacts must not enter the source tree.
+*.npy
+*.npz
+*.pkl
+*.h5
+*.hdf5
+*.gif
+*.mp4
+*.mov
+*.avi
+*.csv

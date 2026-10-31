@@ -42,11 +42,10 @@ Checkpoint resources, GloVe, CLIP and normalization files must be placed under t
 | TMR encoding/retrieval | `models/Retrival/` |
 | Preview/reconstruction/inference | `scripts/run_local.py` |
 | Mesh and skeleton rendering | `visualize/`, `visualization/`, `render_final.py` |
-| Historical command notes | `run_order` |
 
 The original working guides remain available in Chinese: [training and evaluation](AMG_TRAIN_EVAL_GUIDE.zh-CN.md), [local execution](LOCAL_RUN_GUIDE.zh-CN.md), and [server execution](SERVER_RUN_GUIDE.zh-CN.md). Their historical environment notes are superseded by the shared installation above. The [main English README](../../README.md#maintained-training-workflow) documents maintained root-level commands for the same project components.
 
-The [source audit](../../docs/local-source-sync.md) records historical empty files, duplicated entry points, and references to files absent from the supplied directory. In particular, `train_transition.py` duplicates the GPT trainer, `train_GPT_split.py` is empty, and the old length trainer imports missing `utils/utils.py`. Select executable entry points by their actual code and documented workflow.
+The [source audit](../../docs/local-source-sync.md) records historical empty files, duplicated entry points, and references to files absent from the supplied directory. The duplicate `train_transition.py`, empty `train_GPT_split.py`, and obsolete `run_order` scratchpad were removed during cleanup. The old length trainer still imports missing `utils/utils.py` and is retained as historical model-related source. Select executable entry points by their actual code and documented workflow.
 
 ## Provenance and resources
 
@@ -54,4 +53,4 @@ The [source manifest](../source-manifest.json) identifies the original 200 local
 
 The `dataset/` directory contains source loaders and historical resource scripts. The `checkpoints/` directory contains only seven text `opt.txt` model configurations. Motion data, captions, splits, indexes, normalization tensors, GloVe, weights, SMPL assets, and generated outputs are external resources. Use the official [dataset sources](../../README.md#data-and-external-resources); retain their applicable terms and the [third-party notices](../../THIRD_PARTY_NOTICES.md).
 
-The historical download scripts contain destructive directory operations and inconsistent paths. They are retained for source provenance; prepare resources through the official instructions referenced by the main README.
+Obsolete resource downloaders and one-off fixed-result/sample scripts were removed. Prepare resources through the official instructions referenced by the main README. The [current repository audit](../../docs/repository-audit.md) lists the cleanup decisions and retained optional tools.

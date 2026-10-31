@@ -1,0 +1,181 @@
+{
+  "date": "2026-10-31",
+  "base_commit": "adc53c924844a9c65d52e82f759d5f883a9c2ff5",
+  "scope": "current main file tree; prior commits and dev branch are not purged",
+  "original_file_count": 413,
+  "current_file_count": 393,
+  "personal_absolute_path_findings": 0,
+  "secret_signature_findings": 0,
+  "hardcoded_password_key_assignment_findings": 0,
+  "remaining_email_contexts": [
+    "example server placeholders",
+    "retained third-party attribution/license contacts"
+  ],
+  "standalone_test_files": 0,
+  "dataset_weight_generated_output_binaries": 0,
+  "retained_readme_figures": 3,
+  "figure_hidden_metadata_chunks": 0,
+  "cross_tree_identical_file_groups": 62,
+  "historical_optional_LibMTL_python_files": 41,
+  "syntax_checks": {
+    "python": 261,
+    "shell": 12,
+    "json": 10
+  },
+  "source_manifest_entries_checked": 200,
+  "source_manifest_removed_entries": 12,
+  "path_helper_changed_files": 21,
+  "path_helper_dry_run_non_mutating": true,
+  "path_helper_idempotent": true,
+  "new_gpu_training_or_full_installation": false,
+  "removed": [
+    {
+      "path": "docs/dependency-validation.json",
+      "reason": "previous maintenance check output, superseded by current audit",
+      "previous_sha256": "a5e3254ddd14f84b4b2401d7b2be895b367d3a7985f01c20d246c6780e7fe0f1"
+    },
+    {
+      "path": "docs/environment-versions.json",
+      "reason": "redundant historical installed-package inventory; originals retained in dependency history",
+      "previous_sha256": "97958dc8265098fbee5330057c22306c20ef18151c6741d81714648b804fc71f"
+    },
+    {
+      "path": "docs/packaging-checks.json",
+      "reason": "outdated snapshot-specific check output, superseded by current audit",
+      "previous_sha256": "3a807d80c9e98d249b7eab0b51312c7b8dfaa34303b1e925471468ff0bd15ea0"
+    },
+    {
+      "path": "reproduction/local/dataset/prepare/download_extractor.sh",
+      "reason": "obsolete resource downloader with destructive or inconsistent paths; official resource links retained",
+      "previous_sha256": "619087379c9d6fdef2e42a51acdb49033f44aadcf5ef3c6bbc41e23eecf0f590"
+    },
+    {
+      "path": "reproduction/local/dataset/prepare/download_glove.sh",
+      "reason": "obsolete resource downloader with destructive or inconsistent paths; official resource links retained",
+      "previous_sha256": "72ad304c0758cb64e67947ebc4584b68be6c427e82ef6e680d7fce5522d13feb"
+    },
+    {
+      "path": "reproduction/local/dataset/prepare/download_model.sh",
+      "reason": "obsolete resource downloader with destructive or inconsistent paths; official resource links retained",
+      "previous_sha256": "fe8f6d969e74c6dd806541a1aaaa39aa0ac2929a71e713b5a05f9c8d3e53ba1d"
+    },
+    {
+      "path": "reproduction/local/dataset/prepare/download_smpl.sh",
+      "reason": "obsolete resource downloader with destructive or inconsistent paths; official resource links retained",
+      "previous_sha256": "8bbeeaf6d687eda951af576c50310ba9c802c05608d020036bfa5eecb28b7a61"
+    },
+    {
+      "path": "reproduction/local/draw_comparison.py",
+      "reason": "plots hard-coded metric values rather than calculating metrics",
+      "previous_sha256": "cbe215b5b2c1ce2e67362b1210d19399fe6ade1934832cd37f9ca7f0acdf3660"
+    },
+    {
+      "path": "reproduction/local/models/Retrival/prepare/download_pretrain_models.sh",
+      "reason": "legacy resource downloader; official resource links retained",
+      "previous_sha256": "fbb3af7a7952a10159953b3f97ed9d215d05a627e455cee72ef77a8f5ecd37ae"
+    },
+    {
+      "path": "reproduction/local/run_order",
+      "reason": "obsolete command scratchpad with absent entry points",
+      "previous_sha256": "a1e2a0cfb919288754ac3ed91aacf114e008ba2743ee1b84b4c6486e2eccb6ad"
+    },
+    {
+      "path": "reproduction/local/short_gen.py",
+      "reason": "copies an ad hoc selected sample set; not a training dependency",
+      "previous_sha256": "f1a21cbc1125781b8f8ff7121e1645f0fda71771ba73aca3896d2cb724689ffd"
+    },
+    {
+      "path": "reproduction/local/train_GPT_split.py",
+      "reason": "empty placeholder without executable code",
+      "previous_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "reproduction/local/train_transition.py",
+      "reason": "byte-identical copy of train_t2m_trans.py",
+      "previous_sha256": "cb2985bc0b73325fae8e83689ca7eaed99d667738a4bb01006e1cc288b904886"
+    },
+    {
+      "path": "reproduction/local/visualize/Visualization.py",
+      "reason": "one-off inspection of fixed local result arrays",
+      "previous_sha256": "91512180fb4c5718c3b1d1d801bf75bcc99dd38ff24358189e88ec946f05236a"
+    },
+    {
+      "path": "reproduction/review-checks.json",
+      "reason": "outdated check output, superseded by current audit",
+      "previous_sha256": "c758e5e782aabc1acfeec680ad9d3c0be92b8a0f1def2f69ffd12d0b4731b694"
+    },
+    {
+      "path": "tools/test_gpt_accumulation.py",
+      "reason": "standalone test file outside the requested training-source scope",
+      "previous_sha256": "40a2cc0d77270d2598b3a0cafc6fc23df7c7b372b1c39643b20f4dd5a1e7560b"
+    },
+    {
+      "path": "tools/test_gpt_length_control.py",
+      "reason": "standalone test file outside the requested training-source scope",
+      "previous_sha256": "418fc0595f1ad6b341c7df5c2570aafd11051058a70968a4d1118bfa0dc02b0b"
+    },
+    {
+      "path": "visualize/latent_tsne_comparison/test_display.py",
+      "reason": "standalone test file outside the requested training-source scope",
+      "previous_sha256": "fbf31b732419c0b79184cbfd3a5576b26a678018c280837912098e89aba7a54b"
+    },
+    {
+      "path": "visualize/latent_tsne_comparison/test_expansion.py",
+      "reason": "standalone test file outside the requested training-source scope",
+      "previous_sha256": "92925f7c37d360260d6ec036f86452f8299975151c0052c65f4f01b1f572e5b0"
+    },
+    {
+      "path": "visualize/latent_tsne_comparison/test_protocol.py",
+      "reason": "standalone test file outside the requested training-source scope",
+      "previous_sha256": "4977c87eb52f8d3a008b68606c5f05a336ccad54691b8f5b54ce2d97cbcc6ef8"
+    },
+    {
+      "path": "visualize/latent_tsne_comparison/test_review.js",
+      "reason": "standalone test file outside the requested training-source scope",
+      "previous_sha256": "f71752816c3fffa1142a4b4063a003468160c7831774879f5ac5314ac07f4bda"
+    },
+    {
+      "path": "reproduction/local/.gitignore.original",
+      "reason": "inactive duplicate ignore configuration; root .gitignore is authoritative",
+      "previous_sha256": "bb668d31b256831c91684b2c4bc8bf20dca7d8c8dd7d84aabcefcd7792dc642a"
+    }
+  ],
+  "sanitized_files": [
+    "reproduction/configure_paths.py",
+    "reproduction/local/AMG_TRAIN_EVAL_GUIDE.zh-CN.md",
+    "reproduction/local/LOCAL_RUN_GUIDE.zh-CN.md",
+    "reproduction/local/motion_gen.py",
+    "reproduction/local/models/MotionLenEstimator/LengthEst.py",
+    "reproduction/local/models/MotionLenEstimator/LengthEstTrainer.py",
+    "reproduction/local/models/Retrival/encode_motion_1.py",
+    "reproduction/local/models/Retrival/encode_text_1.py",
+    "reproduction/local/models/Retrival/text_motion_sim.py",
+    "reproduction/local/models/Retrival/models/tmr_humanml3d_guoh3dfeats/config.json"
+  ],
+  "images": [
+    {
+      "path": "assets/amg_teaser.png",
+      "removed_metadata_chunks": [
+        "eXIf",
+        "iTXt"
+      ],
+      "compressed_pixels_unchanged": true
+    },
+    {
+      "path": "assets/long_term_comparison.png",
+      "removed_metadata_chunks": [
+        "eXIf",
+        "iTXt"
+      ],
+      "compressed_pixels_unchanged": true
+    },
+    {
+      "path": "assets/method_comparison.png",
+      "removed_metadata_chunks": [
+        "eXIf",
+        "iTXt"
+      ],
+      "compressed_pixels_unchanged": true
+    }
+  ]
+}

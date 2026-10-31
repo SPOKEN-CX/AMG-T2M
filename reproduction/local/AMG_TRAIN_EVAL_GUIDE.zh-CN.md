@@ -1,3 +1,5 @@
+> Current cleanup: obsolete downloaders, standalone tests, the duplicate GPT trainer, empty placeholders, fixed-result/sample scratch scripts, and stale check outputs have been removed. See [the current repository audit](../../docs/repository-audit.md). Names in historical notes below identify removed files where applicable.
+
 > 当前安装入口：在仓库根目录执行 `python -m pip install -r requirements.txt`，环境说明见 `../../docs/environment.md`。下文服务器配置为历史运行记录。
 
 # AMG：Linux GPU 服务器上先跑通 HumanML3D 训练和评估
@@ -403,7 +405,7 @@ VQ 必须和第 8 节生成 token 时的文件完全相同。可用 `sha256sum` 
 1. 使用 `models/Retrival/` 中 HumanML3D 的预训练 TMR，先核对一组动作和文本能编码。TMR 是语义特征来源，不是本项目最终生成结果所用的标准评估器。
 2. 批量提取训练样本的 motion/text embedding，分别保存到 `../Dataset/HumanML3D/motion_retrival/<id>.npy`、`texts_retrival/<id>.npy`，拼写保持 `retrival`。如果一个 ID 随机采样多个 caption，特征必须与实际使用的 caption 对应；局部动作裁剪与嵌入的对应关系也要明确。
 3. 本地 `encode_motion.py` / `encode_text.py` 能演示单条编码，但保存目录和命名不是上述训练目录，需要适配成批量导出程序。不要假设运行一次单条示例就生成完整训练特征。
-4. 导入 TMR 时从项目根目录设置 `export PYTHONPATH="$PWD/models/Retrival${PYTHONPATH:+:$PYTHONPATH}"`，并把 `/home/peng/...` 等固定路径替换成实际路径。已有环境按缺失的 TMR 依赖补充，不要直接覆盖整套 PyTorch。
+4. 导入 TMR 时从项目根目录设置 `export PYTHONPATH="$PWD/models/Retrival${PYTHONPATH:+:$PYTHONPATH}"`，并把 `/path/to/...` 等固定路径替换成实际路径。已有环境按缺失的 TMR 依赖补充，不要直接覆盖整套 PyTorch。
 5. 对比 VQ 的验证加载也改为 `False, 32`，不要用测试集选权重。
 6. 修复正负样本选择后再训练；当前 `_100.py` 固定 K=100，另一版固定 K=150，不能直接缩小 batch 而保留 K。
 
@@ -541,8 +543,8 @@ HumanML3D 基础测试跑通后，分开执行：
 | [models/MotionLenEstimator/LengthEst.py](models/MotionLenEstimator/LengthEst.py) | 否 | caption、文本长度 → CLIP/依存图/GAT | 归一化动作长度预测 |
 | [models/MotionLenEstimator/LengthEstTrainer.py](models/MotionLenEstimator/LengthEstTrainer.py) | 否 | 训练器类，当前有数据接口和 DDP 假设 | 长度模型 checkpoint |
 | [models/TransitionGenerator.py](models/TransitionGenerator.py) | 否 | 历史码本向量 `[B,T,512]` → 注意力与距离加权 | 下一过渡 token 的 `[B,512]` logits |
-| [train_transition.py](train_transition.py) | 当前不要作为过渡训练入口 | 实际复制了 GPT 训练代码 | 尚未接上过渡模型 |
-| [train_GPT_split.py](train_GPT_split.py) | 否 | 当前为空文件 | 无 |
+| `train_transition.py` (removed duplicate) | 当前不要作为过渡训练入口 | 实际复制了 GPT 训练代码 | 尚未接上过渡模型 |
+| `train_GPT_split.py` (removed empty file) | 否 | 当前为空文件 | 无 |
 
 `train_vq_multi.py`、`train_vq_constra_multi.py` 是另一些多卡实验入口。先跑单卡链路时不用同时启动它们。`run_order` 是历史命令笔记，含不存在的文件和拼写不一致的参数，不应逐行当可执行脚本运行。
 

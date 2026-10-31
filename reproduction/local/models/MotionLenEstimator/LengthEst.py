@@ -190,7 +190,7 @@ class MotionLenEstimatorGraphTransformer(nn.Module):
         self.device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
 
         # 载入 spacy
-        model_path = "/home/peng/PythonProjects/momask-codes-main/models/en_core_web_sm-3.5.0/en_core_web_sm/en_core_web_sm-3.5.0"
+        model_path = "/path/to/spacy/en_core_web_sm"
         self.nlp = spacy.load(model_path)
 
         # 载入 CLIP, 并冻结

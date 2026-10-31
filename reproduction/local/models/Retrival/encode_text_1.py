@@ -96,12 +96,12 @@ def process_file(file_name, source_folder, output_folder):
 
 def main():
     # 配置路径
-    run_dir = '/home/peng/PythonProjects/T2M-GPT-main/models/Retrival/models/tmr_humanml3d_guoh3dfeats'  # 您的 run_dir
+    run_dir = '/path/to/AMG-T2M/reproduction/local/models/Retrival/models/tmr_humanml3d_guoh3dfeats'  # 您的 run_dir
     ckpt_name = 'last'  # 您的 checkpoint 名称
     device = 'cuda'  # 或 'cpu'，根据需要选择
 
-    source_folder = "/home/peng/PythonProjects/Dataset/HumanML3D/texts_no_word_des"  # 替换为您的源文件夹路径
-    output_folder = "/home/peng/PythonProjects/Dataset/HumanML3D/texts_retrival"  # 替换为您的目标文件夹路径
+    source_folder = "/path/to/Dataset/HumanML3D/texts_no_word_des"  # 替换为您的源文件夹路径
+    output_folder = "/path/to/Dataset/HumanML3D/texts_retrival"  # 替换为您的目标文件夹路径
 
     # 创建目标文件夹（如果不存在）
     os.makedirs(output_folder, exist_ok=True)

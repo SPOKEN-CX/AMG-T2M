@@ -159,7 +159,7 @@ This process makes loading models faster, it does not depends on the file struct
 ## Pretrained models :dvd:
 
 ```bash
-bash prepare/download_pretrain_models.sh
+# Obtain model resources through https://github.com/Mathux/TMR
 ```
 
 This will put pretrained models in the ``models`` folder.

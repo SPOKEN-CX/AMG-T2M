@@ -240,7 +240,7 @@ python ../configure_paths.py \
 
 The data-root directory contains `HumanML3D/`, `KIT-ML/`, or `BABEL_TEACH/`. The configuration tool updates known path strings only; it does not download data or alter training computations. Resources such as `checkpoints/`, `pretrained/`, `glove/`, and `ViT-B-32.pt` must be available relative to this local source root for its original entry points.
 
-Use the [local source README](reproduction/local/README.md) and the preserved [training/evaluation guide](reproduction/local/AMG_TRAIN_EVAL_GUIDE.zh-CN.md) for historical experiment variants. The latter remains in Chinese. The [source audit](docs/local-source-sync.md) identifies historical empty/duplicated entry points and missing file references, so those names are not mistaken for independent executable workflows.
+Use the [local source README](reproduction/local/README.md) and the preserved [training/evaluation guide](reproduction/local/AMG_TRAIN_EVAL_GUIDE.zh-CN.md) for historical experiment variants. The latter remains in Chinese. The [current repository audit](docs/repository-audit.md) lists removed empty/duplicate entry points, scratch scripts, and tests, along with the purpose of retained optional tools. The initial source audit records historical missing file references.
 
 ## Maintained training workflow
 
@@ -404,7 +404,8 @@ The dependency set has been resolved together for the documented Python/Linux ta
 - [Detailed workflow notes](docs/workflow.md)
 - [Dataset formats and acquisition](docs/datasets.md)
 - [External model/resource paths](docs/data-and-models.md)
-- [Local source audit](docs/local-source-sync.md)
+- [Current privacy and repository-content audit](docs/repository-audit.md)
+- [Initial local source audit](docs/local-source-sync.md)
 - [Source manifest](reproduction/source-manifest.json)
 - [FAQ](docs/FAQ.md)
 

@@ -1,3 +1,5 @@
+> Current cleanup: obsolete downloaders, standalone tests, the duplicate GPT trainer, empty placeholders, fixed-result/sample scratch scripts, and stale check outputs have been removed. See [the current repository audit](../../docs/repository-audit.md). Names in historical notes below identify removed files where applicable.
+
 # 本项目当前能跑什么，以及缺少 HumanML3D 时怎么做
 
 适用范围：本文记录Mac上的独立验证。你的实际实验使用已搭好的服务器环境，请以 [服务器运行说明](SERVER_RUN_GUIDE.zh-CN.md) 中的路径、环境和CUDA命令为准。
@@ -144,7 +146,7 @@ uv pip install --python .venv-smoke/bin/python -r ../../requirements.txt
 | `VQ_eval.py`、`GPT_eval_multi.py`、`utils/eval_trans.py` | 正式评估入口，依赖真实动作、文本、评估器和CUDA；已有输出坐标不足以直接执行完整标准评估 |
 | `dataset/dataset_TM_eval.py` | `is_test=True` 使用的是自定义 `long_test.txt`，不是官方 `test.txt`；复现标准指标前必须恢复并核对划分 |
 | 多处 `data_root` | 同时出现 `../Dataset/HumanML3D`、`../dataset/HumanML3D` 和 `./dataset/...`，与README目录不一致，需要集中配置 |
-| `motion_gen.py` | 已有不依赖数据集的分段推理思路，但写死 `/home/peng/...`、CUDA，并重置命令行参数；这次新增入口替代其本地运行用途 |
+| `motion_gen.py` | 已有不依赖数据集的分段推理思路，但写死 `/path/to/...`、CUDA，并重置命令行参数；这次新增入口替代其本地运行用途 |
 | `models/MotionLenEstimator/` | 有图网络长度估计模块和权重，依赖spaCy英语模型和固定机器路径；`run_order`提及的 `train_length_est.py` 不存在 |
 | `models/Retrival/` | TMR检索/语义相似度组件；部分代码硬编码Linux路径，`src.*`导入依赖PYTHONPATH；不是当前最小推理所必需 |
 | `visualization/plot_3d_global.py` | 旧Matplotlib绘图接口；新入口使用兼容当前版本的Matplotlib/Pillow骨架渲染 |

@@ -27,7 +27,7 @@ def text_motion_sim( texts: list, motions: list,  device: str = 'cuda'):
     - device: 设备（'cuda'或'cpu'）
     """
     # 读取配置文件
-    run_dir='/home/peng/PythonProjects/T2M-GPT-main/models/Retrival/models/tmr_humanml3d_guoh3dfeats'
+    run_dir='/path/to/AMG-T2M/reproduction/local/models/Retrival/models/tmr_humanml3d_guoh3dfeats'
     ckpt_name='last'
     cfg = read_config(run_dir)
     seed_everything(cfg.seed)
@@ -184,30 +184,30 @@ def text_motion_sim_V4(text, motions ):
 # 以下为使用示例
 if __name__ == "__main__":
     # 在调用前手动加载 npy 数据
-    motion1 = np.load('/home/peng/PythonProjects/Dataset/HumanML3D/motion_retrival/000000.npy')
+    motion1 = np.load('/path/to/Dataset/HumanML3D/motion_retrival/000000.npy')
     motion1=torch.Tensor(motion1).to("cuda")
     print('motion1',motion1.shape)
-    motion2 = np.load('/home/peng/PythonProjects/Dataset/HumanML3D/motion_retrival/000002.npy')
+    motion2 = np.load('/path/to/Dataset/HumanML3D/motion_retrival/000002.npy')
     motion2=torch.Tensor(motion2).to("cuda")
-    motion3 = np.load('/home/peng/PythonProjects/Dataset/HumanML3D/motion_retrival/000003.npy')
+    motion3 = np.load('/path/to/Dataset/HumanML3D/motion_retrival/000003.npy')
     motion3=torch.Tensor(motion3).to("cuda")
-    motion4 = np.load('/home/peng/PythonProjects/Dataset/HumanML3D/motion_retrival/000005.npy')
+    motion4 = np.load('/path/to/Dataset/HumanML3D/motion_retrival/000005.npy')
     motion4=torch.Tensor(motion4).to("cuda")
     motions=torch.stack([motion1,motion2,motion3,motion4],dim=0).squeeze(1)
     print('motions',motions.shape)
-    text1 = np.load('/home/peng/PythonProjects/Dataset/HumanML3D/texts_retrival/000000.npy')
+    text1 = np.load('/path/to/Dataset/HumanML3D/texts_retrival/000000.npy')
     text1=torch.Tensor(text1).to("cuda")
     print('text1', text1.shape)
-    text2 = np.load('/home/peng/PythonProjects/Dataset/HumanML3D/texts_retrival/000002.npy')
+    text2 = np.load('/path/to/Dataset/HumanML3D/texts_retrival/000002.npy')
     text2 = torch.Tensor(text2).to("cuda")
-    text3 = np.load('/home/peng/PythonProjects/Dataset/HumanML3D/texts_retrival/000003.npy')
+    text3 = np.load('/path/to/Dataset/HumanML3D/texts_retrival/000003.npy')
     text3 = torch.Tensor(text3).to("cuda")
-    text4 = np.load('/home/peng/PythonProjects/Dataset/HumanML3D/texts_retrival/000005.npy')
+    text4 = np.load('/path/to/Dataset/HumanML3D/texts_retrival/000005.npy')
     text4 = torch.Tensor(text4).to("cuda")
     texts=torch.stack([text1,text2,text3,text4],dim=0).squeeze(1)
     print('texts',texts.shape)
     device = "cuda"
-    # run_dir = '/home/peng/PythonProjects/T2M-GPT-main/models/Retrival/models/tmr_humanml3d_guoh3dfeats'
+    # run_dir = '/path/to/AMG-T2M/reproduction/local/models/Retrival/models/tmr_humanml3d_guoh3dfeats'
     # ckpt_name = 'last'
     # cfg = read_config(run_dir)
     # seed_everything(cfg.seed)

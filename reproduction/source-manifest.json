@@ -6,23 +6,27 @@
   "files": [
     {
       "source": ".gitignore",
-      "destination": "reproduction/local/.gitignore.original",
+      "destination": null,
       "source_sha256": "bb668d31b256831c91684b2c4bc8bf20dca7d8c8dd7d84aabcefcd7792dc642a",
-      "uploaded_sha256": "bb668d31b256831c91684b2c4bc8bf20dca7d8c8dd7d84aabcefcd7792dc642a",
-      "bytes": 2205,
+      "bytes": 0,
       "changes": [
-        "filename_changed"
-      ]
+        "filename_changed",
+        "privacy_and_scope_cleanup"
+      ],
+      "status": "removed_by_cleanup",
+      "removed_reason": "inactive duplicate ignore configuration",
+      "last_published_sha256": "bb668d31b256831c91684b2c4bc8bf20dca7d8c8dd7d84aabcefcd7792dc642a"
     },
     {
       "source": "AMG_TRAIN_EVAL_GUIDE.zh-CN.md",
       "destination": "reproduction/local/AMG_TRAIN_EVAL_GUIDE.zh-CN.md",
       "source_sha256": "7230f0d81c7155cd1fb57b941b469cd884cf23ba3f77f34a046da01986023ca2",
-      "uploaded_sha256": "69a925576cc780bba784cc003fcc332a4c8188b30d8a2baf9a18a84054839f29",
-      "bytes": 54548,
+      "uploaded_sha256": "c974be005cbd0f5d1f01eff9d804121a6fbff5302cd0ce39938a0d39d6899ed7",
+      "bytes": 54874,
       "changes": [
         "documentation_paths_anonymized_and_links_rebased",
-        "unified_environment_documentation_or_python310_compatibility"
+        "unified_environment_documentation_or_python310_compatibility",
+        "personal_path_scrub_or_cleanup_documentation"
       ]
     },
     {
@@ -53,11 +57,12 @@
       "source": "LOCAL_RUN_GUIDE.zh-CN.md",
       "destination": "reproduction/local/LOCAL_RUN_GUIDE.zh-CN.md",
       "source_sha256": "3d220e0353c3a6bf47ffb5751332cd87aba75a72dd4fc25b471d83c855858e96",
-      "uploaded_sha256": "0011a5a9093c297b2e6a43c9d815cb9e7f50830b326ef6b358f09a5cbfade6b5",
-      "bytes": 15363,
+      "uploaded_sha256": "accddfa734645ab23158218aa5d87fc5c1a637248021fc211e2b6a0422271236",
+      "bytes": 15689,
       "changes": [
         "documentation_paths_anonymized_and_links_rebased",
-        "unified_environment_documentation_or_python310_compatibility"
+        "unified_environment_documentation_or_python310_compatibility",
+        "personal_path_scrub_or_cleanup_documentation"
       ]
     },
     {
@@ -392,22 +397,24 @@
       "source": "README.md",
       "destination": "reproduction/local/README.upstream.md",
       "source_sha256": "28001a96d70312f33c738fbe25c8d7fdcf7aed0de1c9c39bf9ac2f97b7b5e961",
-      "uploaded_sha256": "a2e51e40a029235946cf6f257492a0c4116677a1b2491100dd155a655bd0a70c",
-      "bytes": 8981,
+      "uploaded_sha256": "bbdcf46a4f2047b2d783e1aac29d7f82016239bc51f61d584efcdb541ef52e6d",
+      "bytes": 9159,
       "changes": [
         "filename_changed",
-        "unified_environment_documentation_or_python310_compatibility"
+        "unified_environment_documentation_or_python310_compatibility",
+        "personal_path_scrub_or_cleanup_documentation"
       ]
     },
     {
       "source": "SERVER_RUN_GUIDE.zh-CN.md",
       "destination": "reproduction/local/SERVER_RUN_GUIDE.zh-CN.md",
       "source_sha256": "6b482060e5fba20a0efec9510e89dc97e5fa90f816a706ec8a987f87ca568b34",
-      "uploaded_sha256": "e3df335ec9da33f80c43fcf7562945cf1282f85417469bd5d7009da056a4d990",
-      "bytes": 21782,
+      "uploaded_sha256": "3f9019bf345b8879f39b5ad936afeb8edf6d8f7e1b78407ef8c31ee2064f263d",
+      "bytes": 22110,
       "changes": [
         "documentation_paths_anonymized_and_links_rebased",
-        "unified_environment_documentation_or_python310_compatibility"
+        "unified_environment_documentation_or_python310_compatibility",
+        "personal_path_scrub_or_cleanup_documentation"
       ]
     },
     {
@@ -508,43 +515,63 @@
     },
     {
       "source": "dataset/prepare/download_extractor.sh",
-      "destination": "reproduction/local/dataset/prepare/download_extractor.sh",
+      "destination": null,
       "source_sha256": "619087379c9d6fdef2e42a51acdb49033f44aadcf5ef3c6bbc41e23eecf0f590",
-      "uploaded_sha256": "619087379c9d6fdef2e42a51acdb49033f44aadcf5ef3c6bbc41e23eecf0f590",
-      "bytes": 458,
-      "changes": []
+      "bytes": 0,
+      "changes": [
+        "privacy_and_scope_cleanup"
+      ],
+      "status": "removed_by_cleanup",
+      "removed_reason": "obsolete resource downloader with destructive or inconsistent paths; official resource links retained",
+      "last_published_sha256": "619087379c9d6fdef2e42a51acdb49033f44aadcf5ef3c6bbc41e23eecf0f590"
     },
     {
       "source": "dataset/prepare/download_glove.sh",
-      "destination": "reproduction/local/dataset/prepare/download_glove.sh",
+      "destination": null,
       "source_sha256": "72ad304c0758cb64e67947ebc4584b68be6c427e82ef6e680d7fce5522d13feb",
-      "uploaded_sha256": "72ad304c0758cb64e67947ebc4584b68be6c427e82ef6e680d7fce5522d13feb",
-      "bytes": 244,
-      "changes": []
+      "bytes": 0,
+      "changes": [
+        "privacy_and_scope_cleanup"
+      ],
+      "status": "removed_by_cleanup",
+      "removed_reason": "obsolete resource downloader with destructive or inconsistent paths; official resource links retained",
+      "last_published_sha256": "72ad304c0758cb64e67947ebc4584b68be6c427e82ef6e680d7fce5522d13feb"
     },
     {
       "source": "dataset/prepare/download_model.sh",
-      "destination": "reproduction/local/dataset/prepare/download_model.sh",
+      "destination": null,
       "source_sha256": "fe8f6d969e74c6dd806541a1aaaa39aa0ac2929a71e713b5a05f9c8d3e53ba1d",
-      "uploaded_sha256": "fe8f6d969e74c6dd806541a1aaaa39aa0ac2929a71e713b5a05f9c8d3e53ba1d",
-      "bytes": 264,
-      "changes": []
+      "bytes": 0,
+      "changes": [
+        "privacy_and_scope_cleanup"
+      ],
+      "status": "removed_by_cleanup",
+      "removed_reason": "obsolete resource downloader with destructive or inconsistent paths; official resource links retained",
+      "last_published_sha256": "fe8f6d969e74c6dd806541a1aaaa39aa0ac2929a71e713b5a05f9c8d3e53ba1d"
     },
     {
       "source": "dataset/prepare/download_smpl.sh",
-      "destination": "reproduction/local/dataset/prepare/download_smpl.sh",
+      "destination": null,
       "source_sha256": "8bbeeaf6d687eda951af576c50310ba9c802c05608d020036bfa5eecb28b7a61",
-      "uploaded_sha256": "8bbeeaf6d687eda951af576c50310ba9c802c05608d020036bfa5eecb28b7a61",
-      "bytes": 244,
-      "changes": []
+      "bytes": 0,
+      "changes": [
+        "privacy_and_scope_cleanup"
+      ],
+      "status": "removed_by_cleanup",
+      "removed_reason": "obsolete resource downloader with destructive or inconsistent paths; official resource links retained",
+      "last_published_sha256": "8bbeeaf6d687eda951af576c50310ba9c802c05608d020036bfa5eecb28b7a61"
     },
     {
       "source": "draw_comparison.py",
-      "destination": "reproduction/local/draw_comparison.py",
+      "destination": null,
       "source_sha256": "cbe215b5b2c1ce2e67362b1210d19399fe6ade1934832cd37f9ca7f0acdf3660",
-      "uploaded_sha256": "cbe215b5b2c1ce2e67362b1210d19399fe6ade1934832cd37f9ca7f0acdf3660",
-      "bytes": 1510,
-      "changes": []
+      "bytes": 0,
+      "changes": [
+        "privacy_and_scope_cleanup"
+      ],
+      "status": "removed_by_cleanup",
+      "removed_reason": "plots hard-coded metric values rather than calculating metrics",
+      "last_published_sha256": "cbe215b5b2c1ce2e67362b1210d19399fe6ade1934832cd37f9ca7f0acdf3660"
     },
     {
       "source": "environment.yml",
@@ -577,17 +604,21 @@
       "source": "models/MotionLenEstimator/LengthEst.py",
       "destination": "reproduction/local/models/MotionLenEstimator/LengthEst.py",
       "source_sha256": "3b2818309d41316d3e3f4e1b4f4e16f17097ced7f73d3616ddd8a65c12c105c4",
-      "uploaded_sha256": "3b2818309d41316d3e3f4e1b4f4e16f17097ced7f73d3616ddd8a65c12c105c4",
-      "bytes": 14758,
-      "changes": []
+      "uploaded_sha256": "7d365ed3ea94e9162554b3dbb7d0044a879793b740835521162515272bb3f382",
+      "bytes": 14680,
+      "changes": [
+        "personal_path_scrub_or_cleanup_documentation"
+      ]
     },
     {
       "source": "models/MotionLenEstimator/LengthEstTrainer.py",
       "destination": "reproduction/local/models/MotionLenEstimator/LengthEstTrainer.py",
       "source_sha256": "c20252421e0876c9ddb5c336091e278bb3fb3b8b4e1d8fb855687a697c59f367",
-      "uploaded_sha256": "c20252421e0876c9ddb5c336091e278bb3fb3b8b4e1d8fb855687a697c59f367",
-      "bytes": 9949,
-      "changes": []
+      "uploaded_sha256": "eb2bae87adf1b18e269ddc04b3da3f08ae83b50529dab18bea489c155bf19798",
+      "bytes": 9879,
+      "changes": [
+        "personal_path_scrub_or_cleanup_documentation"
+      ]
     },
     {
       "source": "models/MotionLenEstimator/__init__.py",
@@ -617,10 +648,11 @@
       "source": "models/Retrival/README.md",
       "destination": "reproduction/local/models/Retrival/README.md",
       "source_sha256": "2a2fa003bc1774527d2a16c619a12b63759a90d3f4e5baff8bc6c5ac652e8e33",
-      "uploaded_sha256": "daa9d5aa03db607a492e86dc78e20d1be98ce72a2d4aeb16330b543f50b37439",
-      "bytes": 8390,
+      "uploaded_sha256": "f33f87d41044f9c462f99cacf2b9b23516ae6e4ed0afcbc0064424e681d538cb",
+      "bytes": 8412,
       "changes": [
-        "unified_environment_documentation_or_python310_compatibility"
+        "unified_environment_documentation_or_python310_compatibility",
+        "personal_path_scrub_or_cleanup_documentation"
       ]
     },
     {
@@ -891,9 +923,11 @@
       "source": "models/Retrival/encode_motion_1.py",
       "destination": "reproduction/local/models/Retrival/encode_motion_1.py",
       "source_sha256": "1ec0566e94d7d6d541e14c29b5aa21ae512b86815b2286ac439fb6e08423205e",
-      "uploaded_sha256": "1ec0566e94d7d6d541e14c29b5aa21ae512b86815b2286ac439fb6e08423205e",
-      "bytes": 4170,
-      "changes": []
+      "uploaded_sha256": "d72c7d3f277b8f508108ad525607e1535cded0accbd6832ffa5f649b19bd7465",
+      "bytes": 4133,
+      "changes": [
+        "personal_path_scrub_or_cleanup_documentation"
+      ]
     },
     {
       "source": "models/Retrival/encode_text.py",
@@ -907,9 +941,11 @@
       "source": "models/Retrival/encode_text_1.py",
       "destination": "reproduction/local/models/Retrival/encode_text_1.py",
       "source_sha256": "bee33f32f214446fa2f5aa21a6c5a6cd7bf9ba323f65a5e71a59c0002b9420ee",
-      "uploaded_sha256": "bee33f32f214446fa2f5aa21a6c5a6cd7bf9ba323f65a5e71a59c0002b9420ee",
-      "bytes": 3733,
-      "changes": []
+      "uploaded_sha256": "9fd1532ea9ac79c02baa7453932831a8186291f1655bb0d8a7d965f205d20ac4",
+      "bytes": 3696,
+      "changes": [
+        "personal_path_scrub_or_cleanup_documentation"
+      ]
     },
     {
       "source": "models/Retrival/extract.py",
@@ -923,9 +959,11 @@
       "source": "models/Retrival/models/tmr_humanml3d_guoh3dfeats/config.json",
       "destination": "reproduction/local/models/Retrival/models/tmr_humanml3d_guoh3dfeats/config.json",
       "source_sha256": "75ca94c677b6b5a77de0423235cdd915827e09a32ebf3e7a2e53dfa68c26e3ea",
-      "uploaded_sha256": "75ca94c677b6b5a77de0423235cdd915827e09a32ebf3e7a2e53dfa68c26e3ea",
-      "bytes": 3972,
-      "changes": []
+      "uploaded_sha256": "55f874ce94f7c249dee094247ce3a8d8ccf5407e94f46b161d0027a4bdb67c0c",
+      "bytes": 3966,
+      "changes": [
+        "personal_path_scrub_or_cleanup_documentation"
+      ]
     },
     {
       "source": "models/Retrival/models/tmr_kitml_guoh3dfeats/config.json",
@@ -945,11 +983,15 @@
     },
     {
       "source": "models/Retrival/prepare/download_pretrain_models.sh",
-      "destination": "reproduction/local/models/Retrival/prepare/download_pretrain_models.sh",
+      "destination": null,
       "source_sha256": "fbb3af7a7952a10159953b3f97ed9d215d05a627e455cee72ef77a8f5ecd37ae",
-      "uploaded_sha256": "fbb3af7a7952a10159953b3f97ed9d215d05a627e455cee72ef77a8f5ecd37ae",
-      "bytes": 469,
-      "changes": []
+      "bytes": 0,
+      "changes": [
+        "privacy_and_scope_cleanup"
+      ],
+      "status": "removed_by_cleanup",
+      "removed_reason": "legacy resource downloader; official resource links retained",
+      "last_published_sha256": "fbb3af7a7952a10159953b3f97ed9d215d05a627e455cee72ef77a8f5ecd37ae"
     },
     {
       "source": "models/Retrival/prepare/motion_stats.py",
@@ -1230,9 +1272,11 @@
       "source": "models/Retrival/text_motion_sim.py",
       "destination": "reproduction/local/models/Retrival/text_motion_sim.py",
       "source_sha256": "d64d126be3052b05a8832418ad3d45a68b6d414740c4b5a294b66db08c12ceb0",
-      "uploaded_sha256": "d64d126be3052b05a8832418ad3d45a68b6d414740c4b5a294b66db08c12ceb0",
-      "bytes": 9126,
-      "changes": []
+      "uploaded_sha256": "98e46ff41c001ed90b19055f0562b1a474092d1437cbff0b1266b6b52500c3e7",
+      "bytes": 8984,
+      "changes": [
+        "personal_path_scrub_or_cleanup_documentation"
+      ]
     },
     {
       "source": "models/Retrival/train.py",
@@ -1334,9 +1378,11 @@
       "source": "motion_gen.py",
       "destination": "reproduction/local/motion_gen.py",
       "source_sha256": "018577616a9fbaaf5fa22e93f8a4ce6813ef86be0aa8dcab6204d97494704434",
-      "uploaded_sha256": "018577616a9fbaaf5fa22e93f8a4ce6813ef86be0aa8dcab6204d97494704434",
-      "bytes": 5340,
-      "changes": []
+      "uploaded_sha256": "0223cd60a3e51556a40485f10e1131627dc54901f61cafdefc7eceec29f27b3d",
+      "bytes": 5334,
+      "changes": [
+        "personal_path_scrub_or_cleanup_documentation"
+      ]
     },
     {
       "source": "options/get_eval_option.py",
@@ -1383,11 +1429,15 @@
     },
     {
       "source": "run_order",
-      "destination": "reproduction/local/run_order",
+      "destination": null,
       "source_sha256": "a1e2a0cfb919288754ac3ed91aacf114e008ba2743ee1b84b4c6486e2eccb6ad",
-      "uploaded_sha256": "a1e2a0cfb919288754ac3ed91aacf114e008ba2743ee1b84b4c6486e2eccb6ad",
-      "bytes": 5819,
-      "changes": []
+      "bytes": 0,
+      "changes": [
+        "privacy_and_scope_cleanup"
+      ],
+      "status": "removed_by_cleanup",
+      "removed_reason": "obsolete command scratchpad with absent entry points",
+      "last_published_sha256": "a1e2a0cfb919288754ac3ed91aacf114e008ba2743ee1b84b4c6486e2eccb6ad"
     },
     {
       "source": "scripts/run_local.py",
@@ -1399,19 +1449,27 @@
     },
     {
       "source": "short_gen.py",
-      "destination": "reproduction/local/short_gen.py",
+      "destination": null,
       "source_sha256": "f1a21cbc1125781b8f8ff7121e1645f0fda71771ba73aca3896d2cb724689ffd",
-      "uploaded_sha256": "f1a21cbc1125781b8f8ff7121e1645f0fda71771ba73aca3896d2cb724689ffd",
-      "bytes": 2424,
-      "changes": []
+      "bytes": 0,
+      "changes": [
+        "privacy_and_scope_cleanup"
+      ],
+      "status": "removed_by_cleanup",
+      "removed_reason": "copies an ad hoc selected sample set; not a training dependency",
+      "last_published_sha256": "f1a21cbc1125781b8f8ff7121e1645f0fda71771ba73aca3896d2cb724689ffd"
     },
     {
       "source": "train_GPT_split.py",
-      "destination": "reproduction/local/train_GPT_split.py",
+      "destination": null,
       "source_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
-      "uploaded_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
       "bytes": 0,
-      "changes": []
+      "changes": [
+        "privacy_and_scope_cleanup"
+      ],
+      "status": "removed_by_cleanup",
+      "removed_reason": "empty placeholder without executable code",
+      "last_published_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
     },
     {
       "source": "train_t2m_trans.py",
@@ -1423,11 +1481,16 @@
     },
     {
       "source": "train_transition.py",
-      "destination": "reproduction/local/train_transition.py",
+      "destination": null,
       "source_sha256": "cb2985bc0b73325fae8e83689ca7eaed99d667738a4bb01006e1cc288b904886",
-      "uploaded_sha256": "cb2985bc0b73325fae8e83689ca7eaed99d667738a4bb01006e1cc288b904886",
-      "bytes": 10008,
-      "changes": []
+      "bytes": 0,
+      "changes": [
+        "privacy_and_scope_cleanup"
+      ],
+      "status": "removed_by_cleanup",
+      "removed_reason": "byte-identical copy of train_t2m_trans.py",
+      "last_published_sha256": "cb2985bc0b73325fae8e83689ca7eaed99d667738a4bb01006e1cc288b904886",
+      "canonical_replacement": "reproduction/local/train_t2m_trans.py"
     },
     {
       "source": "train_vq.py",
@@ -1561,11 +1624,15 @@
     },
     {
       "source": "visualize/Visualization.py",
-      "destination": "reproduction/local/visualize/Visualization.py",
+      "destination": null,
       "source_sha256": "91512180fb4c5718c3b1d1d801bf75bcc99dd38ff24358189e88ec946f05236a",
-      "uploaded_sha256": "91512180fb4c5718c3b1d1d801bf75bcc99dd38ff24358189e88ec946f05236a",
-      "bytes": 1693,
-      "changes": []
+      "bytes": 0,
+      "changes": [
+        "privacy_and_scope_cleanup"
+      ],
+      "status": "removed_by_cleanup",
+      "removed_reason": "one-off inspection of fixed local result arrays",
+      "last_published_sha256": "91512180fb4c5718c3b1d1d801bf75bcc99dd38ff24358189e88ec946f05236a"
     },
     {
       "source": "visualize/get_opt.py",
@@ -1823,5 +1890,6 @@
   },
   "included_file_count": 200,
   "included_bytes": 915409,
-  "maintenance_note": "Dependency files consolidated on 2026-10-31. Archived entries identify an exact-text member in docs/dependency-history.json; source_sha256 preserves the original local identity. Initial counts and source tree accounting describe the initial sync."
+  "maintenance_note": "Dependency files consolidated on 2026-10-31. Archived entries identify an exact-text member in docs/dependency-history.json; source_sha256 preserves the original local identity. Initial counts and source tree accounting describe the initial sync.",
+  "privacy_cleanup_note": "Current files use generic resource placeholders. Removed source entries retain hashes and reasons but no content; original source counts describe the initial import. Third-party notices are retained. Git history is not rewritten by this cleanup."
 }

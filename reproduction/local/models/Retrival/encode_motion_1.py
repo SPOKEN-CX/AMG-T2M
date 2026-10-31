@@ -102,13 +102,13 @@ def process_motion(npy_file, source_folder, output_folder):
 
 def main():
     # 配置路径（根据实际情况进行修改）
-    run_dir = '/home/peng/PythonProjects/T2M-GPT-main/models/Retrival/models/tmr_humanml3d_guoh3dfeats'
+    run_dir = '/path/to/AMG-T2M/reproduction/local/models/Retrival/models/tmr_humanml3d_guoh3dfeats'
     ckpt_name = 'last'
     device_ = 'cuda'  # 或 'cpu'
 
     # 源文件夹与目标文件夹（请根据实际需求修改）
-    source_folder = "/home/peng/PythonProjects/Dataset/HumanML3D/new_joint_vecs"
-    output_folder = "/home/peng/PythonProjects/Dataset/HumanML3D/motion_retrival"
+    source_folder = "/path/to/Dataset/HumanML3D/new_joint_vecs"
+    output_folder = "/path/to/Dataset/HumanML3D/motion_retrival"
 
     # 若目标文件夹不存在，则创建
     os.makedirs(output_folder, exist_ok=True)

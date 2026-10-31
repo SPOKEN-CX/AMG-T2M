@@ -1,3 +1,5 @@
+> Current privacy/scope cleanup is documented in [repository-audit.md](repository-audit.md). Earlier counts and retained-file statements below describe the initial source snapshot, before later cleanup.
+
 > Dependency maintenance: all active Python dependencies now use the root `requirements.txt`. Original dependency inputs are preserved verbatim in [dependency-history.json](dependency-history.json). Source hashes and archive locations are updated in the source manifest; numerical byte-identity counts below describe the initial source sync.
 
 # 源码范围与复现入口
