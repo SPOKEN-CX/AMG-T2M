@@ -3,6 +3,5 @@ channels:
   - defaults
 dependencies:
   - python=3.10.18
-  - pip=26.2.1
-# Run python -m pip install -r requirements.txt after activating this environment.
-# The Python package versions are recorded from the working environment, not solved anew.
+  - pip=24.3.1
+# Activate this interpreter, then install the single root requirements.txt.

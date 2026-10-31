@@ -3,7 +3,6 @@ import os
 
 
 import json
-import parser
 
 import torch
 import torch.optim as optim

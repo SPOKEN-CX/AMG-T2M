@@ -14,7 +14,7 @@ The existing training programs read command-line flags, not YAML. The checked-in
 
 ## How are the exact dependencies installed?
 
-Use `environment.yml` and `requirements.txt` for the main environment. TMR and length-module overlays are installed separately as described in [environment.md](environment.md); do not combine those lock files into a single installation.
+Create the Python interpreter with `environment.yml`, then install the single root `requirements.txt`. It covers VQ/GPT, TMR, length prediction, analysis, and rendering Python dependencies. See [environment.md](environment.md) for system resources and historical dependency records.
 
 ## Where are paper authors and DOI?
 

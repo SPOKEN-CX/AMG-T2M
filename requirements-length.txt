@@ -1,3 +1,0 @@
-# Install separately with --no-deps --target .runtime/length_deps after the base environment.
---index-url https://pypi.org/simple
--r requirements/length-overlay.lock.txt

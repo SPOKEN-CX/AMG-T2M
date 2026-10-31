@@ -1,3 +1,5 @@
+> Dependency maintenance: all active Python dependencies now use the root `requirements.txt`. Original dependency inputs are preserved verbatim in [dependency-history.json](dependency-history.json). Source hashes and archive locations are updated in the source manifest; numerical byte-identity counts below describe the initial source sync.
+
 # 源码范围与复现入口
 
 2026-10-31 已将本地项目的源码基准收录到 [reproduction/local/](../reproduction/local/README.md)。本地模型、数据加载器、VQ/GPT 单卡及多卡训练、正式评估、长度模块、TMR 辅助入口、渲染源码、依赖与运行指南按原目录结构保存。

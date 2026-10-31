@@ -1,3 +1,5 @@
+> Dependency maintenance: all active Python dependencies now use the root `requirements.txt`. Original dependency inputs are preserved verbatim in [dependency-history.json](dependency-history.json). Source hashes and archive locations are updated in the source manifest; numerical byte-identity counts below describe the initial source sync.
+
 # 本地源码同步审查（2026-10-31）
 
 本次以本地项目目录为源码依据，审查本地文件、运行入口、导入关系、依赖清单、配置与资源路径，再将可发布的源码内容归档到 `reproduction/local/`。原工作目录未改动；GitHub 原有 `src/`、`tools/` 工作流继续保留。
@@ -23,7 +25,7 @@
 | 发现 | 处理及使用方式 |
 |---|---|
 | 旧机器绝对路径、`../Dataset` 和本地 `dataset/` 路径混用 | 源码保持原样；提供 [configure_paths.py](../reproduction/configure_paths.py)，使用清单限定文件，只配置 Python/JSON 中已知的资源路径字符串。默认仅预览，`--write` 后生效。 |
-| 本地 `requirements-local.txt` 固定 PyTorch 2.5.1，根目录主环境固定 2.0.1 | 依赖清单按原位置收录并隔离；前者是最小本地演示环境，不能作为主环境的附加依赖合并安装。 |
+| 初始本地演示依赖与主环境版本不同 | 历史依赖已归档到 `dependency-history.json`；当前统一使用根目录 `requirements.txt`，包含共同解析和固定的版本。 |
 | `train_transition.py` 与 `train_t2m_trans.py` 字节相同 | 两者均保留，以便核对历史命令；按内容识别为同一 GPT 训练入口。 |
 | `train_GPT_split.py` 为零字节 | 保留并明确记录，不将它列作可运行训练器。 |
 | `run_order` 引用 `gen_long_seq.py`、`train_length_est.py`，本地根目录无这两个文件 | 历史命令记录原样保留；不虚构缺失入口。根目录整理版的长度训练入口实际为 `tools/train_length_est.py`，应按整理版工作流运行。 |

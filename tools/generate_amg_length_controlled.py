@@ -65,7 +65,7 @@ def main():
     p.add_argument('--gpt-checkpoint', type=Path, required=True)
     p.add_argument('--vq-checkpoint', type=Path, default=ROOT/'output/hml3d/VQ_amg_b512_frozen/net_best_fid.pth')
     p.add_argument('--length-checkpoint', type=Path, default=ROOT/'output/hml3d/Length_amg_gat_b512_50k/net_best_mae.pth')
-    p.add_argument('--spacy-model', default=str(ROOT/'output/amg_prepare/length_models/en_core_web_sm/en_core_web_sm-3.5.0'))
+    p.add_argument('--spacy-model', default='en_core_web_sm')
     p.add_argument('--text', nargs='+', required=True)
     p.add_argument('--out-dir', type=Path, required=True)
     p.add_argument('--seed', type=int, default=123)

@@ -1,3 +1,5 @@
+> Current installation: the root `requirements.txt` is the single shared dependency specification. The 2026-10-31 consolidation supersedes the overlay defaults described in the original snapshot notes below; see [environment.md](environment.md).
+
 **Snapshot preparation changes — 2026-10-30**
 
 Only the upload candidate was edited. The original research directory, running experiments, datasets and weights were not modified.

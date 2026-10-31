@@ -1,86 +1,413 @@
 # AMG-T2M
 
-面向长时序文本到动作生成的项目，围绕 TMR 引导的动作 VQ、文本条件 GPT、动作长度预测和潜空间分析整理源码与复现入口。
+**AMG: Long-Term Text-to-Motion Generation from Arbitrary-Length Prompts**
 
-## 本地完整源码与复现基准
+AMG-T2M is a text-to-motion research codebase built around a motion VQ-VAE, a text-conditioned autoregressive transformer, TMR-guided representation learning, and motion-length prediction. It includes training and evaluation entry points, feature preparation, generation tools, and latent-space analysis.
 
-本地项目源码按原目录结构保存在 [`reproduction/local/`](reproduction/local/README.md)，包含模型、数据加载器、多卡训练、TMR 辅助工具、长度模块、渲染代码、依赖与运行指南。复现本地工程时，以该目录为工作目录，按其中的指南配置环境和外部资源。
+This repository contains the original local reproduction source under [`reproduction/local/`](reproduction/local/README.md), alongside maintained root-level training and resource-preparation tools. Motion datasets and experimental checkpoints are acquired separately through their official sources.
 
-本次共归档 200 个本地源码、配置与说明文件，并提供[逐文件来源与哈希清单](reproduction/source-manifest.json)、[审查报告](docs/local-source-sync.md)及[路径配置工具](reproduction/configure_paths.py)。数据、权重、结果、虚拟环境和临时测试脚本均未上传。仓库根目录的 `src/`、`tools/` 为整理版入口，使用其工作流时从仓库根目录运行。
+## Contents
 
-![AMG-T2M 文本提示与生成动作序列示例](assets/amg_teaser.png)
+- [Overview and examples](#overview-and-examples)
+- [Repository layout](#repository-layout)
+- [Installation](#installation)
+- [Data and external resources](#data-and-external-resources)
+- [Quick inference and preview](#quick-inference-and-preview)
+- [Using the local reproduction source](#using-the-local-reproduction-source)
+- [Maintained training workflow](#maintained-training-workflow)
+- [Evaluation](#evaluation)
+- [Length prediction and duration-controlled generation](#length-prediction-and-duration-controlled-generation)
+- [Visualization and analysis](#visualization-and-analysis)
+- [Troubleshooting and experiment records](#troubleshooting-and-experiment-records)
+- [Documentation, provenance, and acknowledgments](#documentation-provenance-and-acknowledgments)
 
-*文本提示与对应生成动作序列示例。*
+## Overview and examples
 
-![AMG-T2M 长时序动作生成对比](assets/long_term_comparison.png)
+The motion tokenizer maps continuous motion features to discrete codes. The GPT model predicts motion codes from CLIP text features, and the VQ decoder reconstructs motion features and joint coordinates. TMR motion/text representations guide the contrastive VQ training branch. The separate length branch estimates duration from text features and dependency graphs.
 
-*长时序动作生成结果对比。*
+```mermaid
+flowchart LR
+    M[Motion features] --> VQ[VQ encoder and codebook]
+    VQ --> TOK[Motion tokens]
+    T[Text prompt] --> CLIP[CLIP text features]
+    CLIP --> GPT[Autoregressive GPT]
+    TOK --> GPT
+    GPT --> DEC[VQ decoder]
+    DEC --> XYZ[Motion features and 3D joints]
+    T --> LEN[Length predictor]
+    LEN --> DUR[Duration-controlled sampling]
+    DUR --> GPT
+    TMR[TMR motion and text features] -. contrastive training .-> VQ
+```
 
-![AMG-T2M 与其他方法的动作生成对比](assets/method_comparison.png)
+![Text prompts and generated motion sequences](assets/amg_teaser.png)
 
-*AMG-T2M 与其他方法在长时序和短时序提示上的定性对比。*
+*Illustrative text prompts and corresponding motion sequences.*
 
-论文标题：**AMG: Long-Term Text-to-Motion Generation from Arbitrary-Length Prompts**。论文信息暂未公开，仓库当前保持 Private。
+![Long-sequence motion comparison](assets/long_term_comparison.png)
 
-## 整理版快速开始
+*Qualitative comparison of long-sequence motion generation.*
 
-从项目根目录创建主环境：
+![Motion generation comparison across methods](assets/method_comparison.png)
+
+*Qualitative comparisons for long and short textual prompts. These figures are existing project assets; this repository update does not report newly measured results.*
+
+## Repository layout
+
+```text
+AMG-T2M/
+├── requirements.txt              # One shared, pinned Python dependency file
+├── environment.yml               # Python/pip environment bootstrap
+├── reproduction/
+│   ├── local/                    # Original local project layout and experiment variants
+│   │   ├── models/               # VQ/GPT, length models, TMR, and related modules
+│   │   ├── dataset/              # Python loaders; motion data is not bundled
+│   │   ├── utils/ and options/
+│   │   ├── LibMTL/
+│   │   ├── visualize/ and visualization/
+│   │   └── train_*.py            # Local training entry points
+│   ├── configure_paths.py        # Configure known local resource-path strings
+│   └── source-manifest.json      # Source provenance and original hashes
+├── src/                          # Organized model, dataset, loss, and utility modules
+├── preprocess/                   # TMR pair preparation, VQ freezing, length features
+├── tools/                        # Maintained training, evaluation, and generation commands
+├── visualize/                    # Latent-space analysis and visualization source
+├── resources/                    # External resource catalog
+├── assets/                       # README figures
+└── docs/                         # Environment, workflow, data, and source audit
+```
+
+Choose the working directory that belongs to the entry point:
+
+| Workflow | Working directory | Example |
+|---|---|---|
+| Maintained training and generation | Repository root | `python tools/train_gpt.py ...` |
+| Original local experiment variants | `reproduction/local/` | `python train_t2m_trans.py ...` |
+| Original TMR commands | `reproduction/local/models/Retrival/` | Follow that directory's README |
+
+The original and organized source trees have different import and resource conventions. Keep each command with its own loaders, configuration, and working directory. The maintained commands below run from the repository root unless explicitly stated otherwise.
+
+## Installation
+
+### Supported training environment
+
+Use **Python 3.10 on Linux x86_64** with an NVIDIA GPU for the CUDA training workflows. The shared dependencies target **PyTorch 2.0.1 / CUDA 11.7**. The Conda bootstrap records Python 3.10.18. GPU memory requirements depend on the selected batch size, sequence length, and training variant.
+
+Git is required for the pinned CLIP dependency. The Linux launchers use Bash, `flock`, `sha256sum`, and GNU `cp --parents`.
 
 ```bash
+git clone https://github.com/SPOKEN-CX/AMG-T2M.git
+cd AMG-T2M
+
 conda env create -f environment.yml
 conda activate AMG-T2M
 python -m pip install -r requirements.txt
+python -m pip check
 ```
 
-主环境版本、分任务附加依赖和安装说明见[环境与依赖](docs/environment.md)。训练、评估、长度控制生成和潜空间分析的入口顺序见[执行流程](docs/workflow.md)。
+There is **one active requirements file**. It includes VQ/GPT training, TMR/transformers, graph-based length prediction, the English spaCy model, evaluation, latent-space analysis, and Python rendering dependencies. No separate TMR, length, local-demo, or visualization installation is required.
 
-## 本地快速检查与生成
+The dependency file also pins resolved transitive versions. Historical dependency lists are retained as provenance in [`docs/dependency-history.json`](docs/dependency-history.json), rather than as additional installable requirements files. See the [environment guide](docs/environment.md) for the selected versions, native rendering prerequisites, and validation scope.
 
-`tools/run_local.py` 提供动作预览、VQ 重建、训练 smoke check 和文本生成入口。数据、统计文件、权重和 CLIP 模型需事先放在本地资源目录，或通过参数传入：
+Check the active interpreter and required models:
 
 ```bash
-# 预览一个本地关节序列 (T,22,3)
-python tools/run_local.py preview --source /path/to/joints.npy
-
-# 用 VQ-VAE 重建一个本地 HumanML3D 特征序列 (T,263)
-python tools/run_local.py reconstruct --source /path/to/motion_features.npy
-
-# 在本地特征样本目录执行少量训练步，用于检查训练路径
-python tools/run_local.py train-smoke --source /path/to/motion_features_dir --steps 3
-
-# 文本生成；如资源不在默认位置，可传入 --vq、--gpt、--meta-dir、--clip-model
-python tools/run_local.py generate --text "a person walks forward" --device auto
+python - <<'PY'
+import torch, clip, transformers, spacy, torch_geometric
+print('PyTorch:', torch.__version__)
+print('CUDA runtime:', torch.version.cuda)
+print('GPU available:', torch.cuda.is_available())
+print('spaCy pipeline:', spacy.load('en_core_web_sm').pipe_names)
+PY
 ```
 
-预览和 smoke check 需要使用者本地准备的动作样本；这些样本不会随仓库分发。多条 `--text` 会按生成顺序拼接动作 token，详见入口说明。
+## Data and external resources
 
-## 数据集与模型资源
+The repository distributes source code and download references. **Datasets, captions, splits, annotation files, derived embeddings, normalization tensors, GloVe data, model weights, SMPL assets, and generated motions are not bundled.**
 
-本仓库只提供数据集的官方获取入口和使用说明，不托管数据集、标注、派生缓存、预训练权重、训练 checkpoint 或生成动作文件。
+### Official acquisition links
 
-- **HumanML3D（主要数据集）**：[官方代码与获取说明](https://github.com/EricGuo5513/HumanML3D)
-- **AMASS（HumanML3D 的来源数据之一）**：[官方获取页](https://amass.is.tue.mpg.de/) · [许可说明](https://amass.is.tue.mpg.de/license.html)
-- **KIT-ML（可选数据入口）**：[官方数据页](https://motion-annotation.humanoids.kit.edu/dataset/)
-- **模型、CLIP、统计量和缓存路径**：[数据与模型清单](docs/data-and-models.md) · [资源路径索引](resources/manifest.json)
+| Resource | Official source | Usage |
+|---|---|---|
+| HumanML3D | [Data acquisition instructions](https://github.com/EricGuo5513/HumanML3D#how-to-obtain-the-data) | Main text-to-motion dataset |
+| AMASS | [Official site](https://amass.is.tue.mpg.de/) and [license](https://amass.is.tue.mpg.de/license.html) | Source motion data used in HumanML3D preparation |
+| KIT-ML | [Official dataset page](https://motion-annotation.humanoids.kit.edu/dataset/) | Optional dataset branch |
+| BABEL | [Official site](https://babel.is.tue.mpg.de/) | Optional BABEL/TEACH-related local experiments |
+| T2M-GPT resources | [Upstream repository](https://github.com/Mael-zys/T2M-GPT) | Baseline checkpoints and resource instructions |
+| Text-to-motion evaluator | [Official repository](https://github.com/EricGuo5513/text-to-motion) | Matching evaluation assets and word-vector resources |
+| TMR | [Official repository](https://github.com/Mathux/TMR) | Retrieval models, statistics, and annotation preparation |
+| CLIP | [Official repository](https://github.com/openai/CLIP) | ViT-B/32 model used for text conditioning |
 
-下载或重建数据前，请先阅读对应上游的获取方式、许可和引用要求。HumanML3D 数据准备与输入格式说明见[数据集文档](docs/datasets.md)。
+Follow each source's acquisition process and applicable terms. The upstream data instructions are authoritative; the historical local download scripts are not a fresh data installer.
 
-## 代码结构
+### Expected maintained-workflow layout
 
 ```text
-reproduction/     本地完整源码基准、同步清单和路径配置工具
-src/              模型、数据集、损失、训练选项和通用工具
-preprocess/       TMR、GPT、长度特征及训练输入准备
-tools/            训练、评估、生成、检查和启动脚本
-visualize/        潜空间分析与动作可视化
-configs/          实验配置说明
-resources/        外部模型与数据资源路径清单
-assets/           README 图片
-docs/             环境、数据、工作流和复现说明
+dataset/HumanML3D/
+  new_joint_vecs/<motion_id>.npy    # Raw HumanML3D feature arrays: (T, 263)
+  texts/<motion_id>.txt            # Corresponding official text annotations
+  train.txt
+  val.txt
+  test.txt
+checkpoints/t2m/
+  Comp_v6_KLD005/opt.txt
+  text_mot_match/model/finest_1.tar
+  VQVAEV3_CB1024_CMT_H1024_NRES3/meta/
+    mean.npy
+    std.npy
+glove/
+  our_vab_data.npy
+  our_vab_words.pkl
+  our_vab_idx.pkl
+ViT-B-32.pt
 ```
 
-关键文档：[执行流程](docs/workflow.md)、[FAQ](docs/FAQ.md)、[第三方代码与许可](THIRD_PARTY_NOTICES.md)。运行实验时请记录使用的数据 split、checkpoint 身份、统计量和配置，以便对应结果。
+HumanML3D uses 22 joints, 263-dimensional motion features, and 20 FPS in the documented workflow. A generated `(T,22,3)` skeleton is a visualization output, not a replacement for raw training features. KIT uses a different representation and its own statistics/checkpoints.
 
-## 引用与许可
+TMR encoding additionally needs matching model weights, statistics, annotation indexes, and precomputed or regenerated text features. Consult the [resource catalog](resources/manifest.json), [data/model paths](docs/data-and-models.md), and [dataset notes](docs/datasets.md). The source manifest contains no motion data.
 
-论文正式公开后会补充作者、发表信息和 BibTeX。上游代码和第三方许可见 [THIRD_PARTY_NOTICES.md](THIRD_PARTY_NOTICES.md)。根目录 [LICENSE](LICENSE) 不覆盖第三方代码、数据集或模型权重各自的授权条款。
+Keep normalization statistics, the evaluator, VQ codebook, token cache, and GPT checkpoint mutually compatible. Private experiment weights have no fabricated public download URL; obtain or train the matching models before inference.
+
+## Quick inference and preview
+
+The maintained local utility supports skeleton preview, VQ reconstruction, a short training-path check, and text-conditioned generation.
+
+### Preview existing joints
+
+```bash
+python tools/run_local.py preview \
+  --source /absolute/path/to/joints.npy \
+  --out output/demo/preview_run
+```
+
+The input must contain `(T,22,3)` or `(1,T,22,3)` joint coordinates. This mode does not require VQ/GPT weights or the full dataset. It produces a GIF and a JSON report.
+
+### Reconstruct an existing feature sequence
+
+```bash
+python tools/run_local.py reconstruct \
+  --source /absolute/path/to/raw_motion_features.npy \
+  --vq /absolute/path/to/vq_checkpoint.pth \
+  --meta-dir checkpoints/t2m/VQVAEV3_CB1024_CMT_H1024_NRES3/meta \
+  --device auto \
+  --out output/demo/reconstruction_run
+```
+
+The source is a raw `(T,263)` feature sequence. The utility normalizes it with the supplied statistics, encodes and decodes it, and saves tokens, reconstructed features, joint coordinates, GIFs, and a report.
+
+### Generate from text
+
+```bash
+python tools/run_local.py generate \
+  --text "A person walks forward and turns left." \
+  --vq /absolute/path/to/vq_checkpoint.pth \
+  --gpt /absolute/path/to/matching_gpt_checkpoint.pth \
+  --meta-dir checkpoints/t2m/VQVAEV3_CB1024_CMT_H1024_NRES3/meta \
+  --clip-model ViT-B-32.pt \
+  --device auto \
+  --out output/demo/text_generation_run
+```
+
+Use a new output directory for each run. `--device auto` selects CUDA when available and CPU otherwise. `--sample` enables categorical token sampling; `--seed` controls the seed; `--no-gif` skips animation export. Repeating `--text` generates segments in order and concatenates their motion tokens. This utility does not apply a learned transition model between those segments.
+
+For a small forward/backward check on local feature samples:
+
+```bash
+python tools/run_local.py train-smoke \
+  --source /absolute/path/to/feature_sample_directory \
+  --vq /absolute/path/to/vq_checkpoint.pth \
+  --meta-dir checkpoints/t2m/VQVAEV3_CB1024_CMT_H1024_NRES3/meta \
+  --steps 3 --device cuda --no-gif
+```
+
+This checks a training path and writes a smoke checkpoint; it is not a completed model training run or a benchmark evaluation.
+
+## Using the local reproduction source
+
+The original local source includes single/distributed VQ variants, local GPT/evaluation entry points, length models, TMR tools, LibMTL, and rendering code. Install the shared root environment once, then enter its source root:
+
+```bash
+cd reproduction/local
+export PYTHONPATH="$PWD:$PWD/models/Retrival${PYTHONPATH:+:$PYTHONPATH}"
+
+# Inspect known resource-path substitutions.
+python ../configure_paths.py --data-root /absolute/path/to/Dataset
+# Apply them to this source copy.
+python ../configure_paths.py \
+  --data-root /absolute/path/to/Dataset \
+  --spacy-model en_core_web_sm --write
+```
+
+The data-root directory contains `HumanML3D/`, `KIT-ML/`, or `BABEL_TEACH/`. The configuration tool updates known path strings only; it does not download data or alter training computations. Resources such as `checkpoints/`, `pretrained/`, `glove/`, and `ViT-B-32.pt` must be available relative to this local source root for its original entry points.
+
+Use the [local source README](reproduction/local/README.md) and the preserved [training/evaluation guide](reproduction/local/AMG_TRAIN_EVAL_GUIDE.zh-CN.md) for historical experiment variants. The latter remains in Chinese. The [source audit](docs/local-source-sync.md) identifies historical empty/duplicated entry points and missing file references, so those names are not mistaken for independent executable workflows.
+
+## Maintained training workflow
+
+The commands in this section run from the repository root, using the organized source tree and its recorded launch configurations.
+
+### 1. Prepare TMR-aligned motion/text features
+
+With HumanML3D and the matching TMR resources prepared, create the paired manifest and audit:
+
+```bash
+python preprocess/prepare_amg_tmr.py \
+  --output output/amg_prepare/humanml3d_train_ready \
+  --resolve-whitespace
+```
+
+Inspect `audit.json`. Resolve reported input errors before encoding. If `missing_precomputed_text` is nonzero, prepare the specified local DistilBERT model and recover those features:
+
+```bash
+python preprocess/prepare_amg_missing_text.py \
+  --audit output/amg_prepare/humanml3d_train_ready/audit.json \
+  --model-dir output/amg_prepare/models/distilbert-base-uncased \
+  --output output/amg_prepare/missing_tokens
+```
+
+Then encode paired representations:
+
+```bash
+python preprocess/prepare_amg_tmr.py \
+  --output output/amg_prepare/humanml3d_train_ready \
+  --resolve-whitespace --encode --device cuda --batch-size 16
+```
+
+Add `--missing-token-dir output/amg_prepare/missing_tokens` to the encoding command only if the recovery step produced that directory. The resulting pair directory contains `train_pairs.jsonl`, motion/text embeddings, and an audit. Check that `errors` is empty and `missing_unresolved_text` is zero before VQ training.
+
+### 2. Train and freeze the AMG VQ model
+
+The recorded batch-512 protocol first trains to 10,000 steps, then resumes to a total of 100,000:
+
+```bash
+bash tools/run_amg_vq_b512_check10000.sh
+bash tools/run_amg_vq_b512_100k.sh
+```
+
+Inspect each run's `console.log`, `status.txt`, and `result_summary.json`. Freeze the selected VQ checkpoint and its identity:
+
+```bash
+python preprocess/prepare_amg_gpt.py \
+  --source-dir output/hml3d/VQ_amg_b512_k50_100k \
+  --output output/hml3d/VQ_amg_b512_frozen
+```
+
+The resulting frozen VQ and `manifest.json` are inputs to the GPT workflow. A different VQ checkpoint requires a matching token cache and GPT model.
+
+### 3. Train the text-conditioned GPT
+
+Run the short check before the full protocol:
+
+```bash
+bash tools/run_amg_gpt_b512.sh check
+bash tools/run_amg_gpt_b512.sh full
+```
+
+The `b512` in this launcher's filename identifies its VQ lineage, not every GPT batch size. The actual modes are:
+
+| Mode | Microbatch | Accumulation | Effective batch | Training iterations |
+|---|---:|---:|---:|---:|
+| `check` | 32 | 1 | 32 | 100 |
+| `full` | 128 | 1 | 128 | 100,000 |
+| `extend300k` | 128 | 1 | 128 | 300,000 total, resumed from the full run |
+| `gpt512300k` | 512 | 1 | 512 | 300,000 |
+| `gpt4096check` | 512 | 8 | 4,096 | 2 |
+| `gpt4096full` | 512 | 8 | 4,096 | 150,000 |
+
+Inspect a launch command without starting training:
+
+```bash
+bash tools/run_amg_gpt_b512.sh full --dry-run
+```
+
+The larger modes are separate protocols. Their prerequisite checks, archive/resume conditions, VQ identity checks, and output locations are defined in the launcher. Choose the protocol that matches the experiment you intend to reproduce and record the actual batch/accumulation values.
+
+## Evaluation
+
+The recorded VQ test-evaluation launcher targets the documented 100k model:
+
+```bash
+bash tools/run_amg_vq_test_once.sh
+```
+
+For GPT evaluation, use the matching frozen VQ and GPT checkpoint. This example evaluates the `full` GPT protocol over 20 repeats:
+
+```bash
+python tools/eval_gpt.py \
+  --dataname t2m \
+  --num-layers 9 --embed-dim-gpt 1024 --n-head-gpt 16 \
+  --block-size 51 --ff-rate 4 --drop-out-rate 0.1 \
+  --nb-code 512 --down-t 2 --depth 3 --dilation-growth-rate 3 \
+  --quantizer ema_reset --vq-act relu \
+  --resume-pth output/hml3d/VQ_amg_b512_frozen/net_best_fid.pth \
+  --resume-trans output/hml3d/GPT_amg_b512_full_bf16/net_best_fid.pth \
+  --out-dir output/hml3d_eval --exp-name AMG_GPT_full --repeat-time 20
+```
+
+Evaluation uses the appropriate test split, fixed evaluator, GloVe, CLIP, normalization statistics, and checkpoint pair. Record the exact command, seed strategy, checkpoint hashes, and evaluator identity together with the reported metrics. Formal evaluation entry points are retained as project functionality; ad hoc test/probe scripts were excluded from the local-source archive.
+
+## Length prediction and duration-controlled generation
+
+The length branch can be trained independently of VQ/GPT. Its dependencies and `en_core_web_sm` are already included in the shared installation.
+
+```bash
+python preprocess/prepare_amg_lengths.py \
+  --output output/amg_prepare/lengths_full_v2
+
+bash tools/run_amg_lengths.sh
+```
+
+The launcher prepares frozen CLIP word features and dependency graphs, checks cached features, runs a 20-step batch-512 startup check, and trains the 50,000-step configuration. The best model is written to `output/hml3d/Length_amg_gat_b512_50k/net_best_mae.pth`. Inspect `status.txt`, `completion.json`, `test_metrics.json`, and the run logs.
+
+Once matching VQ, GPT, and length models are available:
+
+```bash
+python tools/generate_amg_length_controlled.py \
+  --gpt-checkpoint output/hml3d/GPT_amg_b512_full_bf16/net_best_fid.pth \
+  --vq-checkpoint output/hml3d/VQ_amg_b512_frozen/net_best_fid.pth \
+  --length-checkpoint output/hml3d/Length_amg_gat_b512_50k/net_best_mae.pth \
+  --spacy-model en_core_web_sm \
+  --text "A person walks forward, then sits down and stands up." \
+  --out-dir output/demo/amg_duration_run
+```
+
+This entry point generates one duration-controlled segment per caption, with a maximum of 49 motion tokens / 196 frames at 20 FPS. Over-limit predictions raise an error unless explicit clipping is requested with `--allow-clip`. Preserve the GPT run's `vq_identity.json`; the entry point verifies that it matches the supplied VQ checkpoint.
+
+## Visualization and analysis
+
+- `tools/run_local.py preview` renders skeleton GIFs from local joint arrays without SMPL.
+- `tools/demo.py` provides the maintained multi-step prompt demonstration using configured VQ/GPT resources.
+- `visualize/latent_tsne_comparison/` contains feature extraction, checkpoint comparisons, selection protocols, and figure-generation tools. Start with its [analysis guide](visualize/latent_tsne_comparison/README.zh-CN.md) and configuration files.
+- `reproduction/local/visualize/` and `render_final.py` preserve the original mesh-rendering source. These require external SMPL/SMPLify assets and a native OpenGL backend in addition to the Python packages. See [rendering prerequisites](docs/environment.md#native-rendering-and-optional-extensions).
+
+Generated arrays, animations, figure outputs, and checkpoint files should remain in experiment output directories rather than being committed to the source repository.
+
+## Troubleshooting and experiment records
+
+| Symptom | What to check |
+|---|---|
+| CUDA is unavailable | The active interpreter, `torch.__version__`, `torch.version.cuda`, and host NVIDIA driver |
+| Missing motion/text/normalization files | The working directory and the resource layout for the selected source tree |
+| TMR encoding reports missing text features | The preparation audit, local tokenizer/model resources, and optional missing-feature recovery step |
+| spaCy model cannot be loaded | The unified dependency installation and `spacy.load('en_core_web_sm')`; use `T2M_SPACY_MODEL` for a custom model path |
+| VQ/GPT state-dict or identity mismatch | Architecture options, codebook dimensions, checkpoint lineage, statistics, and `vq_identity.json` |
+| A launcher finds an existing run but cannot resume | Inspect its logs and full training checkpoint before reusing the experiment directory |
+| Mesh rendering fails while skeleton preview works | SMPL/prior assets and the OSMesa/OpenGL system backend |
+
+For each experiment, retain the source commit, actual command, dependency environment, dataset version/split, preprocessing audit, seed, normalization hashes, VQ/GPT pairing, evaluator identity, and output logs. Launcher names alone do not identify a complete protocol.
+
+The dependency set has been resolved together for the documented Python/Linux target. Source syntax, path-configuration behavior, and publication contents were checked during maintenance. This update does not claim a fresh full-environment installation, GPU training run, or newly reproduced paper metrics.
+
+## Documentation, provenance, and acknowledgments
+
+- [Environment and unified installation](docs/environment.md)
+- [Detailed workflow notes](docs/workflow.md)
+- [Dataset formats and acquisition](docs/datasets.md)
+- [External model/resource paths](docs/data-and-models.md)
+- [Local source audit](docs/local-source-sync.md)
+- [Source manifest](reproduction/source-manifest.json)
+- [FAQ](docs/FAQ.md)
+
+The project builds on [T2M-GPT](https://github.com/Mael-zys/T2M-GPT), [TMR](https://github.com/Mathux/TMR), [HumanML3D](https://github.com/EricGuo5513/HumanML3D), and other attributed components. Cite the upstream methods and datasets relevant to your use. The AMG paper's public author/publication information and BibTeX will be added when available; no publication metadata is invented here.
+
+See [THIRD_PARTY_NOTICES.md](THIRD_PARTY_NOTICES.md) and the retained license files. The root [LICENSE](LICENSE) does not replace the individual terms for third-party code, datasets, pretrained models, or body-model assets.

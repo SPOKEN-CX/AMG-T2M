@@ -117,11 +117,11 @@ VQ下采样倍数为4，125帧样例会截成124帧。输出原始动作与重�
 若以后重建这个最小环境：
 
 ```bash
-uv venv --python 3.11 .venv-smoke
-uv pip install --python .venv-smoke/bin/python -r requirements-local.txt
+uv venv --python 3.10 .venv-smoke
+uv pip install --python .venv-smoke/bin/python -r ../../requirements.txt
 ```
 
-这份依赖清单仅用于新增本地入口，不包括 TMR、图网络、spaCy、TensorBoard、SMPL 等完整研究栈。
+根目录统一依赖现已包含 TMR、图网络、spaCy、TensorBoard 和 SMPL 渲染的 Python 依赖。历史最小环境清单归档在 `../../docs/dependency-history.json`。
 
 ## 4. 原项目结构与当前阻塞
 
@@ -194,7 +194,7 @@ uv pip install --python .venv-smoke/bin/python -r requirements-local.txt
 
 ## 6. 本次修改与结果位置
 
-修改已有代码仅两处码本初始化的设备绑定；新增 `scripts/run_local.py`、`requirements-local.txt` 和本说明。`.gitignore` 增加独立环境目录。原训练入口、原权重、原动作文件保持原样。
+修改已有代码仅两处码本初始化的设备绑定；新增 `scripts/run_local.py`、根目录统一依赖清单 和本说明。`.gitignore` 增加独立环境目录。原训练入口、原权重、原动作文件保持原样。
 
 实际运行产物：
 

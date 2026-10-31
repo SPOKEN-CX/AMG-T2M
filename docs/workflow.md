@@ -14,14 +14,13 @@ python preprocess/prepare_amg_tmr.py \
   --resolve-whitespace
 ```
 
-检查 `output/amg_prepare/humanml3d_train_ready/audit.json`：`errors` 应为空。若 `missing_precomputed_text` 大于 0，先按下方命令恢复特征，并在编码时提供 `--missing-token-dir`；若为 0，则无需恢复步骤。TMR 编码需要附加依赖：
+检查 `output/amg_prepare/humanml3d_train_ready/audit.json`：`errors` 应为空。若 `missing_precomputed_text` 大于 0，先按下方命令恢复特征，并在编码时提供 `--missing-token-dir`；若为 0，则无需恢复步骤。TMR 编码使用统一环境中的依赖：
 
 ```bash
-python -m pip install --no-deps --target .runtime/tmr_deps -r requirements-tmr.txt
+python -m pip install -r requirements.txt
 
 # 仅当 audit.json 显示 missing_precomputed_text > 0 时运行：
-PYTHONPATH="$PWD/.runtime/tmr_deps${PYTHONPATH:+:$PYTHONPATH}" \
-  python preprocess/prepare_amg_missing_text.py \
+python preprocess/prepare_amg_missing_text.py \
     --audit output/amg_prepare/humanml3d_train_ready/audit.json \
     --model-dir output/amg_prepare/models/distilbert-base-uncased \
     --output output/amg_prepare/missing_tokens
@@ -30,8 +29,7 @@ PYTHONPATH="$PWD/.runtime/tmr_deps${PYTHONPATH:+:$PYTHONPATH}" \
 配对清单审计通过后，编码动作和文本的 TMR 表示。若生成了缺失文本特征，带上 `--missing-token-dir`；若没有缺失项，省略该参数：
 
 ```bash
-PYTHONPATH="$PWD/.runtime/tmr_deps${PYTHONPATH:+:$PYTHONPATH}" \
-  python preprocess/prepare_amg_tmr.py \
+python preprocess/prepare_amg_tmr.py \
     --output output/amg_prepare/humanml3d_train_ready \
     --resolve-whitespace \
     --missing-token-dir output/amg_prepare/missing_tokens \
@@ -104,14 +102,13 @@ python tools/eval_gpt.py \
 
 ## 五、长度预测（独立分支）
 
-长度估计不依赖 AMG VQ/GPT 训练。先生成 full/timed caption 长度记录，再按[环境说明](environment.md)安装长度模块依赖：
+长度估计不依赖 AMG VQ/GPT 训练。先生成 full/timed caption 长度记录，确认已按[环境说明](environment.md)安装统一依赖：
 
 ```bash
 python preprocess/prepare_amg_lengths.py \
   --output output/amg_prepare/lengths_full_v2
 
-python -m pip install --no-deps --target .runtime/length_deps -r requirements-length.txt
-python -m pip install --no-deps --target .runtime/length_models -r requirements-spacy-model.txt
+# TMR, length dependencies and the spaCy model are already included in requirements.txt.
 bash tools/run_amg_lengths.sh
 ```
 
@@ -122,12 +119,11 @@ bash tools/run_amg_lengths.sh
 已具备匹配的 VQ、GPT、长度 checkpoint 后，可运行：
 
 ```bash
-PYTHONPATH="$PWD/.runtime/length_deps${PYTHONPATH:+:$PYTHONPATH}" \
-  python tools/generate_amg_length_controlled.py \
+python tools/generate_amg_length_controlled.py \
     --gpt-checkpoint output/hml3d/GPT_amg_b512_full_bf16/net_best_fid.pth \
     --vq-checkpoint output/hml3d/VQ_amg_b512_frozen/net_best_fid.pth \
     --length-checkpoint output/hml3d/Length_amg_gat_b512_50k/net_best_mae.pth \
-    --spacy-model .runtime/length_models/en_core_web_sm/en_core_web_sm-3.5.0 \
+    --spacy-model en_core_web_sm \
     --text "A person walks forward, then sits down and stands up." \
     --out-dir output/demo/amg_single_segment
 ```

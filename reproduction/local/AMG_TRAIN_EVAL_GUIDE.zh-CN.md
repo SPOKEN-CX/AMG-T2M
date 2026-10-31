@@ -1,3 +1,5 @@
+> 当前安装入口：在仓库根目录执行 `python -m pip install -r requirements.txt`，环境说明见 `../../docs/environment.md`。下文服务器配置为历史运行记录。
+
 # AMG：Linux GPU 服务器上先跑通 HumanML3D 训练和评估
 
 核对日期：2026-10-26。依据用户提供的 `本地论文 PDF`、本项目当前源码和本机数据目录编写。
@@ -67,7 +69,7 @@ print('CUDA matmul:', (a @ a).shape)
 PY
 ```
 
-如果上述检查通过，不用重新安装 PyTorch，也不要把 Mac 演示用的 `requirements-local.txt` 安装到服务器来覆盖环境。项目的旧 `environment.yml` 锁定了较老的 Linux/CUDA 包，不建议直接覆盖已经可用的服务器环境。
+如果上述检查通过，不用重新安装 PyTorch，也不要把 Mac 演示用的 历史 Mac 最小依赖清单（已归档） 安装到服务器来覆盖环境。项目的旧 `environment.yml` 锁定了较老的 Linux/CUDA 包，不建议直接覆盖已经可用的服务器环境。
 
 ## 4. 把真实数据放到服务器正确位置
 

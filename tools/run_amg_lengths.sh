@@ -5,14 +5,16 @@ T2M_PROJECT_ROOT="$(cd -- "$(dirname -- "${BASH_SOURCE[0]}")/.." && pwd)"
 cd -- "$T2M_PROJECT_ROOT" || exit 1
 T2M_PYTHON="${T2M_PYTHON:-python}"
 export CUDA_VISIBLE_DEVICES=0 MPLBACKEND=Agg OMP_NUM_THREADS=4 MKL_NUM_THREADS=4
-# Match the reference setup: length dependencies take precedence in a separate directory.
-length_deps="${T2M_LENGTH_DEPS:-$PWD/.runtime/length_deps}"
-[[ -d "$length_deps" ]] || { echo 'Length dependency directory missing; see docs/environment.md' >&2; exit 1; }
-export PYTHONPATH="$length_deps${PYTHONPATH:+:$PYTHONPATH}"
+# Dependencies are installed together through the root requirements.txt.
+# An explicitly requested legacy overlay remains supported.
+if [[ -n "${T2M_LENGTH_DEPS:-}" ]]; then
+  [[ -d "$T2M_LENGTH_DEPS" ]] || { echo 'Configured T2M_LENGTH_DEPS directory missing' >&2; exit 1; }
+  export PYTHONPATH="$T2M_LENGTH_DEPS${PYTHONPATH:+:$PYTHONPATH}"
+fi
 python_bin="$T2M_PYTHON"
 root=output/amg_prepare/length_pipeline_b512_50k
 features=output/amg_prepare/length_features_v1
-parser="${T2M_SPACY_MODEL:-$PWD/.runtime/length_models/en_core_web_sm/en_core_web_sm-3.5.0}"
+parser="${T2M_SPACY_MODEL:-en_core_web_sm}"
 smoke=output/hml3d/Length_amg_gat_b512_check20
 run=output/hml3d/Length_amg_gat_b512_50k
 mkdir -p "$root"

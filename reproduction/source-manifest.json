@@ -18,10 +18,11 @@
       "source": "AMG_TRAIN_EVAL_GUIDE.zh-CN.md",
       "destination": "reproduction/local/AMG_TRAIN_EVAL_GUIDE.zh-CN.md",
       "source_sha256": "7230f0d81c7155cd1fb57b941b469cd884cf23ba3f77f34a046da01986023ca2",
-      "uploaded_sha256": "a73eb097c7f403888bec25347e480a4e81541d70a47d4a502b5900a895eef4e8",
-      "bytes": 54341,
+      "uploaded_sha256": "69a925576cc780bba784cc003fcc332a4c8188b30d8a2baf9a18a84054839f29",
+      "bytes": 54548,
       "changes": [
-        "documentation_paths_anonymized_and_links_rebased"
+        "documentation_paths_anonymized_and_links_rebased",
+        "unified_environment_documentation_or_python310_compatibility"
       ]
     },
     {
@@ -52,10 +53,11 @@
       "source": "LOCAL_RUN_GUIDE.zh-CN.md",
       "destination": "reproduction/local/LOCAL_RUN_GUIDE.zh-CN.md",
       "source_sha256": "3d220e0353c3a6bf47ffb5751332cd87aba75a72dd4fc25b471d83c855858e96",
-      "uploaded_sha256": "8a2d516a92dc27062ea45db5d57d752a6c8ae124d1ee5ba12e3cebdcce74f64f",
-      "bytes": 15304,
+      "uploaded_sha256": "0011a5a9093c297b2e6a43c9d815cb9e7f50830b326ef6b358f09a5cbfade6b5",
+      "bytes": 15363,
       "changes": [
-        "documentation_paths_anonymized_and_links_rebased"
+        "documentation_paths_anonymized_and_links_rebased",
+        "unified_environment_documentation_or_python310_compatibility"
       ]
     },
     {
@@ -390,20 +392,22 @@
       "source": "README.md",
       "destination": "reproduction/local/README.upstream.md",
       "source_sha256": "28001a96d70312f33c738fbe25c8d7fdcf7aed0de1c9c39bf9ac2f97b7b5e961",
-      "uploaded_sha256": "28001a96d70312f33c738fbe25c8d7fdcf7aed0de1c9c39bf9ac2f97b7b5e961",
-      "bytes": 8802,
+      "uploaded_sha256": "a2e51e40a029235946cf6f257492a0c4116677a1b2491100dd155a655bd0a70c",
+      "bytes": 8981,
       "changes": [
-        "filename_changed"
+        "filename_changed",
+        "unified_environment_documentation_or_python310_compatibility"
       ]
     },
     {
       "source": "SERVER_RUN_GUIDE.zh-CN.md",
       "destination": "reproduction/local/SERVER_RUN_GUIDE.zh-CN.md",
       "source_sha256": "6b482060e5fba20a0efec9510e89dc97e5fa90f816a706ec8a987f87ca568b34",
-      "uploaded_sha256": "ffb4429234c638fc71c97861a9123cdb077e0b6af185e33c487b7ef372d4e6cd",
-      "bytes": 21575,
+      "uploaded_sha256": "e3df335ec9da33f80c43fcf7562945cf1282f85417469bd5d7009da056a4d990",
+      "bytes": 21782,
       "changes": [
-        "documentation_paths_anonymized_and_links_rebased"
+        "documentation_paths_anonymized_and_links_rebased",
+        "unified_environment_documentation_or_python310_compatibility"
       ]
     },
     {
@@ -544,11 +548,14 @@
     },
     {
       "source": "environment.yml",
-      "destination": "reproduction/local/environment.yml",
+      "destination": "docs/dependency-history.json",
       "source_sha256": "bd8626531143b63dc3b7c381b135ce2255c334f2ccf40aaeaee0f4a7272b33ef",
-      "uploaded_sha256": "bd8626531143b63dc3b7c381b135ce2255c334f2ccf40aaeaee0f4a7272b33ef",
-      "bytes": 3215,
-      "changes": []
+      "uploaded_sha256": "296782a67cc57dab93ec837522e9ac920b519b880d10f44a1c2bb42e36b50835",
+      "bytes": 11313,
+      "changes": [
+        "dependency_input_archived_in_shared_history"
+      ],
+      "archive_member": "reproduction/local/environment.yml"
     },
     {
       "source": "gif2mp4.py",
@@ -610,9 +617,11 @@
       "source": "models/Retrival/README.md",
       "destination": "reproduction/local/models/Retrival/README.md",
       "source_sha256": "2a2fa003bc1774527d2a16c619a12b63759a90d3f4e5baff8bc6c5ac652e8e33",
-      "uploaded_sha256": "2a2fa003bc1774527d2a16c619a12b63759a90d3f4e5baff8bc6c5ac652e8e33",
-      "bytes": 8375,
-      "changes": []
+      "uploaded_sha256": "daa9d5aa03db607a492e86dc78e20d1be98ce72a2d4aeb16330b543f50b37439",
+      "bytes": 8390,
+      "changes": [
+        "unified_environment_documentation_or_python310_compatibility"
+      ]
     },
     {
       "source": "models/Retrival/app.py",
@@ -968,11 +977,14 @@
     },
     {
       "source": "models/Retrival/requirements.txt",
-      "destination": "reproduction/local/models/Retrival/requirements.txt",
+      "destination": "docs/dependency-history.json",
       "source_sha256": "84aa0909f6940619171ba0656f60e97d20c12005d4b1c91992edef31adc45859",
-      "uploaded_sha256": "84aa0909f6940619171ba0656f60e97d20c12005d4b1c91992edef31adc45859",
-      "bytes": 663,
-      "changes": []
+      "uploaded_sha256": "296782a67cc57dab93ec837522e9ac920b519b880d10f44a1c2bb42e36b50835",
+      "bytes": 11313,
+      "changes": [
+        "dependency_input_archived_in_shared_history"
+      ],
+      "archive_member": "reproduction/local/models/Retrival/requirements.txt"
     },
     {
       "source": "models/Retrival/retrieval.py",
@@ -1360,11 +1372,14 @@
     },
     {
       "source": "requirements-local.txt",
-      "destination": "reproduction/local/requirements-local.txt",
+      "destination": "docs/dependency-history.json",
       "source_sha256": "941984604dd8a2336295b04b24788fb9a6790d3e1283e702be5607d23a97a12c",
-      "uploaded_sha256": "941984604dd8a2336295b04b24788fb9a6790d3e1283e702be5607d23a97a12c",
-      "bytes": 257,
-      "changes": []
+      "uploaded_sha256": "296782a67cc57dab93ec837522e9ac920b519b880d10f44a1c2bb42e36b50835",
+      "bytes": 11313,
+      "changes": [
+        "dependency_input_archived_in_shared_history"
+      ],
+      "archive_member": "reproduction/local/requirements-local.txt"
     },
     {
       "source": "run_order",
@@ -1418,9 +1433,11 @@
       "source": "train_vq.py",
       "destination": "reproduction/local/train_vq.py",
       "source_sha256": "fb2fc93bb00e7f0687c1defc2243164455975d637b6f51f82b49922834fe2a53",
-      "uploaded_sha256": "fb2fc93bb00e7f0687c1defc2243164455975d637b6f51f82b49922834fe2a53",
-      "bytes": 7793,
-      "changes": []
+      "uploaded_sha256": "7012e7ef67700458c3c7738064465add27561a3ce92d26d93e87655aaf27232c",
+      "bytes": 7779,
+      "changes": [
+        "unified_environment_documentation_or_python310_compatibility"
+      ]
     },
     {
       "source": "train_vq_constra.py",
@@ -1805,5 +1822,6 @@
     ]
   },
   "included_file_count": 200,
-  "included_bytes": 915409
+  "included_bytes": 915409,
+  "maintenance_note": "Dependency files consolidated on 2026-10-31. Archived entries identify an exact-text member in docs/dependency-history.json; source_sha256 preserves the original local identity. Initial counts and source tree accounting describe the initial sync."
 }

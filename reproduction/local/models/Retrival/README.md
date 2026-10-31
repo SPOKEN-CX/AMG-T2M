@@ -56,24 +56,19 @@ You can also put a star :star:, if the code is useful to you.
 <details><summary>Create environment</summary>
 &emsp;
 
-Create a python virtual environnement:
-```bash
-python -m venv ~/.venv/TMR
-source ~/.venv/TMR/bin/activate
-```
+AMG-T2M uses one shared Python 3.10 environment. From the repository root:
 
-Install [PyTorch](https://pytorch.org/get-started/locally/)
 ```bash
-python -m pip install torch torchvision --index-url https://download.pytorch.org/whl/cu118
-```
-
-Then install remaining packages:
-```
+conda env create -f environment.yml
+conda activate AMG-T2M
 python -m pip install -r requirements.txt
 ```
 
-which corresponds to the packages: pytorch_lightning, einops, hydra-core, hydra-colorlog, orjson, tqdm, scipy.
-The code was tested on Python 3.10.12 and PyTorch 2.0.1.
+The shared file includes PyTorch 2.0.1/CUDA 11.7, Lightning, Hydra, transformers,
+spaCy, and the length-module dependencies. See the repository's
+[environment guide](../../../../docs/environment.md).
+Return to this TMR directory for the commands below. Original environment
+inputs are retained in `docs/dependency-history.json` at the repository root.
 
 </details>
 

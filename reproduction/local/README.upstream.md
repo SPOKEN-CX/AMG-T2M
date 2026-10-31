@@ -1,3 +1,5 @@
+> Historical upstream README. For current AMG-T2M installation use the single [root requirements.txt](../../requirements.txt) and [environment guide](../../docs/environment.md).
+
 # (CVPR 2023) T2M-GPT
 Pytorch implementation of paper "T2M-GPT: Generating Human Motion from Textual Descriptions with Discrete Representations"
 

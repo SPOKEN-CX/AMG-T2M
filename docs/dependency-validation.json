@@ -1,0 +1,17 @@
+{
+  "active_requirements_files": [
+    "requirements.txt"
+  ],
+  "english_readme_and_environment_links": "passed",
+  "source_manifest_entries_verified": 200,
+  "path_helper_with_updated_manifest": "passed",
+  "dependency_resolution": "uv resolved together for Python 3.10 / Linux x86_64; no full installation or GPU run",
+  "target_python": "3.10",
+  "target_platform": "x86_64-manylinux2014",
+  "resolved_packages": 168,
+  "requirements_sha256": "572393c058b41d89f5cb6100de8b2f60b5756b8d96fb3f0cb7f81b29a36383a1",
+  "full_environment_installation": false,
+  "gpu_training": false,
+  "shell_syntax": "passed",
+  "changed_python_syntax": "passed"
+}
