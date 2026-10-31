@@ -21,4 +21,4 @@ The repository documentation now includes a 38-entry external-resource catalog, 
 
 **Architecture update — 2026-10-31**
 
-The private `main` branch was reorganized into `src/`, `tools/`, `preprocess/`, `visualize/`, `configs/`, `assets/`, and `docs/`. Entrypoint imports and repository-relative dataset roots were updated; external data, model weights, caches, outputs, and exact dependency lock files were left out of the move. The current experiment parameters remain in executable `tools/run_*.sh` launchers because the training programs do not read project YAML. A Python 3.10.18 Dockerfile and `.dockerignore` were added but not built or runtime-validated, as requested.
+The private `main` branch was reorganized into `src/`, `tools/`, `preprocess/`, `visualize/`, `configs/`, `assets/`, and `docs/`. Entrypoint imports and repository-relative dataset roots were updated; external data, model weights, caches, outputs, and exact dependency lock files were left out of the move. The current experiment parameters remain in executable `tools/run_*.sh` launchers because the training programs do not read project YAML.

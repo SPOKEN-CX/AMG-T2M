@@ -36,7 +36,6 @@ LICENSE                 项目根许可证（第三方代码另见 THIRD_PARTY_N
 CITATION.cff            软件引用元数据；论文作者和 DOI 待正式公开后补充
 README.md               项目入口
 requirements.txt        精确主环境依赖入口
-Dockerfile              Python 3.10.18 容器构建入口（尚未构建验收）
 src/
   models/               VQ、GPT、长度估计器和 TMR 代码
   datasets/             数据集读取与配对数据集
@@ -51,7 +50,7 @@ assets/                 README 图片资源
 docs/                   环境、数据、脚本参考、实现范围和 FAQ
 ```
 
-训练参数目前由版本控制中的启动脚本直接传入，不另建一份不会被训练程序读取的 YAML 副本；见 [configs 说明](configs/README.md)。从项目根目录运行 `python tools/...`，数据和模型仍按 [资源目录](resources/manifest.json) 单独放置。容器入口与挂载方式见下文和 [FAQ](docs/FAQ.md)。
+训练参数目前由版本控制中的启动脚本直接传入，不另建一份不会被训练程序读取的 YAML 副本；见 [configs 说明](configs/README.md)。从项目根目录运行 `python tools/...`，数据和模型仍按 [资源目录](resources/manifest.json) 单独放置；常见问题见 [FAQ](docs/FAQ.md)。
 
 **环境准备**
 
@@ -116,15 +115,3 @@ T2M-GPT 上游：[项目仓库](https://github.com/Mael-zys/T2M-GPT)、[论文](
 根目录 [LICENSE](LICENSE) 是工作区已有的 Apache-2.0 文本。第三方文件存在不同条款，特别是四元数工具所保留的 QuaterNet 非商业条款；本项目尚未完成统一公开授权审查，不能据根目录许可证推定所有文件、数据和权重均允许商用。必要权利声明见 [THIRD_PARTY_NOTICES.md](THIRD_PARTY_NOTICES.md)。
 
 Issues 提供环境/错误报告与结果复现问题模板。请附上所用依赖配置、命令、种子、模型身份及脱敏错误信息。后续更新取决于研究进度和维护者时间；正式公开事项见 [分阶段清单](docs/release-checklist.md)。
-
-**Docker（尚未构建验收）**
-
-`Dockerfile` 使用 Python 3.10.18 并通过 `requirements.txt` 安装已记录的精确主环境依赖；本轮没有构建镜像或验证 GPU。构建前确保合法获取的数据、权重和外部资源不进入镜像上下文，`.dockerignore` 已排除这些目录。
-
-```bash
-docker build -t amg-t2m .
-docker run --rm --gpus all -v "$PWD/dataset:/workspace/dataset:ro" \
-  -v "$PWD/checkpoints:/workspace/checkpoints:ro" amg-t2m tools/train_vq.py --help
-```
-
-容器需要 NVIDIA Container Toolkit 才能访问宿主机 GPU；示例只说明调用和只读挂载方式，路径及权重参数需按资源文档调整。

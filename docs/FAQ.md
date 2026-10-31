@@ -6,7 +6,7 @@ Run Python commands from the repository root, for example `python tools/train_vq
 
 ## Where should HumanML3D and checkpoints go?
 
-Keep HumanML3D under `dataset/HumanML3D/`; place checkpoints and normalization statistics in the locations listed in [data-and-models.md](data-and-models.md). These resources are excluded from Git and from Docker build contexts.
+Keep HumanML3D under `dataset/HumanML3D/`; place checkpoints and normalization statistics in the locations listed in [data-and-models.md](data-and-models.md). These resources are excluded from Git.
 
 ## Why are experiment settings in shell launchers instead of YAML?
 
@@ -15,10 +15,6 @@ The existing training programs read command-line flags, not YAML. The checked-in
 ## How are the exact dependencies installed?
 
 Use `environment.yml` and `requirements.txt` for the main environment. TMR and length-module overlays are installed separately as described in [environment.md](environment.md); do not combine those lock files into a single installation.
-
-## Does the Dockerfile guarantee a working GPU run?
-
-No. It pins Python and installs the recorded main package versions, but it has not been built or GPU-validated. Training also requires an NVIDIA-enabled container runtime and separately mounted data, checkpoints, and model resources.
 
 ## Where are paper authors and DOI?
 
