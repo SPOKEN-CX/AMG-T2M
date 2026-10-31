@@ -6,4 +6,4 @@
 
 `working_reference.sha256` 表示选定工作文件的参考身份。均值/方差来自现有小文件的实际哈希；CLIP和冻结VQ保留已有manifest中的记录，本轮没有重新读取大权重计算。它们均不自动证明上游下载档身份，也不替代资源许可。
 
-权重、动作/文本数据、token或embedding缓存、实验输出均不放入本目录。训练后的GPT通过调用参数选择，并应保留其对应的 `vq_identity.json`。尚未建立公开下载渠道的资源不填虚构链接。完整准备说明见 [数据与模型](../docs/data-and-models.md) 与 [脚本顺序](../docs/workflow.md)。
+权重、动作/文本数据、token或embedding缓存、实验输出均不放入本目录。训练后的GPT通过调用参数选择，并应保留其对应的 `vq_identity.json`。尚未建立公开下载渠道的资源不填虚构链接。资源说明见 [数据与模型](../docs/data-and-models.md)，源码入口索引见 [开发入口索引](../docs/workflow.md)。

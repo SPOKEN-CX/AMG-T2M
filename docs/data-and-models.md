@@ -2,7 +2,7 @@
 
 Dataset-specific acquisition, citation, license, split, and preprocessing notes are maintained separately in [datasets.md](datasets.md). This file remains the path-level catalog for model and runtime resources.
 
-仓库提供 [38项资源目录](../resources/manifest.json) 和 [脚本使用顺序](workflow.md)，记录当前路径、入口关系和已有参考身份。资源文件本身需单独准备。
+仓库提供 [38项资源目录](../resources/manifest.json) 和 [开发入口索引](workflow.md)，记录当前路径、入口关系和已有参考身份。资源文件本身需单独准备。
 
 | Resource | Expected location | Source / handling |
 |---|---|---|
