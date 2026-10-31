@@ -41,8 +41,9 @@ CHECK
   cp "$initial_dir/run.log" "$run_dir/initial_10000_run.log"
   sha256sum "$initial_dir/training_last.pth" > "$run_dir/initial_checkpoint_sha256.txt"
   args+=(--resume-pth "$initial_dir/training_last.pth")
-  sha256sum output/amg_prepare/humanml3d_train_ready/train_pairs.jsonl \
-    output/amg_prepare/missing_tokens/metadata.json > "$run_dir/input_manifest_sha256.txt"
+  input_manifests=(output/amg_prepare/humanml3d_train_ready/train_pairs.jsonl)
+  [[ ! -f output/amg_prepare/missing_tokens/metadata.json ]] || input_manifests+=(output/amg_prepare/missing_tokens/metadata.json)
+  sha256sum "${input_manifests[@]}" > "$run_dir/input_manifest_sha256.txt"
 fi
 printf '%q ' "$T2M_PYTHON" -u tools/train_amg_vq.py "${args[@]}" >> "$run_dir/commands.log"
 printf '\n' >> "$run_dir/commands.log"

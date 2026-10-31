@@ -100,20 +100,7 @@ KIT-ML 是可选数据集，不是当前文档化 AMG 主流程的默认数据�
 
 ### BABEL 与代码中的 `BABEL_TEACH`
 
-代码还保留 `BABEL_TEACH` 的历史数据路径（`../Dataset/BABEL_TEACH`，位于仓库根目录之外），但它不是官方 BABEL 原始文件的直接目录。现有代码预期 `BABEL_TEACH_joint_vecs_2`、`BABEL_TEACH_texts`、派生文本目录以及 `train_12103.txt`、`val_2163.txt`、`test_2000.txt` 等自定义 split 文件；当前仓库没有记录这套数据的确切来源版本、转换脚本、split 身份和权利范围，也没有把它纳入 HumanML3D 资源清单。因此不要把官方 BABEL 下载解压后直接改名成 `BABEL_TEACH`，也不要将该入口描述为已经验证的复现流程。
-
-如需使用官方 BABEL，请从[官方数据页](https://babel.is.tue.mpg.de/data.html)获取，并完整阅读[官方许可](https://babel.is.tue.mpg.de/license.html)。BABEL 许可将用途限定在非商业研究等范围，并限制向第三方分发；不能据此上传数据、派生数据或权重到 GitHub。官方数据分为 dense 标注和 `extra_train`/`extra_val` 附加标注，`extra_test` 未公开；若使用附加标注，论文或报告必须说明。使用 BABEL 应引用原论文：
-
-```bibtex
-@InProceedings{Punnakkal_2021_CVPR,
-  author    = {Punnakkal, Abhinanda R. and Chandrasekaran, Arjun and Athanasiou, Nikos and Quiros-Ramirez, Alejandra and Black, Michael J.},
-  title     = {BABEL: Bodies, Action and Behavior With English Labels},
-  booktitle = {Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition (CVPR)},
-  month     = {June},
-  year      = {2021},
-  pages     = {722--731}
-}
-```
+BABEL-TEACH 数据由使用者自行准备，不随本仓库提供；本仓库的命令顺序以 HumanML3D 为准。若使用 BABEL-TEACH，请按其上游数据来源和许可要求处理并引用。
 
 ## 数据准备记录建议
 

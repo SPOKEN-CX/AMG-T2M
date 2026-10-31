@@ -1,6 +1,6 @@
-**AMG-T2M**
+# AMG-T2M
 
-基于 T2M-GPT 的 HumanML3D 文本到动作研究工程，包含 TMR 语义对齐 VQ、配套 GPT、动作长度预测及潜空间分析代码。
+HumanML3D 文本到动作研究代码，包含 TMR 引导的 VQ、配套 GPT、动作长度预测及潜空间分析模块。
 
 ## 效果预览
 
@@ -16,102 +16,44 @@
 
 *AMG-T2M 与其他方法在长时序和短时序提示上的定性对比。*
 
-论文标题：**AMG: Long-Term Text-to-Motion Generation from Arbitrary-Length Prompts**。目前处于投稿期，仓库保持 Private；论文尚未公开，引用信息先保留标题。
+论文标题：**AMG: Long-Term Text-to-Motion Generation from Arbitrary-Length Prompts**。论文信息暂未公开，仓库当前保持 Private。
 
-本仓库提供源码、依赖版本记录和使用说明。数据、模型权重、派生缓存及训练输出需单独准备。已包含组件和后续待补的完整流程见 [实现范围](docs/implementation-status.md)。
+## 快速开始
 
-| 查阅内容 | 文档 |
-|---|---|
-| 实际依赖版本与安装顺序 | [环境与版本](docs/environment.md) |
-| 数据集引用、获取与项目特有注意事项 | [数据集说明](docs/datasets.md) |
-| 模型、资源目录和参考身份 | [数据与模型](docs/data-and-models.md)、[资源清单](resources/README.md) |
-| 现有训练脚本与资源关系（开发参考） | [脚本说明](docs/workflow.md) |
-| 代码来源和第三方授权范围 | [第三方说明](THIRD_PARTY_NOTICES.md) |
-| 当前进度和后续公开事项 | [分阶段清单](docs/release-checklist.md) |
-
-**仓库结构**
-
-```text
-LICENSE                 项目根许可证（第三方代码另见 THIRD_PARTY_NOTICES.md）
-CITATION.cff            软件引用元数据；论文作者和 DOI 待正式公开后补充
-README.md               项目入口
-requirements.txt        精确主环境依赖入口
-src/
-  models/               VQ、GPT、长度估计器和 TMR 代码
-  datasets/             数据集读取与配对数据集
-  losses/               损失函数
-  utils/                训练、评估和动作处理工具
-  options/              现有命令行参数定义
-configs/                实验配置说明；当前实验参数保存在 tools/run_*.sh
-preprocess/             数据准备和特征生成
-tools/                  训练、评估、demo、审计和运行脚本
-visualize/              3D 绘图与潜空间分析
-assets/                 README 图片资源
-docs/                   环境、数据、脚本参考、实现范围和 FAQ
-```
-
-训练参数目前由版本控制中的启动脚本直接传入，不另建一份不会被训练程序读取的 YAML 副本；见 [configs 说明](configs/README.md)。从项目根目录运行 `python tools/...`，数据和模型仍按 [资源目录](resources/manifest.json) 单独放置；常见问题见 [FAQ](docs/FAQ.md)。
-
-**环境准备**
-
-版本以现有工作环境的实际元数据为依据，完整记录见 [环境文档](docs/environment.md) 和 [机器可读版本表](docs/environment-versions.json)。
-
-| 组件 | 记录版本 |
-|---|---|
-| Python | 3.10.18 |
-| PyTorch / CUDA 构建 | 包版本 2.0.1；运行构建 2.0.1+cu117 |
-| torchvision / torchaudio | 包版本 0.15.2 / 2.0.2；运行构建均为 +cu117 |
-| NumPy / SciPy | 1.24.1 / 1.11.2 |
-| CLIP | Git commit `d05afc436d78f1c48dc0dbf8e5980a9d471f35f6` |
-| TMR 附加 transformers | 4.38.2 |
-| 长度模块 torch-geometric / spaCy / 英文模型 | 2.5.3 / 3.5.4 / en_core_web_sm 3.5.0 |
-
-主环境105个包、TMR附加4个包、长度模块附加50个包分别记录并保留原加载顺序。按当前安排，暂缓全新环境安装验收和demo验证。以下命令供后续重建环境使用：
+从项目根目录创建主环境：
 
 ```bash
-# 在项目根目录执行；供后续重建环境时使用
 conda env create -f environment.yml
 conda activate AMG-T2M
 python -m pip install -r requirements.txt
 ```
 
-长度预测模块沿用原工程的独立附加依赖方式：
+主环境固定 Python 3.10.18、PyTorch 2.0.1（CUDA 11.7 构建）等已记录版本。TMR 文本准备和长度预测只需按对应任务安装附加依赖；不要把所有依赖锁文件合并安装。详见[环境与依赖](docs/environment.md)。
 
-```bash
-python -m pip install --no-deps --target .runtime/length_deps -r requirements-length.txt
-python -m pip install --no-deps --target .runtime/length_models -r requirements-spacy-model.txt
+数据集、评估资源、预训练模型和训练产物需单独准备。HumanML3D 的来源、引用、许可和目录格式见[数据集说明](docs/datasets.md)；资源路径见[数据与模型](docs/data-and-models.md)和[资源清单](resources/manifest.json)。
+
+## 执行顺序
+
+HumanML3D 主要组件的准备、VQ 两阶段训练（batch 512，10,000 步续训至 100,000 步）、VQ 冻结、GPT 各 batch 模式、评估、长度模块和单段生成命令统一列在[执行顺序与命令](docs/workflow.md)。
+
+仓库现有单段长度控制入口最多生成 196 帧；转场模型尚未形成完整训练与推理流程。因此当前源码不等同于完整任意长度生成系统或论文全部结果，详见[实现范围](docs/implementation-status.md)。
+
+## 代码结构
+
+```text
+src/              模型、数据集、损失与工具
+configs/          实验配置说明；启动参数保存在 tools/run_*.sh
+preprocess/       特征及训练输入准备
+tools/            训练、评估、生成和启动脚本
+visualize/        可视化与潜空间分析
+assets/           README 图片
+docs/             环境、数据、执行顺序、FAQ 和实现状态
 ```
 
-TMR文本特征附加包见 `requirements-tmr.txt`，安装到独立目标目录并通过 `PYTHONPATH` 加载；潜空间分析所用版本已包含在主环境记录中。具体命令及加载顺序见 [环境文档](docs/environment.md)，不要把主环境和附加锁文件合并为一次pip安装。可通过 `T2M_PYTHON` 指定解释器，通过 `T2M_LENGTH_DEPS` 和 `T2M_SPACY_MODEL` 指定现有附加依赖和解析模型位置。
+实验启动脚本会检查输入和恢复状态；运行前请确认数据、checkpoint、显存、输出目录及相应实验配置。已有输出目录遇到失败时，先检查日志和 checkpoint，再决定恢复或使用新实验名。
 
-**使用入口**
+## 引用与许可
 
-| 任务 | 入口 | 前置条件 |
-|---|---|---|
-| 基础 VQ | `tools/train_vq.py` | HumanML3D、归一化统计、评估器和 GloVe |
-| TMR 配对准备 | `preprocess/prepare_amg_tmr.py` | TMR、统计量和预计算文本特征 |
-| AMG 对比 VQ | `tools/train_amg_vq.py` | 基础资源及 TMR 配对特征 |
-| GPT | `tools/train_gpt.py` | 确定的冻结 VQ、配套 token、CLIP 和评估资源 |
-| 长度预测 | `tools/train_length_est.py` | 长度记录、CLIP 词特征、依存图和可选依赖 |
-| VQ/GPT 评估 | `tools/eval_vq.py`、`tools/eval_gpt.py` | 正确配套的权重和指定 split |
-| 单段长度控制 | `tools/generate_amg_length_controlled.py` | 已核验的 VQ/GPT/长度权重及身份文件 |
-| 潜空间分析 | `visualize/latent_tsne_comparison/run.sh` | 合法取得的数据、选定 checkpoint、分析依赖 |
+论文正式公开后会补充作者、发表信息和 BibTeX。上游代码和第三方许可见 [THIRD_PARTY_NOTICES.md](THIRD_PARTY_NOTICES.md)。根目录 [LICENSE](LICENSE) 不自动覆盖第三方代码、数据集或模型权重的授权条款。
 
-训练、预处理和评估脚本作为源码入口保留，供阅读和后续修改。本仓库当前不提供完整、端到端且已验证的一键复现流程；已实现功能和待补环节见 [实现范围](docs/implementation-status.md)。脚本与资源关系另见 [开发参考](docs/workflow.md)。
-
-环境准备后可单独运行以下逻辑检查：
-
-```bash
-python -m tools.test_gpt_accumulation
-python -m tools.test_gpt_length_control
-```
-
-这两个检查覆盖相应代码逻辑。动作生成demo、训练和指标评估各有独立资源要求，本轮均未运行。已有结果以原实验记录为准；源码整理记录见 [快照改动及验证](docs/snapshot-changes.md)。
-
-**来源和授权**
-
-T2M-GPT 上游：[项目仓库](https://github.com/Mael-zys/T2M-GPT)、[论文](https://arxiv.org/abs/2301.06052)。TMR 上游：[项目仓库](https://github.com/Mathux/TMR)、[论文](https://arxiv.org/abs/2305.00976)。数据来源与相关代码：[HumanML3D](https://github.com/EricGuo5513/HumanML3D)。继承代码的精确来源版本及公开再分发范围仍需在正式发布前确认。
-
-根目录 [LICENSE](LICENSE) 是工作区已有的 Apache-2.0 文本。第三方文件存在不同条款，特别是四元数工具所保留的 QuaterNet 非商业条款；本项目尚未完成统一公开授权审查，不能据根目录许可证推定所有文件、数据和权重均允许商用。必要权利声明见 [THIRD_PARTY_NOTICES.md](THIRD_PARTY_NOTICES.md)。
-
-Issues 提供环境/错误报告与结果复现问题模板。请附上所用依赖配置、命令、种子、模型身份及脱敏错误信息。后续更新取决于研究进度和维护者时间；正式公开事项见 [分阶段清单](docs/release-checklist.md)。
+Issues 可用于报告环境问题和复现问题。请附上依赖配置、完整命令、数据 split、模型身份及脱敏日志。

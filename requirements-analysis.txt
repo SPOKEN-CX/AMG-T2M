@@ -1,2 +1,0 @@
-# Analysis versions are already part of the observed main environment.
--r requirements.txt

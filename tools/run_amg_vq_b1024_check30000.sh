@@ -28,8 +28,9 @@ else
   mkdir -p "$run_dir/source_snapshot"
   cp --parents tools/train_amg_vq.py src/utils/amg_checkpoint.py src/utils/eval_trans.py \
     src/datasets/dataset_amg_vq.py src/options/option_vq.py tools/run_amg_vq_b1024_check30000.sh "$run_dir/source_snapshot/"
-  sha256sum output/amg_prepare/humanml3d_train_ready/train_pairs.jsonl \
-    output/amg_prepare/missing_tokens/metadata.json > "$run_dir/input_manifest_sha256.txt"
+  input_manifests=(output/amg_prepare/humanml3d_train_ready/train_pairs.jsonl)
+  [[ ! -f output/amg_prepare/missing_tokens/metadata.json ]] || input_manifests+=(output/amg_prepare/missing_tokens/metadata.json)
+  sha256sum "${input_manifests[@]}" > "$run_dir/input_manifest_sha256.txt"
 fi
 printf '%q ' "$T2M_PYTHON" -u tools/train_amg_vq.py "${args[@]}" >> "$run_dir/commands.log"
 printf '\n' >> "$run_dir/commands.log"

@@ -8,7 +8,7 @@ This snapshot preserves source for the HumanML3D backbone, contrastive VQ, GPT, 
 | TMR-guided VQ | Yes | Requires caption-aligned TMR cache and model assets; source/export provenance and differences from the target paper need further review. |
 | Length estimator | Yes | Existing working code and training entry included. No claim that the architecture/features exactly match every detail of the paper. |
 | Single-segment duration control | Yes | Default limit is 49 motion tokens / 196 frames. Explicit clipping is not arbitrary-length generation. |
-| Transition model | Model class only | A working transition training/inference pipeline is not provided. The misleading legacy `train_transition.py` is excluded. |
+| Transition model | Model class only | No runnable transition training/inference pipeline is provided. The server-side `train_transition.py` uses the regular `Text2Motion_Transformer`/GPT objective and does not call `TransitionGenerator`; `train_GPT_split.py` is empty. |
 | Complete arbitrary-length AMG pipeline | No | Segmentation, transition integration and full evaluation remain incomplete. |
 | BABEL-TEACH / KIT paper tables | Not validated by this preparation | Historical branches and resources are not evidence of reproduced results. |
 | Latent-space figures | Source and configuration only | Outputs, checkpoints and embedded motion review data are excluded; selections and figure-specific dependencies must be reconstructed. |
